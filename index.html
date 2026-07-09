@@ -407,15 +407,16 @@ footer strong{color:var(--gris);font-weight:500}
 
 <script>
 /* ------------------------------------------------------------------
-   CONFIGURATION — la seule chose à modifier.
-   Remplacez « compte/depot » par votre dépôt GitHub, par exemple
-   « florianlucas/kolio ».
-   L'installeur doit être publié en pièce jointe d'une Release GitHub,
-   sous le nom exact « Kolio-Setup.exe » : l'adresse ci-dessous pointera
-   alors toujours vers la dernière version publiée.
+   CONFIGURATION
+   L'installeur doit être publié en pièce jointe d'une Release GitHub du
+   dépôt ci-dessous, sous le nom exact « Kolio-Setup.exe ». Ce nom ne doit
+   jamais changer d'une version à l'autre : c'est ce qui permet à l'adresse
+   « /releases/latest/download/Kolio-Setup.exe » de pointer toujours vers
+   la dernière version publiée.
+   Version, date et poids du fichier sont ensuite lus sur la Release.
 ------------------------------------------------------------------- */
 const CONFIG = {
-  depot: 'compte/depot',
+  depot: 'kolioio/kolio',
   fichier: 'Kolio-Setup.exe',
   fichierPortable: 'Kolio-portable.exe',
   courriel: 'florian.lucas@ac-clermont.fr',
@@ -437,7 +438,6 @@ document.getElementById('lien-mail').href =
    En cas d'échec (hors ligne, dépôt non configuré), les valeurs par défaut
    restent affichées. */
 (async () => {
-  if (CONFIG.depot === 'compte/depot') return;
   try {
     const r = await fetch(`https://api.github.com/repos/${CONFIG.depot}/releases/latest`);
     if (!r.ok) return;
