@@ -1,0 +1,337 @@
+================================================================================
+                    KOLIO — CONTRAT DE LICENCE UTILISATEUR FINAL
+================================================================================
+
+Logiciel        : Kolio
+Version         : 1.0.0
+Version du CLUF : 2.0 — 9 juillet 2026
+Titulaire       : Florian LUCAS (ci-après « l'Éditeur »)
+Contact         : florian.lucas@ac-clermont.fr
+
+© 2026 Florian LUCAS. Tous droits réservés.
+
+Kolio est un logiciel PROPRIÉTAIRE. Il n'est pas un logiciel libre. Il n'est
+pas placé dans le domaine public. Sa mise à disposition à titre gratuit ne vaut
+en aucun cas renonciation aux droits de son auteur.
+
+L'installation ou l'utilisation de Kolio vaut acceptation sans réserve du
+présent contrat. À défaut d'acceptation, vous devez désinstaller le logiciel et
+détruire toute copie en votre possession.
+
+--------------------------------------------------------------------------------
+ARTICLE 1 — DÉFINITIONS
+--------------------------------------------------------------------------------
+
+« Logiciel » : le programme Kolio, son code source et son code objet, son
+interface graphique, son architecture, ses algorithmes, ses jeux d'icônes, sa
+documentation, son nom et son identité visuelle, ainsi que toute mise à jour.
+
+« Licencié » : la personne physique nommément identifiée à laquelle l'Éditeur a
+remis un exemplaire du Logiciel.
+
+« Poste autorisé » : l'ordinateur unique, à usage professionnel du Licencié, sur
+lequel le Logiciel est installé.
+
+--------------------------------------------------------------------------------
+ARTICLE 2 — PROPRIÉTÉ INTELLECTUELLE
+--------------------------------------------------------------------------------
+
+Le Logiciel est protégé par les articles L.112-2 13° et L.122-6 du Code de la
+propriété intellectuelle, ainsi que par les conventions internationales.
+
+L'Éditeur demeure seul titulaire de l'intégralité des droits de propriété
+intellectuelle attachés au Logiciel. Le présent contrat n'opère AUCUNE cession
+de droits : il concède un simple droit d'usage, dans les limites définies à
+l'article 3.
+
+Aucune mention de propriété, de paternité, de copyright ou de version ne peut
+être supprimée, altérée ou dissimulée, y compris dans l'interface du Logiciel.
+
+--------------------------------------------------------------------------------
+ARTICLE 3 — CONCESSION DE LICENCE
+--------------------------------------------------------------------------------
+
+L'Éditeur concède au Licencié, à titre gratuit, une licence :
+
+  — PERSONNELLE et NOMINATIVE : attachée à la personne du Licencié ;
+  — NON EXCLUSIVE ;
+  — NON TRANSFÉRABLE : ni cession, ni sous-licence, ni prêt, ni location ;
+  — RÉVOCABLE dans les conditions de l'article 10 ;
+  — LIMITÉE à un (1) Poste autorisé ;
+  — LIMITÉE au territoire français ;
+  — LIMITÉE à un usage professionnel interne, dans le cadre des fonctions de
+    direction d'un établissement scolaire.
+
+Toute installation sur un poste supplémentaire requiert l'accord écrit préalable
+de l'Éditeur.
+
+--------------------------------------------------------------------------------
+ARTICLE 4 — RESTRICTIONS D'USAGE
+--------------------------------------------------------------------------------
+
+Sont interdits, sauf autorisation écrite et préalable de l'Éditeur :
+
+  4.1  La reproduction du Logiciel, en tout ou partie, par quelque procédé et
+       sur quelque support que ce soit, à l'exception de la copie de sauvegarde
+       prévue à l'article 5.
+  4.2  La diffusion, la mise à disposition, la publication, la communication au
+       public, la transmission à un tiers — y compris à un collègue, un autre
+       établissement, une collectivité ou un service académique — du Logiciel ou
+       de son fichier d'installation.
+  4.3  La mise en ligne du Logiciel sur un serveur, un site, un espace de
+       partage, un dépôt de code ou un réseau accessible à des tiers.
+  4.4  Toute exploitation commerciale, directe ou indirecte, y compris à titre
+       de prestation de service, de formation payante ou d'apport en nature.
+  4.5  La modification, l'adaptation, la traduction, l'arrangement du Logiciel,
+       ainsi que la création d'œuvres dérivées.
+  4.6  L'extraction, le désassemblage, la décompilation ou la rétro-ingénierie
+       du Logiciel, notamment l'extraction du contenu de l'archive applicative,
+       sous la seule réserve de l'article 5.
+  4.7  Le contournement, la neutralisation ou l'altération de tout dispositif
+       technique de protection ou d'identification intégré au Logiciel.
+  4.8  La suppression ou la modification du présent fichier de licence, des
+       mentions légales affichées au premier lancement, ou de toute mention de
+       paternité.
+
+--------------------------------------------------------------------------------
+ARTICLE 5 — RÉSERVES LÉGALES IMPÉRATIVES
+--------------------------------------------------------------------------------
+
+Les restrictions de l'article 4 s'appliquent sans préjudice des prérogatives que
+la loi reconnaît au Licencié et auxquelles il ne peut être contractuellement
+dérogé :
+
+  5.1  COPIE DE SAUVEGARDE (art. L.122-6-1 II du CPI) : le Licencié peut établir
+       une copie de sauvegarde lorsqu'elle est nécessaire pour préserver
+       l'utilisation du Logiciel. Cette copie ne peut être communiquée à un
+       tiers et doit être détruite en fin de licence.
+  5.2  OBSERVATION ET TEST (art. L.122-6-1 III du CPI) : le Licencié peut
+       observer, étudier ou tester le fonctionnement du Logiciel afin d'en
+       déterminer les idées et principes, lorsqu'il effectue une opération de
+       chargement, d'affichage, d'exécution, de transmission ou de stockage
+       qu'il est en droit d'effectuer.
+  5.3  INTEROPÉRABILITÉ (art. L.122-6-1 IV du CPI) : la reproduction du code et
+       la traduction de sa forme sont autorisées lorsqu'elles sont indispensables
+       pour obtenir les informations nécessaires à l'interopérabilité avec un
+       autre logiciel, dans les strictes conditions posées par ce texte.
+
+Toute stipulation contraire aux points 5.1 à 5.3 serait réputée non écrite ; les
+autres dispositions du contrat conserveraient leur plein effet.
+
+--------------------------------------------------------------------------------
+ARTICLE 6 — SANCTIONS
+--------------------------------------------------------------------------------
+
+Toute utilisation du Logiciel non autorisée par le présent contrat constitue une
+CONTREFAÇON au sens des articles L.335-2 et L.335-3 du Code de la propriété
+intellectuelle, punie de trois (3) ans d'emprisonnement et de 300 000 euros
+d'amende, sans préjudice des dommages et intérêts et de la résiliation de plein
+droit de la licence.
+
+--------------------------------------------------------------------------------
+ARTICLE 7 — DONNÉES À CARACTÈRE PERSONNEL
+--------------------------------------------------------------------------------
+
+Le Logiciel fonctionne intégralement hors ligne. Il n'établit aucune connexion
+réseau, ne collecte, ne transmet et ne stocke aucune donnée à destination de
+l'Éditeur ou d'un tiers. Toutes les données saisies sont enregistrées dans un
+fichier local, sur le seul Poste autorisé.
+
+Lorsque le Licencié traite des données à caractère personnel au moyen du
+Logiciel — notamment des données relatives à des élèves ou à des personnels —
+il agit en qualité de RESPONSABLE DE TRAITEMENT au sens de l'article 4.7 du
+Règlement (UE) 2016/679. L'Éditeur n'est ni responsable de traitement, ni
+sous-traitant au sens de l'article 28 du même règlement.
+
+Il incombe au seul Licencié :
+  — de vérifier que le traitement dispose d'une base légale et s'inscrit dans le
+    registre des traitements de son établissement ;
+  — d'informer les personnes concernées et de garantir l'exercice de leurs
+    droits ;
+  — de sécuriser le Poste autorisé (contrôle d'accès, chiffrement du disque) ;
+  — d'obtenir, le cas échéant, l'autorisation de sa hiérarchie et de son
+    délégué à la protection des données.
+
+L'Éditeur ne fournit aucune garantie de conformité du traitement mis en œuvre
+par le Licencié.
+
+--------------------------------------------------------------------------------
+ARTICLE 8 — ABSENCE DE GARANTIE
+--------------------------------------------------------------------------------
+
+Le Logiciel est fourni « EN L'ÉTAT », sans garantie d'aucune sorte, expresse ou
+implicite, notamment sans garantie de qualité marchande, d'adéquation à un usage
+particulier, d'exactitude des calculs, d'absence d'erreur ou de continuité de
+fonctionnement.
+
+Il appartient au Licencié de vérifier les résultats produits par le Logiciel
+avant tout usage engageant, et d'effectuer des sauvegardes régulières au moyen
+des fonctions prévues à cet effet.
+
+--------------------------------------------------------------------------------
+ARTICLE 9 — LIMITATION DE RESPONSABILITÉ
+--------------------------------------------------------------------------------
+
+Le Logiciel étant concédé à titre gratuit et pour un usage professionnel, la
+responsabilité de l'Éditeur ne saurait être engagée à raison d'un quelconque
+dommage, direct ou indirect, résultant de l'utilisation ou de l'impossibilité
+d'utiliser le Logiciel, en particulier au titre d'une perte de données, d'une
+perte d'exploitation ou d'une décision prise sur la foi de ses résultats.
+
+La présente limitation ne s'applique ni au dol, ni à la faute lourde, ni aux
+dommages corporels.
+
+--------------------------------------------------------------------------------
+ARTICLE 10 — DURÉE ET RÉSILIATION
+--------------------------------------------------------------------------------
+
+La licence prend effet à l'acceptation du présent contrat et demeure en vigueur
+tant qu'elle n'a pas été révoquée.
+
+Elle est résiliée de plein droit, sans mise en demeure ni formalité, en cas de
+manquement à l'un quelconque des articles 2, 3 ou 4.
+
+L'Éditeur peut par ailleurs révoquer la licence à tout moment, moyennant un
+préavis de trente (30) jours notifié par écrit.
+
+En cas de résiliation, le Licencié doit désinstaller le Logiciel et détruire
+toute copie. Il conserve la libre disposition des données qu'il a saisies, dont
+il peut assurer l'export préalable.
+
+--------------------------------------------------------------------------------
+ARTICLE 11 — COMPOSANTS TIERS
+--------------------------------------------------------------------------------
+
+Le Logiciel intègre des composants tiers, régis par leurs licences respectives
+reproduites en annexe. Ces licences prévalent sur le présent contrat pour ce qui
+concerne lesdits composants, et pour eux seuls. Elles n'emportent aucun droit
+sur le code propre de Kolio.
+
+--------------------------------------------------------------------------------
+ARTICLE 12 — PREUVE DE L'ACCEPTATION
+--------------------------------------------------------------------------------
+
+L'acceptation du présent contrat est enregistrée dans le fichier de données
+local du Licencié, avec la date, l'heure et le numéro de version du contrat
+accepté. Le Licencié reconnaît la valeur probatoire de cet enregistrement.
+
+Toute modification substantielle du contrat donne lieu à une nouvelle
+acceptation lors du lancement suivant du Logiciel.
+
+--------------------------------------------------------------------------------
+ARTICLE 13 — DISPOSITIONS DIVERSES
+--------------------------------------------------------------------------------
+
+13.1  Si une clause du présent contrat était déclarée nulle, les autres clauses
+      conserveraient leur plein effet.
+13.2  Le fait pour l'Éditeur de ne pas se prévaloir d'un manquement ne vaut pas
+      renonciation à s'en prévaloir ultérieurement.
+13.3  Le présent contrat exprime l'intégralité de l'accord des parties quant à
+      son objet.
+
+--------------------------------------------------------------------------------
+ARTICLE 14 — DROIT APPLICABLE ET JURIDICTION
+--------------------------------------------------------------------------------
+
+Le présent contrat est soumis au droit français.
+
+À défaut de résolution amiable dans un délai de deux (2) mois à compter de la
+première réclamation écrite, tout litige relatif à sa formation, son
+interprétation, son exécution ou sa rupture sera porté devant les juridictions
+françaises compétentes.
+
+
+================================================================================
+                    ANNEXE — COMPOSANTS TIERS ET ATTRIBUTIONS
+================================================================================
+
+Le tableau ci-dessous recense les composants tiers distribués avec Kolio.
+
+  Composant   Version   Licence                     Usage
+  ---------   -------   -------------------------   ------------------------
+  Electron    43.x      MIT                         Environnement d'exécution
+  Chromium    —         BSD 3-Clause                Moteur de rendu
+  Node.js     —         MIT                         Moteur d'exécution
+  JSZip       3.10.1    MIT (au choix)              Archives
+  Inter       5.x       SIL Open Font License 1.1   Police de caractères
+  Sora        5.x       SIL Open Font License 1.1   Police de caractères
+
+
+--------------------------------------------------------------------------------
+LICENCE MIT — Electron, Node.js, JSZip
+--------------------------------------------------------------------------------
+
+Electron   : Copyright (c) Electron contributors
+             Copyright (c) 2013-2020 GitHub Inc.
+Node.js    : Copyright Node.js contributors. All rights reserved.
+JSZip      : Copyright (c) 2009-2016 Stuart Knightley, David Duponchel,
+             Franz Buchinger, António Afonso
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Note : JSZip est distribué sous double licence, MIT ou GPL-3.0-or-later.
+Kolio retient la licence MIT, conformément à l'option ouverte par ses auteurs.
+
+
+--------------------------------------------------------------------------------
+LICENCE BSD 3-CLAUSE — Chromium
+--------------------------------------------------------------------------------
+
+Copyright 2015 The Chromium Authors. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+  3. Neither the name of Google Inc. nor the names of its contributors may be
+     used to endorse or promote products derived from this software without
+     specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+--------------------------------------------------------------------------------
+SIL OPEN FONT LICENSE 1.1 — polices Inter et Sora
+--------------------------------------------------------------------------------
+
+Inter : Copyright (c) 2016 The Inter Project Authors
+Sora  : Copyright (c) 2020 The Sora Project Authors
+
+Ces polices sont distribuées sous la SIL Open Font License, Version 1.1. Elles
+peuvent être utilisées, étudiées, modifiées et redistribuées librement, à la
+condition de ne pas être vendues isolément. Elles ne peuvent être redistribuées
+sous le nom « Inter » ou « Sora » si elles ont été modifiées.
+
+Texte intégral de la licence : https://openfontlicense.org
+
+================================================================================
+                                 FIN DU CONTRAT
+================================================================================
