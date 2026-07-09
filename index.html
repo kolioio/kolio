@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kolio — Piloter son établissement, hors ligne</title>
+<meta name="description" content="Kolio est un logiciel de pilotage d'établissement scolaire pour les personnels de direction. Aucune connexion réseau, données conservées sur votre ordinateur.">
+<meta name="author" content="Florian Lucas">
+<meta property="og:title" content="Kolio — Piloter son établissement, hors ligne">
+<meta property="og:description" content="Des modules pour piloter votre établissement et simplifier votre quotidien. Aucune connexion réseau. Vos données restent sur votre ordinateur.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTEiIGZpbGw9IiMwQjFGNEEiLz48cmVjdCB4PSIxMiIgeT0iMTEiIHdpZHRoPSI1IiBoZWlnaHQ9IjI2IiByeD0iMiIgZmlsbD0id2hpdGUiLz48cG9seWdvbiBwb2ludHM9IjE3LDI0IDMyLDExIDM3LDExIDIyLDI0IiBmaWxsPSJ3aGl0ZSIvPjxwb2x5Z29uIHBvaW50cz0iMTcsMjQgMjIsMjQgMzcsMzcgMzIsMzciIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIuODUiLz48Y2lyY2xlIGN4PSIzNyIgY3k9IjExIiByPSI0LjUiIGZpbGw9IiM0QThFRjUiLz48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0B1F4A;
+  --encre:#1C3D8C;
+  --craie:#4A8EF5;
+  --papier:#F7F7F5;
+  --blanc:#FFFFFF;
+  --trait:#E2E4E8;
+  --gris:#5B6472;
+  --gris-clair:#9AA1AC;
+  --ambre:#D97706;
+  --ambre-fond:#FFFBEB;
+  --ambre-trait:#FDE68A;
+  --r:10px;
+  --largeur:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--papier);color:var(--nuit);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+.contenu{max-width:var(--largeur);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em;line-height:1.2}
+a{color:var(--encre)}
+:focus-visible{outline:2px solid var(--craie);outline-offset:3px;border-radius:4px}
+
+/* ---------- Barre ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(247,247,245,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--trait)}
+.barre{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:600;font-size:18px;color:var(--nuit);text-decoration:none}
+.logo svg{width:28px;height:28px}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{color:var(--gris);text-decoration:none;font-size:14px;font-weight:500}
+nav a:hover{color:var(--encre)}
+@media(max-width:760px){nav{display:none}}
+
+/* ---------- Grille horaire ---------- */
+.heure{
+  font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gris-clair);
+}
+.hero{padding:96px 0 80px}
+.hero-grille{max-width:min(100%,860px)}
+.hero h1{font-size:clamp(38px,5.4vw,60px);font-weight:700;margin:0 0 24px;max-width:16em}
+.hero h1 em{font-style:normal;color:var(--encre);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.28em;background:var(--craie);opacity:.22;z-index:-1}
+.hero p.chapo{font-size:19px;color:var(--gris);max-width:40em;font-weight:300}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Sora',sans-serif;font-weight:600;font-size:15px;
+  padding:13px 22px;border-radius:var(--r);text-decoration:none;
+  border:1px solid transparent;transition:transform .12s ease,background .12s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--nuit);color:#fff}
+.btn-p:hover{background:var(--encre)}
+.btn-s{background:transparent;color:var(--nuit);border-color:var(--trait)}
+.btn-s:hover{border-color:var(--nuit)}
+.meta{font-size:13px;color:var(--gris-clair);margin-top:14px}
+.meta code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;word-break:break-all}
+
+/* ---------- Bandeau de confiance ---------- */
+.confiance{border-top:1px solid var(--trait);border-bottom:1px solid var(--trait);background:var(--blanc)}
+.confiance-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--trait)}
+@media(max-width:860px){.confiance-grille{grid-template-columns:repeat(2,1fr)}}
+.pilier{background:var(--blanc);padding:26px 22px}
+.pilier .heure{display:block;margin-bottom:9px}
+.pilier h3{font-size:15px;font-weight:600;margin-bottom:5px}
+.pilier p{font-size:13.5px;color:var(--gris);line-height:1.6}
+
+/* ---------- Sections ---------- */
+section{padding:76px 0}
+.titre-sec{margin-bottom:38px;max-width:44em}
+.titre-sec h2{font-size:clamp(26px,3vw,34px);font-weight:600;margin:12px 0 12px}
+.titre-sec p{color:var(--gris);font-size:16.5px;font-weight:300}
+
+/* ---------- Modules détaillés ---------- */
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:1px;background:var(--trait);border:1px solid var(--trait);border-radius:var(--r);overflow:hidden}
+.mod{background:var(--blanc);padding:26px 24px;display:flex;align-items:center;gap:16px;transition:background .16s ease}
+.mod:hover{background:#FAFBFE}
+.mod .ico{
+  flex-shrink:0;width:46px;height:46px;border-radius:9px;
+  background:var(--nuit);display:grid;place-items:center;
+  transition:background .16s ease;
+}
+.mod:hover .ico{background:var(--encre)}
+.mod .ico svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mod h3{font-size:14.5px;font-weight:600;line-height:1.35}
+
+/* ---------- Tutoriel : une vraie séquence ---------- */
+.etapes{counter-reset:e;display:grid;gap:2px}
+.etape{background:var(--blanc);border:1px solid var(--trait);border-radius:var(--r);padding:22px 24px 22px 70px;position:relative;margin-bottom:12px}
+.etape::before{
+  counter-increment:e;content:counter(e,decimal-leading-zero);
+  position:absolute;left:24px;top:23px;
+  font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--craie);
+  border:1px solid var(--trait);border-radius:5px;padding:3px 6px;line-height:1;
+}
+.etape h3{font-size:16px;font-weight:600;margin-bottom:7px}
+.etape p{font-size:14.5px;color:var(--gris)}
+.etape p+p{margin-top:8px}
+.alerte{background:var(--ambre-fond);border:1px solid var(--ambre-trait);border-radius:8px;padding:13px 15px;margin-top:12px;font-size:13.5px;color:#78350F;line-height:1.6}
+.alerte strong{color:#78350F}
+
+/* ---------- FAQ ---------- */
+.faq details{background:var(--blanc);border:1px solid var(--trait);border-radius:var(--r);margin-bottom:9px;overflow:hidden}
+.faq summary{cursor:pointer;padding:17px 22px;font-family:'Sora',sans-serif;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:19px;color:var(--craie);font-weight:400;flex-shrink:0}
+.faq details[open] summary::after{content:"–"}
+.faq .rep{padding:0 22px 19px;font-size:14.5px;color:var(--gris);line-height:1.7}
+.faq .rep p+p{margin-top:9px}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--nuit);color:#fff;border-radius:var(--r);padding:52px 46px}
+.contact>div{max-width:36em}
+@media(max-width:820px){.contact{padding:34px 26px}}
+.contact h2{font-size:28px;font-weight:600;color:#fff;margin-bottom:12px}
+.contact p{color:rgba(255,255,255,.72);font-size:15px;font-weight:300}
+.contact .btn-p{background:var(--craie);color:var(--nuit)}
+.contact .btn-p:hover{background:#fff}
+
+/* ---------- Pied ---------- */
+footer{border-top:1px solid var(--trait);padding:38px 0;font-size:13px;color:var(--gris-clair);line-height:1.8}
+footer strong{color:var(--gris);font-weight:500}
+.legal{max-width:60em}
+
+/* ---------- Apparition ---------- */
+.rev{opacity:0;transform:translateY(14px)}
+.rev.vu{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+@media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="contenu barre">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#0B1F4A"/><rect x="12" y="11" width="5" height="26" rx="2" fill="#fff"/><polygon points="17,24 32,11 37,11 22,24" fill="#fff"/><polygon points="17,24 22,24 37,37 32,37" fill="#fff" opacity=".85"/><circle cx="37" cy="11" r="4.5" fill="#4A8EF5"/></svg>
+      Kolio
+    </a>
+    <nav aria-label="Principale">
+      <ul>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#installer">Installation</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero : l'emploi du temps ============ -->
+<div class="contenu hero">
+  <div class="hero-grille">
+    <div>
+      <h1>Des modules pour piloter votre établissement et simplifier votre quotidien. <em>Rien ne sort de votre ordinateur.</em></h1>
+      <p class="chapo">Kolio réunit ce qu'un personnel de direction a besoin au quotidien. Le logiciel s'installe sur votre poste et fonctionne sans connexion. Vos données d'élèves ne transitent nulle part.</p>
+      <div class="actions">
+        <a class="btn btn-p" id="lien-telecharger" href="#installer">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+          Télécharger pour Windows
+        </a>
+        <a class="btn btn-s" href="#installer">Comment l'installer</a>
+      </div>
+      <p class="meta" id="meta-version">Version 1.0.0 · installeur 95 Mo · Windows 10 et 11 (64 bits)</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ Piliers ============ -->
+<div class="confiance">
+  <div class="contenu">
+    <div class="confiance-grille">
+      <div class="pilier">
+        <span class="heure">Données</span>
+        <h3>Sur votre poste</h3>
+        <p>Un fichier local, sur votre disque dur. Ni serveur, ni cloud, ni compte à créer.</p>
+      </div>
+      <div class="pilier">
+        <span class="heure">Réseau</span>
+        <h3>Aucune connexion</h3>
+        <p>Le logiciel n'appelle rien. Pas de télémétrie, pas de traceur, pas de mesure d'audience.</p>
+      </div>
+      <div class="pilier">
+        <span class="heure">Sécurité</span>
+        <h3>Sauvegardes automatiques</h3>
+        <p>Des copies automatiques régulières et des sauvegardes manuelles.</p>
+      </div>
+      <div class="pilier">
+        <span class="heure">Droits</span>
+        <h3>Logiciel propriétaire</h3>
+        <p>Mis à disposition gratuitement, sous licence personnelle. La copie n'est pas autorisée.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Modules ============ -->
+<section id="modules">
+  <div class="contenu">
+    <div class="titre-sec rev">
+      <span class="heure">Ce que fait Kolio</span>
+      <h2>Plusieurs modules, une seule application</h2>
+    </div>
+    <div class="mods rev">
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h2l1.5 1.5L10 5"/><path d="M4 12h2l1.5 1.5L10 11"/><path d="M4 18h2l1.5 1.5L10 17"/><path d="M13 6.5h7"/><path d="M13 12.5h7"/><path d="M13 18.5h7"/></svg></span>
+        <h3>Organisation quotidienne</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 4h5v16h-5"/><path d="M17.5 9h2"/><path d="M17.5 13h2"/></svg></span>
+        <h3>Suivi</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>pHARe — Lutte contre le harcèlement</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span>
+        <h3>Sorties, voyages, projets</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7.5 15l3.5-4 3 2.5L20 7"/><path d="M16.5 7H20v3.5"/></svg></span>
+        <h3>Pilotage</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="4.2" r="1.6"/><circle cx="19.8" cy="12" r="1.6"/><circle cx="12" cy="19.8" r="1.6"/><circle cx="4.2" cy="12" r="1.6"/><circle cx="17.5" cy="6.5" r="1.4"/><circle cx="6.5" cy="17.5" r="1.4"/></svg></span>
+        <h3>Conseils de classe</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 6 21h9a1.5 1.5 0 0 0 1.5-1.5V9z"/><path d="M14 3v6h5.5"/><path d="M8 13.5l1.8 1.8 3.7-3.7"/></svg></span>
+        <h3>Gestion des examens</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M7.5 14h2.5"/><path d="M14 14h2.5"/><path d="M7.5 17.5h2.5"/></svg></span>
+        <h3>Planning</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><rect x="7" y="12" width="3" height="5" rx="1"/><rect x="12" y="8.5" width="3" height="8.5" rx="1"/><rect x="17" y="14" width="3" height="3" rx="1"/><path d="M2.5 10h19" stroke-dasharray="2.5 2.5"/></svg></span>
+        <h3>Évaluations nationales</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4.5"/><path d="M8 5.8V8l1.6 1"/><rect x="14" y="4" width="7" height="3" rx="1"/><rect x="14" y="9" width="7" height="3" rx="1"/><path d="M3.5 16h17"/><path d="M3.5 20h11"/></svg></span>
+        <h3>TRM — Dotation horaire</h3>
+      </div>
+      <div class="mod">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="7" height="7" rx="1.5"/><rect x="13.5" y="4" width="7" height="7" rx="1.5"/><rect x="3.5" y="14" width="7" height="6" rx="1.5"/><rect x="13.5" y="14" width="7" height="6" rx="1.5"/><path d="M10.5 7.5h3"/><path d="M7 11v3"/></svg></span>
+        <h3>Constitution des classes</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Tutoriel ============ -->
+<section id="installer" style="background:var(--blanc);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)">
+  <div class="contenu">
+    <div class="titre-sec rev">
+      <span class="heure">Prise en main</span>
+      <h2>De zéro à Kolio ouvert, en cinq minutes</h2>
+      <p>Une installation Windows ordinaire, avec un avertissement qui surprend et qu'il faut connaître d'avance.</p>
+    </div>
+
+    <div class="etapes rev">
+      <div class="etape">
+        <h3>Télécharger l'installeur</h3>
+        <p>Le fichier <code>Kolio Setup.exe</code> pèse environ 95 Mo. Enregistrez-le où vous voulez ; vous pourrez le supprimer après.</p>
+        <p style="margin-top:14px"><a class="btn btn-p" id="lien-telecharger-2" href="#">Télécharger la dernière version</a></p>
+      </div>
+
+      <div class="etape">
+        <h3>Passer l'avertissement de Windows</h3>
+        <p>Windows affichera <strong>« Windows a protégé votre ordinateur »</strong>. Cliquez sur <strong>Informations complémentaires</strong>, puis sur <strong>Exécuter quand même</strong>.</p>
+        <div class="alerte">
+          <strong>Pourquoi cet écran ?</strong> Kolio n'est pas signé par un certificat de commerce, dont le coût annuel se compte en centaines d'euros. Windows se méfie donc de tout éditeur qu'il ne connaît pas.
+        </div>
+      </div>
+
+      <div class="etape">
+        <h3>Accepter le contrat de licence, puis installer</h3>
+        <p>L'installeur affiche le contrat avant de copier quoi que ce soit. Vous choisissez le dossier, Kolio crée un raccourci sur le bureau et une entrée au menu Démarrer.</p>
+      </div>
+
+      <div class="etape">
+        <h3>Lire les conditions au premier lancement</h3>
+        <p>Kolio s'ouvre sur ses conditions d'utilisation et ses mentions légales. Une fois acceptées, vous n'y reviendrez plus — sauf si le contrat évolue.</p>
+        <p>Vous arrivez sur l'organisation quotidienne. Le logiciel est vide : c'est normal. Cliquez en haut à droite pour paramétrer votre profil.</p>
+      </div>
+
+      <div class="etape">
+        <h3>Savoir où sont vos données</h3>
+        <p>Tout est écrit dans un fichier unique, sur votre disque. <strong>Fichier → Ouvrir le dossier des données</strong> vous y conduit.</p>
+        <p>Une sauvegarde horodatée est créée automatiquement au premier lancement de chaque journée. Vous pouvez également créer des sauvegardes manuelles et les restaurer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="contenu">
+    <div class="titre-sec rev">
+      <span class="heure">Questions fréquentes</span>
+      <h2>Ce qu'on me demande le plus souvent</h2>
+    </div>
+
+    <div class="faq rev">
+      <details>
+        <summary>Mes données d'élèves partent-elles quelque part ?</summary>
+        <div class="rep">
+          <p>Non. Kolio n'ouvre aucune connexion réseau, dans aucune de ses fonctions. Les polices de caractères et les bibliothèques sont embarquées dans le logiciel ; rien n'est téléchargé à l'usage.</p>
+          <p>Vos données sont écrites dans un fichier de votre disque dur, que vous seul lisez. Vous en êtes le responsable de traitement au sens du RGPD.</p>
+        </div>
+      </details>
+
+
+      <details>
+        <summary>Puis-je perdre mes données ?</summary>
+        <div class="rep">
+          <p>Les écritures sont atomiques : le fichier est d'abord écrit à côté, puis renommé. Une coupure de courant en pleine sauvegarde ne peut donc pas le corrompre. Si le fichier devenait malgré tout illisible, Kolio repart automatiquement de la sauvegarde la plus récente.</p>
+          <p>Trente sauvegardes horodatées sont conservées. Cela ne remplace pas votre propre sauvegarde : exportez vos données de temps en temps sur un support distinct.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Kolio est-il gratuit ? Puis-je le donner à un collègue ?</summary>
+        <div class="rep">
+          <p>Kolio est mis à disposition gratuitement, mais ce n'est pas un logiciel libre. La licence est personnelle, nominative et non transférable. La reproduction et la diffusion à un tiers ne sont pas autorisées.</p>
+          <p>Concrètement : envoyez-lui l'adresse de cette page plutôt que le fichier. Il téléchargera la dernière version, et vous saurez tous deux ce que vous utilisez.</p>
+        </div>
+      </details>
+
+
+
+      <details>
+        <summary>Fonctionne-t-il sur Mac, sur Linux, sur tablette ?</summary>
+        <div class="rep">
+          <p>Seule la version Windows est distribuée aujourd'hui. Le logiciel peut être compilé pour macOS et Linux ; écrivez-moi si le besoin existe réellement, cela aide à savoir où mettre le temps.</p>
+          <p>Il n'existe pas de version tablette ni mobile.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Comment savoir qu'une nouvelle version est disponible ?</summary>
+        <div class="rep">
+          <p>Kolio ne vérifie rien tout seul — il ne se connecte pas. Revenez sur cette page de temps en temps : le numéro de version affiché en haut est toujours celui du fichier proposé.</p>
+          <p>Une mise à jour s'installe par-dessus l'ancienne. Vos données ne sont pas touchées, et la désinstallation ne les efface pas non plus.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Qui développe Kolio ? Est-ce un outil officiel ?</summary>
+        <div class="rep">
+          <p>Kolio est développé par Florian LUCAS, personnel de direction, sur son temps propre. <strong>Ce n'est pas un outil institutionnel</strong> : il n'est ni commandé, ni validé, ni maintenu par un rectorat ou par le ministère. Il n'engage aucune administration.</p>
+          <p>Aucune garantie n'est fournie, et les résultats produits doivent être vérifiés avant tout usage engageant.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section id="contact" style="padding-top:0">
+  <div class="contenu">
+    <div class="contact rev">
+      <div>
+        <span class="heure" style="color:var(--craie)">Écrire</span>
+        <h2>Une question, un bug, une idée</h2>
+        <p>Signalez ce qui ne fonctionne pas, décrivez ce qui vous manque. Les remarques des personnels de direction sont ce qui fait avancer l'outil.</p>
+        <p style="margin-top:22px">
+          <a class="btn btn-p" id="lien-mail" href="#">Écrire à Florian Lucas</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contenu legal">
+    <p><strong>Kolio</strong> — © 2026 Florian Lucas. Tous droits réservés.</p>
+    <p>Logiciel propriétaire mis à disposition à titre gratuit, sous licence personnelle et non transférable. La reproduction et la diffusion à un tiers ne sont pas autorisées et constituent une contrefaçon au sens de l'article L.335-2 du Code de la propriété intellectuelle. Kolio n'est pas un outil institutionnel et n'engage aucune administration.</p>
+    <p style="margin-top:14px">Contrat de licence complet et attributions des composants tiers : <a href="LICENCE.txt">LICENCE.txt</a> — également accessible depuis le logiciel, menu Aide.</p>
+    <p style="margin-top:14px">Ce site ne dépose aucun cookie, ne mesure aucune audience et ne collecte aucune donnée. Il est hébergé par GitHub Pages, dont les serveurs enregistrent les adresses IP des visiteurs à des fins techniques.</p>
+  </div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   CONFIGURATION — la seule chose à modifier.
+   Remplacez « compte/depot » par votre dépôt GitHub, par exemple
+   « florianlucas/kolio ».
+   L'installeur doit être publié en pièce jointe d'une Release GitHub,
+   sous le nom exact « Kolio-Setup.exe » : l'adresse ci-dessous pointera
+   alors toujours vers la dernière version publiée.
+------------------------------------------------------------------- */
+const CONFIG = {
+  depot: 'compte/depot',
+  fichier: 'Kolio-Setup.exe',
+  fichierPortable: 'Kolio-portable.exe',
+  courriel: 'florian.lucas@ac-clermont.fr',
+  versionParDefaut: '1.0.0'
+};
+
+const urlTelechargement = `https://github.com/${CONFIG.depot}/releases/latest/download/${CONFIG.fichier}`;
+document.getElementById('lien-telecharger').href = urlTelechargement;
+document.getElementById('lien-telecharger-2').href = urlTelechargement;
+
+document.getElementById('lien-mail').href =
+  'mailto:' + CONFIG.courriel +
+  '?subject=' + encodeURIComponent('Kolio — ') +
+  '&body=' + encodeURIComponent(
+    'Bonjour,\n\n\n\n--\nVersion de Kolio : \nModule concerné : \nÉtablissement : '
+  );
+
+/* Numéro de version, poids et empreinte : lus sur la dernière Release.
+   En cas d'échec (hors ligne, dépôt non configuré), les valeurs par défaut
+   restent affichées. */
+(async () => {
+  if (CONFIG.depot === 'compte/depot') return;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${CONFIG.depot}/releases/latest`);
+    if (!r.ok) return;
+    const rel = await r.json();
+    const exe = (rel.assets || []).find(a => a.name === CONFIG.fichier);
+    const mo = exe ? Math.round(exe.size / 1048576) : null;
+    const version = (rel.tag_name || '').replace(/^v/, '') || CONFIG.versionParDefaut;
+    const date = new Date(rel.published_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('meta-version').innerHTML =
+      `Version ${version} · publiée le ${date}` + (mo ? ` · installeur ${mo} Mo` : '') +
+      ` · Windows 10 et 11 (64 bits)`;
+  } catch (_) { /* le site reste utilisable */ }
+})();
+
+/* Apparition au défilement */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } });
+}, { threshold: .12 });
+document.querySelectorAll('.rev').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
