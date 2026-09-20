@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B1F4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kolio Réunions">
+<title>Kolio Mobile — Réunions</title>
+<style>
+:root{
+  --syn-1:#0B1F4A;--syn-2:#1C3D8C;--syn-3:#4A8EF5;--syn-5:#E8F0FE;
+  --bg:#F7F7F5;--surface:#FFFFFF;--surface2:#F3F4F6;
+  --border:#E5E7EB;--border2:#D1D5DB;
+  --text:#1C1916;--text2:#4B5563;--text3:#9CA3AF;
+  --accent:#1C3D8C;--accent-bg:#E8F0FE;
+  --green:#16A34A;--green-bg:#F0FDF4;--red:#DC2626;--red-bg:#FEF2F2;--amber:#D97706;
+  --radius:10px;--radius-sm:7px;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%;}
+header{position:sticky;top:0;z-index:20;background:var(--syn-1);color:#fff;
+  padding:calc(10px + var(--safe-top)) 14px 10px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.brand{font-weight:700;font-size:16px;letter-spacing:.2px;}
+.brand small{display:block;font-weight:400;font-size:11px;opacity:.7;letter-spacing:.3px;}
+header .spacer{flex:1;}
+.hbtn{background:rgba(255,255,255,.12);border:0;color:#fff;font:inherit;font-size:13px;
+  padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;}
+.hbtn:active{background:rgba(255,255,255,.25);}
+main{padding:14px 14px calc(96px + var(--safe-bottom));max-width:760px;margin:0 auto;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:14px;margin-bottom:12px;}
+.label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;
+  color:var(--text3);margin-bottom:6px;display:block;}
+input[type=text],input[type=date],input[type=time],select,textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--surface);
+  border:1px solid var(--border2);border-radius:var(--radius-sm);padding:11px 12px;outline:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--syn-3);box-shadow:0 0 0 3px rgba(74,142,245,.16);}
+textarea{resize:vertical;line-height:1.65;min-height:110px;}
+.row{display:flex;gap:10px;}
+.row>div{flex:1;min-width:0;}
+.field{margin-bottom:12px;}
+.field:last-child{margin-bottom:0;}
+.btn{font:inherit;font-size:14px;font-weight:500;padding:12px 16px;border-radius:var(--radius-sm);
+  border:1px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;}
+.btn:active{background:var(--surface2);}
+.btn-primary{background:var(--syn-2);border-color:var(--syn-2);color:#fff;}
+.btn-primary:active{background:var(--syn-1);}
+.btn-danger{color:var(--red);border-color:#FCA5A5;background:var(--red-bg);}
+.btn-block{width:100%;}
+.btn-sm{font-size:13px;padding:8px 12px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--accent-bg);color:var(--accent);
+  border-radius:20px;padding:5px 10px;font-size:13px;}
+.chip b{font-weight:500;}
+.chip span{cursor:pointer;font-size:15px;line-height:1;opacity:.6;padding:0 2px;}
+.addrow{display:flex;gap:8px;}
+.addrow input{flex:1;}
+.mlist{display:flex;flex-direction:column;gap:10px;}
+.mitem{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:12px 14px;box-shadow:var(--shadow);cursor:pointer;}
+.mitem:active{background:var(--surface2);}
+.mitem-title{font-weight:600;font-size:15px;margin-bottom:3px;}
+.mitem-sub{font-size:12.5px;color:var(--text2);}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;
+  background:var(--accent-bg);color:var(--accent);margin-top:7px;}
+.empty{text-align:center;color:var(--text3);padding:42px 16px;}
+.empty .ei{font-size:38px;margin-bottom:10px;}
+.footbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);
+  border-top:1px solid var(--border);padding:10px 14px calc(10px + var(--safe-bottom));
+  display:flex;gap:10px;backdrop-filter:blur(8px);}
+.footbar .btn{flex:1;}
+.hint{font-size:12.5px;color:var(--text2);background:var(--accent-bg);border:1px solid #BFDBFE;
+  border-radius:var(--radius-sm);padding:10px 12px;line-height:1.55;}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + var(--safe-bottom));
+  background:var(--syn-1);color:#fff;padding:11px 18px;border-radius:24px;font-size:13.5px;
+  z-index:60;opacity:0;pointer-events:none;transition:opacity .2s;max-width:88%;text-align:center;}
+.toast.on{opacity:1;}
+.saveflag{font-size:11.5px;color:var(--green);margin-left:auto;opacity:0;transition:opacity .3s;}
+.saveflag.on{opacity:1;}
+.sect-title{font-size:13px;font-weight:600;color:var(--text2);margin:0 0 10px;display:flex;align-items:center;gap:7px;}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:70;display:none;
+  align-items:flex-end;justify-content:center;}
+.modal.on{display:flex;}
+.sheet{background:var(--surface);width:100%;max-width:520px;border-radius:16px 16px 0 0;
+  padding:18px 16px calc(18px + var(--safe-bottom));}
+.sheet h3{margin:0 0 6px;font-size:16px;}
+.sheet p{margin:0 0 14px;font-size:13.5px;color:var(--text2);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Kolio <small>Prise de notes de réunion</small></div>
+  <div class="spacer"></div>
+  <button class="hbtn" id="btn-back" style="display:none;">‹ Mes réunions</button>
+  <button class="hbtn" id="btn-new">+ Réunion</button>
+</header>
+
+<main>
+  <!-- ===== VUE LISTE ===== -->
+  <section id="view-list">
+    <div id="list-wrap" class="mlist"></div>
+    <div class="card" style="margin-top:14px;">
+      <div class="hint">
+        <strong>Comment ça marche&nbsp;?</strong><br>
+        1. Prenez vos notes ici pendant la réunion (tout est enregistré automatiquement sur ce téléphone).<br>
+        2. Appuyez sur <strong>Partager</strong> pour vous envoyer le fichier <code>.json</code> par mail.<br>
+        3. Sur l'ordinateur&nbsp;: téléchargez la pièce jointe, puis dans Kolio → <strong>Organisation quotidienne</strong> → <strong>Réunions</strong> → <strong>📥 Importer une réunion</strong>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VUE ÉDITEUR ===== -->
+  <section id="view-edit" style="display:none;">
+    <div class="card">
+      <div class="sect-title">📌 Informations <span class="saveflag" id="saveflag">✓ enregistré</span></div>
+      <div class="field">
+        <label class="label" for="f-title">Titre</label>
+        <input type="text" id="f-title" placeholder="Ex : Conseil pédagogique">
+      </div>
+      <div class="field">
+        <label class="label" for="f-type">Type de réunion</label>
+        <select id="f-type"></select>
+      </div>
+      <div class="field row">
+        <div>
+          <label class="label" for="f-date">Date</label>
+          <input type="date" id="f-date">
+        </div>
+        <div>
+          <label class="label" for="f-status">Statut</label>
+          <select id="f-status">
+            <option value="done">Faite</option>
+            <option value="ready">Prête</option>
+            <option value="todo">À faire</option>
+          </select>
+        </div>
+      </div>
+      <div class="field row">
+        <div>
+          <label class="label" for="f-tstart">Heure début</label>
+          <input type="time" id="f-tstart">
+        </div>
+        <div>
+          <label class="label" for="f-tend">Heure fin</label>
+          <input type="time" id="f-tend">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="f-lieu">Lieu</label>
+        <input type="text" id="f-lieu" placeholder="Salle de réunion…">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sect-title">👥 Participants</div>
+      <div class="chips" id="chips"></div>
+      <div class="addrow">
+        <input type="text" id="f-part" placeholder="Nom du participant…" autocomplete="off" enterkeyhint="done">
+        <button class="btn btn-sm" id="btn-addpart">+</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sect-title">📄 Compte rendu</div>
+      <textarea id="f-cr" placeholder="Vos notes pendant la réunion…" style="min-height:300px;"></textarea>
+    </div>
+
+    <div class="card">
+      <button class="btn btn-danger btn-block" id="btn-del">🗑 Supprimer cette réunion</button>
+    </div>
+  </section>
+</main>
+
+<div class="footbar" id="footbar" style="display:none;">
+  <button class="btn" id="btn-dl">⬇ Fichier</button>
+  <button class="btn btn-primary" id="btn-share">📤 Partager</button>
+</div>
+
+<div class="modal" id="modal-fallback">
+  <div class="sheet">
+    <h3>Fichier téléchargé</h3>
+    <p id="fallback-txt">Le fichier de la réunion a été enregistré dans vos téléchargements. Ouvrez votre messagerie, créez un mail pour vous-même et joignez ce fichier.</p>
+    <button class="btn btn-primary btn-block" id="btn-mailto" style="margin-bottom:8px;">✉️ Ouvrir un mail pré-rempli</button>
+    <button class="btn btn-block" id="btn-closefb">Fermer</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================================
+   Kolio Mobile — prise de notes de réunion hors ligne
+   Produit un fichier .json importable dans Kolio (Organisation quotidienne
+   → Réunions → Importer une réunion).
+   © 2026 Florian LUCAS
+   ========================================================================== */
+'use strict';
+
+var STORE='kolio_mobile_reunions_v1';
+
+/* Types identiques à ceux de Kolio (mêmes clés) */
+var TYPES=[
+  {key:'conseil-classe',label:'Conseil de classe'},
+  {key:'ca',label:"Conseil d'administration"},
+  {key:'conseil-peda',label:'Conseil pédagogique'},
+  {key:'conseil-ens',label:"Conseil d'enseignement"},
+  {key:'ag',label:'Assemblée Générale'},
+  {key:'suivi',label:'Réunion de suivi'},
+  {key:'cvc',label:'CVC'},
+  {key:'cvl',label:'CVL'},
+  {key:'commission-educ',label:'Commission éducative'},
+  {key:'discipline',label:'Conseil de discipline'},
+  {key:'ess',label:'ESS'},
+  {key:'cesce',label:'CESCE'},
+  {key:'formation',label:'Formation'}
+];
+
+var data=load();
+var currentId=null;
+var saveTimer=null;
+
+/* ---------- stockage ---------- */
+function load(){
+  try{
+    var raw=localStorage.getItem(STORE);
+    var d=raw?JSON.parse(raw):null;
+    if(d && Array.isArray(d.reunions)) return d;
+  }catch(e){}
+  return {nextId:1,reunions:[]};
+}
+function persist(){
+  try{ localStorage.setItem(STORE,JSON.stringify(data)); }
+  catch(e){ toast('Mémoire du navigateur saturée'); }
+}
+
+/* ---------- utilitaires ---------- */
+function $(id){ return document.getElementById(id); }
+function today(){
+  var d=new Date(), p=function(n){return (n<10?'0':'')+n;};
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+}
+function nowTime(){
+  var d=new Date(), p=function(n){return (n<10?'0':'')+n;};
+  return p(d.getHours())+':'+p(d.getMinutes());
+}
+function plusMin(hhmm,min){
+  var p=String(hhmm||'').split(':');
+  var t=(parseInt(p[0],10)||0)*60+(parseInt(p[1],10)||0)+min;
+  t=((t%1440)+1440)%1440;
+  var q=function(n){return (n<10?'0':'')+n;};
+  return q(Math.floor(t/60))+':'+q(t%60);
+}
+function fmtDateFR(s){
+  if(!s) return '';
+  var d=new Date(s+'T00:00');
+  if(isNaN(d.getTime())) return s;
+  return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});
+}
+function typeLabel(k){
+  for(var i=0;i<TYPES.length;i++){ if(TYPES[i].key===k) return TYPES[i].label; }
+  return k||'';
+}
+function esc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function slug(s){
+  return String(s||'reunion').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'reunion';
+}
+var toastTimer=null;
+function toast(msg){
+  var t=$('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){ t.classList.remove('on'); },2400);
+}
+function flagSaved(){
+  var f=$('saveflag'); if(!f) return;
+  f.classList.add('on');
+  clearTimeout(f._t);
+  f._t=setTimeout(function(){ f.classList.remove('on'); },1200);
+}
+
+function getCurrent(){
+  for(var i=0;i<data.reunions.length;i++){
+    if(String(data.reunions[i].id)===String(currentId)) return data.reunions[i];
+  }
+  return null;
+}
+
+/* ---------- liste ---------- */
+function renderList(){
+  var wrap=$('list-wrap');
+  if(!data.reunions.length){
+    wrap.innerHTML='<div class="empty"><div class="ei">👥</div>'
+      +'<div>Aucune réunion enregistrée.</div>'
+      +'<div style="font-size:13px;margin-top:6px;">Appuyez sur « + Réunion » pour commencer.</div></div>';
+    return;
+  }
+  var list=data.reunions.slice().sort(function(a,b){
+    return String(b.date||'').localeCompare(String(a.date||''))
+      || String(b.updatedAt||'').localeCompare(String(a.updatedAt||''));
+  });
+  wrap.innerHTML=list.map(function(m){
+    return '<div class="mitem" data-id="'+m.id+'">'
+      +'<div class="mitem-title">'+esc(m.title||'Réunion sans titre')+'</div>'
+      +'<div class="mitem-sub">📅 '+esc(fmtDateFR(m.date))+' · '+esc(m.tstart||'')+'–'+esc(m.tend||'')
+      +(m.lieu?' · 📍 '+esc(m.lieu):'')+'</div>'
+      +'<span class="badge">'+esc(typeLabel(m.type))+'</span>'
+      +'</div>';
+  }).join('');
+  Array.prototype.forEach.call(wrap.querySelectorAll('.mitem'),function(el){
+    el.addEventListener('click',function(){ openMeeting(el.getAttribute('data-id')); });
+  });
+}
+
+/* ---------- navigation ---------- */
+function showList(){
+  currentId=null;
+  $('view-list').style.display='';
+  $('view-edit').style.display='none';
+  $('footbar').style.display='none';
+  $('btn-back').style.display='none';
+  $('btn-new').style.display='';
+  renderList();
+  window.scrollTo(0,0);
+}
+function showEdit(){
+  $('view-list').style.display='none';
+  $('view-edit').style.display='';
+  $('footbar').style.display='flex';
+  $('btn-back').style.display='';
+  $('btn-new').style.display='none';
+  window.scrollTo(0,0);
+}
+function newMeeting(){
+  var t=nowTime();
+  var m={
+    id:data.nextId++,
+    title:'',
+    type:'suivi',
+    status:'done',
+    date:today(),
+    tstart:t,
+    tend:plusMin(t,60),
+    lieu:'',
+    participants:[],
+    cr:'',
+    createdAt:new Date().toISOString(),
+    updatedAt:new Date().toISOString()
+  };
+  data.reunions.unshift(m);
+  persist();
+  openMeeting(m.id);
+  setTimeout(function(){ $('f-title').focus(); },120);
+}
+function openMeeting(id){
+  currentId=id;
+  var m=getCurrent();
+  if(!m){ showList(); return; }
+  $('f-title').value=m.title||'';
+  $('f-type').value=m.type||'suivi';
+  $('f-status').value=m.status||'done';
+  $('f-date').value=m.date||today();
+  $('f-tstart').value=m.tstart||'';
+  $('f-tend').value=m.tend||'';
+  $('f-lieu').value=m.lieu||'';
+  $('f-cr').value=m.cr||'';
+  renderChips();
+  showEdit();
+}
+
+/* ---------- saisie ---------- */
+function collect(){
+  var m=getCurrent();
+  if(!m) return;
+  m.title=$('f-title').value;
+  m.type=$('f-type').value;
+  m.status=$('f-status').value;
+  m.date=$('f-date').value;
+  m.tstart=$('f-tstart').value;
+  m.tend=$('f-tend').value;
+  m.lieu=$('f-lieu').value;
+  m.cr=$('f-cr').value;
+  m.updatedAt=new Date().toISOString();
+  persist();
+  flagSaved();
+}
+function scheduleSave(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(collect,400);
+}
+function renderChips(){
+  var m=getCurrent();
+  var box=$('chips');
+  if(!m){ box.innerHTML=''; return; }
+  m.participants=m.participants||[];
+  if(!m.participants.length){
+    box.innerHTML='<span style="font-size:13px;color:var(--text3);">Aucun participant</span>';
+    return;
+  }
+  box.innerHTML=m.participants.map(function(p,i){
+    return '<div class="chip"><b>'+esc(p)+'</b><span data-i="'+i+'">×</span></div>';
+  }).join('');
+  Array.prototype.forEach.call(box.querySelectorAll('.chip span'),function(el){
+    el.addEventListener('click',function(){
+      var mm=getCurrent(); if(!mm) return;
+      mm.participants.splice(parseInt(el.getAttribute('data-i'),10),1);
+      mm.updatedAt=new Date().toISOString();
+      persist(); renderChips();
+    });
+  });
+}
+function addPart(){
+  var m=getCurrent(); if(!m) return;
+  var inp=$('f-part');
+  var v=inp.value.trim();
+  if(!v) return;
+  m.participants=m.participants||[];
+  v.split(/[;,]/).forEach(function(p){
+    p=p.trim();
+    if(p && m.participants.indexOf(p)<0) m.participants.push(p);
+  });
+  inp.value='';
+  m.updatedAt=new Date().toISOString();
+  persist(); renderChips(); inp.focus();
+}
+function delMeeting(){
+  var m=getCurrent(); if(!m) return;
+  if(!confirm('Supprimer définitivement « '+(m.title||'Réunion sans titre')+' » de ce téléphone ?')) return;
+  data.reunions=data.reunions.filter(function(x){ return String(x.id)!==String(currentId); });
+  persist();
+  showList();
+  toast('Réunion supprimée');
+}
+
+/* ---------- export ---------- */
+function buildPayload(m){
+  return {
+    kolio:'reunion',
+    version:1,
+    app:'Kolio Mobile',
+    format:'text',
+    exportedAt:new Date().toISOString(),
+    reunion:{
+      title:(m.title||'').trim()||'Réunion sans titre',
+      type:m.type||'suivi',
+      typeLabel:typeLabel(m.type),
+      status:m.status||'done',
+      date:m.date||'',
+      tstart:m.tstart||'',
+      tend:m.tend||'',
+      lieu:m.lieu||'',
+      participants:(m.participants||[]).slice(),
+      cr:m.cr||''
+    }
+  };
+}
+function fileName(m){
+  return 'reunion-'+(m.date||today())+'-'+slug(m.title)+'.json';
+}
+function buildFile(m){
+  var json=JSON.stringify(buildPayload(m),null,2);
+  return {name:fileName(m),json:json,blob:new Blob([json],{type:'application/json'})};
+}
+function download(f){
+  var url=URL.createObjectURL(f.blob);
+  var a=document.createElement('a');
+  a.href=url; a.download=f.name;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); },1500);
+}
+function mailSubject(m){
+  return '[Kolio] Réunion — '+((m.title||'').trim()||'Sans titre')+' du '+fmtDateFR(m.date);
+}
+function mailBody(m,withFileNote){
+  var l=[];
+  l.push('Réunion : '+((m.title||'').trim()||'Sans titre'));
+  l.push('Type : '+typeLabel(m.type));
+  l.push('Date : '+fmtDateFR(m.date)+'  ·  '+(m.tstart||'')+'–'+(m.tend||''));
+  if(m.lieu) l.push('Lieu : '+m.lieu);
+  if((m.participants||[]).length) l.push('Participants : '+m.participants.join(', '));
+  l.push('');
+  if(m.cr){ l.push('--- Compte rendu ---'); l.push(m.cr); l.push(''); }
+  l.push('---');
+  if(withFileNote) l.push('Pensez à joindre le fichier '+fileName(m)+' (dossier Téléchargements) pour pouvoir l\u2019importer dans Kolio.');
+  l.push('Envoyé depuis Kolio Mobile.');
+  return l.join('\n');
+}
+function openMail(m,withFileNote){
+  var url='mailto:?subject='+encodeURIComponent(mailSubject(m))
+    +'&body='+encodeURIComponent(mailBody(m,withFileNote));
+  window.location.href=url;
+}
+var _fbMeeting=null;
+function share(){
+  collect();
+  var m=getCurrent(); if(!m) return;
+  if(!(m.title||'').trim() && !confirm('Cette réunion n\u2019a pas de titre. Continuer quand même ?')) return;
+  var f=buildFile(m);
+  var file=null;
+  try{ file=new File([f.blob],f.name,{type:'application/json'}); }catch(e){}
+  if(file && navigator.canShare && navigator.canShare({files:[file]}) && navigator.share){
+    navigator.share({
+      files:[file],
+      title:mailSubject(m),
+      text:mailBody(m,false)
+    }).then(function(){
+      toast('Réunion partagée');
+    }).catch(function(err){
+      if(err && err.name==='AbortError') return;
+      fallbackShare(m,f);
+    });
+  } else {
+    fallbackShare(m,f);
+  }
+}
+function fallbackShare(m,f){
+  download(f);
+  _fbMeeting=m;
+  $('fallback-txt').textContent='Le fichier « '+f.name+' » a été enregistré dans vos téléchargements. '
+    +'Ouvrez un mail pour vous-même et joignez ce fichier : vous pourrez ensuite l\u2019importer dans Kolio.';
+  $('modal-fallback').classList.add('on');
+}
+
+/* ---------- initialisation ---------- */
+(function init(){
+  $('f-type').innerHTML=TYPES.map(function(t){
+    return '<option value="'+t.key+'">'+esc(t.label)+'</option>';
+  }).join('');
+
+  ['f-title','f-type','f-status','f-date','f-tstart','f-tend','f-lieu','f-cr'].forEach(function(id){
+    var el=$(id);
+    el.addEventListener('input',scheduleSave);
+    el.addEventListener('change',collect);
+  });
+
+  $('f-tstart').addEventListener('change',function(){
+    var m=getCurrent(); if(!m) return;
+    if(!$('f-tend').value || $('f-tend').value<=this.value){
+      $('f-tend').value=plusMin(this.value,60);
+      collect();
+    }
+  });
+
+  $('btn-addpart').addEventListener('click',addPart);
+  $('f-part').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){ e.preventDefault(); addPart(); }
+  });
+
+  $('btn-new').addEventListener('click',newMeeting);
+  $('btn-back').addEventListener('click',function(){ collect(); showList(); });
+  $('btn-del').addEventListener('click',delMeeting);
+  $('btn-dl').addEventListener('click',function(){
+    collect();
+    var m=getCurrent(); if(!m) return;
+    download(buildFile(m));
+    toast('Fichier enregistré');
+  });
+  $('btn-share').addEventListener('click',share);
+  $('btn-mailto').addEventListener('click',function(){
+    $('modal-fallback').classList.remove('on');
+    if(_fbMeeting) openMail(_fbMeeting,true);
+  });
+  $('btn-closefb').addEventListener('click',function(){ $('modal-fallback').classList.remove('on'); });
+  $('modal-fallback').addEventListener('click',function(e){
+    if(e.target===this) this.classList.remove('on');
+  });
+
+  // Sécurité : on enregistre dès que la page passe en arrière-plan
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='hidden' && currentId) collect();
+  });
+  window.addEventListener('pagehide',function(){ if(currentId) collect(); });
+
+  showList();
+})();
+</script>
+</body>
+</html>
