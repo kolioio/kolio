@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Kolio iPad 1.5.1 — généré par tools/build-ipad.js le 2026-10-12T14:26:36.608Z -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; media-src 'self' data: blob:; frame-src 'self' data: blob:; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Kolio">
+<meta name="theme-color" content="#0B1F4A">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icones/apple-touch-icon.png">
+<link rel="stylesheet" href="./kolio-ipad.css">
+<script src="./vendor/mobile-drag-drop.min.js"></script>
+<script src="./vendor/mobile-drag-drop-scroll.min.js"></script>
+<script src="./kolio-ipad-avant.js"></script>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzBCMUY0QSIvPjxyZWN0IHg9IjgiIHk9IjYiIHdpZHRoPSI1IiBoZWlnaHQ9IjIwIiByeD0iMS41IiBmaWxsPSJ3aGl0ZSIvPjxwb2x5Z29uIHBvaW50cz0iMTMsMTYgMjIsNiAyNiw2IDE3LDE2IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPjxwb2x5Z29uIHBvaW50cz0iMTMsMTYgMTcsMTYgMjYsMjYgMjIsMjYiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjg4Ii8+PGNpcmNsZSBjeD0iMjYiIGN5PSI2IiByPSI0IiBmaWxsPSIjNEE4RUY1Ii8+PC9zdmc+">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CiAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSI0OCIgeTI9IjQ4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMUMzRDhDIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjRBIi8+CiAgPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTEiIGZpbGw9InVybCgjZykiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTEiIHdpZHRoPSI1IiBoZWlnaHQ9IjI2IiByeD0iMiIgZmlsbD0id2hpdGUiLz4KICA8cG9seWdvbiBwb2ludHM9IjE3LDI0IDMyLDExIDM3LDExIDIyLDI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTcsMjQgMjIsMjQgMzcsMzcgMzIsMzciIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjg1Ii8+CiAgPGNpcmNsZSBjeD0iMzciIGN5PSIxMSIgcj0iNC41IiBmaWxsPSIjNEE4RUY1Ii8+Cjwvc3ZnPg==">
+<title>Kolio</title>
+<link rel="stylesheet" href="./vendor/fonts.css">
+<style>
+:root {
+  /* Kolio — nouvelle charte graphique premium */
+  --syn-1:#0B1F4A;   /* Navy — autorité */
+  --syn-2:#1C3D8C;   /* Royal — accent primaire */
+  --syn-3:#4A8EF5;   /* Bleu vif — CTA */
+  --syn-4:#7EACF9;   /* Bleu moyen */
+  --syn-5:#E8F0FE;   /* Bleu pâle — fond actif */
+  --syn-gold:#4A8EF5;/* Alias compat */
+
+  /* Fond : blanc cassé chaud, épuré */
+  --bg:#F7F7F5;--surface:#FFFFFF;--surface2:#F3F4F6;--surface3:#E9EAEC;
+  --border:#E5E7EB;--border2:#D1D5DB;
+  /* Texte : encre profonde */
+  --text:#1C1916;--text2:#4B5563;--text3:#9CA3AF;
+  --accent:#1C3D8C;--accent-bg:#E8F0FE;--accent2:#0B1F4A;
+
+  --p1:#DC2626;--p1-bg:#FEF2F2;--p1-border:#FECACA;
+  --p2:#D97706;--p2-bg:#FFFBEB;--p2-border:#FDE68A;
+  --p3:#1C3D8C;--p3-bg:#E8F0FE;--p3-border:#BFDBFE;
+  --p4:#6B7280;--p4-bg:#F9FAFB;--p4-border:#E5E7EB;
+  --green:#16A34A;--green-bg:#F0FDF4;--green-border:#BBF7D0;
+  --amber:#D97706;--amber-bg:#FFFBEB;
+  --red:#DC2626;--red-bg:#FEF2F2;
+  --radius:10px;--radius-sm:7px;--radius-lg:14px;
+  --shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 24px rgba(0,0,0,0.10);
+  --font-size-base:14px;
+  --sidebar-w:220px;
+}
+html.dark {
+  --bg:#0F1117;--surface:#1A1D27;--surface2:#22263A;--surface3:#2A304A;
+  --border:#2E3345;--border2:#3A4260;
+  --text:#F1F2F4;--text2:#8B95B0;--text3:#4E5880;
+  --accent:#4A8EF5;--accent-bg:#1A2A50;--accent2:#7EACF9;
+  --p1:#F87171;--p1-bg:#3B1515;--p1-border:#7B2A2A;
+  --p2:#FBB040;--p2-bg:#3B2A10;--p2-border:#7B5520;
+  --p3:#5B82F4;--p3-bg:#1E2A4A;--p3-border:#2A3D70;
+  --p4:#9CA3AF;--p4-bg:#2A2A2A;--p4-border:#3A3A3A;
+  --green:#4ADE80;--green-bg:#0F2A1A;--green-border:#1A4A2A;
+  --amber:#FBB040;--amber-bg:#3B2A10;
+  --red:#F87171;--red-bg:#3B1515;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:var(--font-size-base);}
+html.dark body{background:var(--bg);color:var(--text);}
+
+/* ===== AUTH ===== */
+.auth-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);}
+.auth-screen > div{width:100%;max-width:680px;padding:20px;}
+.auth-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:32px;width:100%;max-width:680px;box-shadow:var(--shadow-md);border-top:3px solid #0B1F4A;}
+.auth-logo{font-family:'Sora',sans-serif;font-size:22px;color:var(--text);margin-bottom:4px;}
+.auth-logo span{font-style:italic;color:var(--accent);}
+.auth-sub{font-size:12px;color:var(--text3);margin-bottom:28px;}
+.auth-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:22px;}
+.auth-tab{flex:1;padding:8px;text-align:center;font-size:13px;cursor:pointer;color:var(--text3);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;}
+.auth-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+.auth-form{display:none;}.auth-form.active{display:block;}
+.form-group{margin-bottom:14px;}
+.form-label{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.4px;}
+.form-input{width:100%;font-family:'Inter',sans-serif;font-size:13px;padding:8px 11px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);outline:none;transition:border-color 0.12s;}
+.form-input:focus{border-color:#1C3D8C;box-shadow:0 0 0 3px rgba(28,61,140,0.08);}
+.form-row{display:flex;gap:10px;}.form-row .form-group{flex:1;}
+.btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;padding:7px 14px;border-radius:var(--radius-sm);cursor:pointer;border:0.5px solid var(--border2);background:var(--surface);color:var(--text2);transition:all 0.12s;white-space:nowrap;}
+.btn:hover{background:var(--surface2);color:var(--text);}
+.btn-primary{background:#0B1F4A;color:#fff;border-color:#0B1F4A;}
+.btn-primary:hover{background:#1C3D8C;border-color:#1C3D8C;color:#fff;}
+.btn-block{width:100%;justify-content:center;}
+.btn-sm{padding:5px 10px;font-size:12px;}
+.btn-icon{width:30px;height:30px;padding:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+
+/* ===== APP LAYOUT ===== */
+.app{display:none;height:100vh;overflow:hidden;flex-direction:column;}
+.app.on,.app.visible{display:flex;flex-direction:column;}
+.app-shell{display:flex;flex:1;overflow:hidden;min-height:0;}
+.app-shell{display:flex;flex:1;overflow:hidden;}
+.sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;}
+.sidebar-header{padding:14px 16px 12px;border-bottom:1px solid var(--border);}
+.brand{font-family:'Sora',sans-serif;font-size:16px;color:var(--text);line-height:1.2;}
+.brand span{font-style:italic;color:var(--accent);}
+.brand-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+.nav{padding:8px;flex:1;}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-weight:500;color:var(--text3);margin-bottom:1px;transition:all 0.1s;user-select:none;}
+.nav-item:hover{background:var(--surface2);color:var(--text2);}
+.nav-item.active{background:#E8F0FE;color:#1C3D8C;font-weight:600;}
+.nav-icon{width:17px;text-align:center;font-size:14px;flex-shrink:0;}
+.nav-count{margin-left:auto;font-size:10px;background:var(--surface2);color:var(--text3);padding:1px 6px;border-radius:10px;}
+.nav-item.active .nav-count{background:#D5E2FC;color:var(--accent);}
+.sidebar-footer{padding:12px 14px;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;cursor:pointer;}
+.sidebar-footer:hover{background:var(--surface2);}
+.user-avatar{width:30px;height:30px;border-radius:50%;background:var(--accent-bg);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;}
+.user-info{flex:1;min-width:0;}
+.user-name{font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.user-role{font-size:10px;color:var(--text3);}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{padding:12px 22px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;min-height:52px;}
+.page-title{font-size:16px;font-weight:500;}
+.topbar-actions{margin-left:auto;display:flex;gap:7px;align-items:center;}
+.content{flex:1;overflow-y:auto;padding:22px;}
+.tab-pane{display:none;}.tab-pane.active{display:block;}
+
+/* ===== BADGES ===== */
+.badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;display:inline-flex;align-items:center;gap:3px;}
+.prio-1{color:var(--p1);background:var(--p1-bg);border:1px solid var(--p1-border);}
+.prio-2{color:var(--p2);background:var(--p2-bg);border:1px solid var(--p2-border);}
+.prio-3{color:var(--p3);background:var(--p3-bg);border:1px solid var(--p3-border);}
+.prio-4{color:var(--p4);background:var(--p4-bg);}
+.s-todo{color:var(--text);background:var(--surface2);border:1px solid var(--border);}
+.s-doing{color:var(--accent);background:var(--accent-bg);}
+.s-pause{color:var(--amber);background:var(--amber-bg);}
+.s-done{color:var(--green);background:var(--green-bg);}
+
+/* ===== TODO ===== */
+.todo-toolbar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+.filter-group{display:flex;gap:3px;}
+.filter-btn{font-family:'Inter',sans-serif;font-size:12px;padding:5px 11px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text2);cursor:pointer;transition:all 0.12s;}
+.filter-btn:hover{border-color:var(--border2);color:var(--text);}
+.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.todo-section{margin-bottom:16px;border-radius:var(--radius);overflow:hidden;border:0.5px solid var(--border);box-shadow:var(--shadow);}
+.todo-section[data-prio="1"]{border-color:#FECACA;border-left:4px solid #DC2626;}
+.todo-section[data-prio="2"]{border-color:#FDE68A;border-left:4px solid #D97706;}
+.todo-section[data-prio="3"]{border-color:#BFDBFE;border-left:4px solid #1C3D8C;}
+.todo-section[data-prio="4"]{border-color:#E5E7EB;border-left:4px solid #9CA3AF;}
+.section-header{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.05);}
+.todo-section[data-prio="1"] .section-header{background:linear-gradient(135deg,#FEF2F2 0%,#FFF5F5 100%);}
+.todo-section[data-prio="2"] .section-header{background:linear-gradient(135deg,#FFFBEB 0%,#FFFDF5 100%);}
+.todo-section[data-prio="3"] .section-header{background:linear-gradient(135deg,#EFF6FF 0%,#F5F9FF 100%);}
+.todo-section[data-prio="4"] .section-header{background:linear-gradient(135deg,#F9FAFB 0%,#FAFAFA 100%);}
+.section-drag-area{padding:10px 12px;min-height:12px;background:var(--surface);transition:background 0.15s;}
+.todo-section[data-prio="1"] .section-drag-area{background:#FFFCFC;}
+.todo-section[data-prio="2"] .section-drag-area{background:#FFFEF9;}
+.todo-section[data-prio="3"] .section-drag-area{background:#FAFCFF;}
+.todo-section[data-prio="4"] .section-drag-area{background:var(--surface);}
+.section-drag-area.drag-over{background:var(--accent-bg)!important;border:2px dashed var(--accent);}
+.section-title{font-size:13px;font-weight:700;letter-spacing:0.1px;}
+.section-title-sub{font-size:10px;font-weight:400;opacity:0.75;margin-left:3px;}
+.todo-section[data-prio="1"] .section-title{color:#991B1B;}
+.todo-section[data-prio="2"] .section-title{color:#78350F;}
+.todo-section[data-prio="3"] .section-title{color:#1E3A8A;}
+.todo-section[data-prio="4"] .section-title{color:#374151;}
+.section-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:auto;}
+.todo-section[data-prio="1"] .section-badge{background:#FEE2E2;color:#991B1B;}
+.todo-section[data-prio="2"] .section-badge{background:#FEF3C7;color:#78350F;}
+.todo-section[data-prio="3"] .section-badge{background:#DBEAFE;color:#1E3A8A;}
+.todo-section[data-prio="4"] .section-badge{background:#F3F4F6;color:#4B5563;}
+.task-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:6px;display:flex;align-items:flex-start;gap:10px;box-shadow:var(--shadow);cursor:grab;transition:box-shadow 0.12s,opacity 0.12s;}
+.task-card:last-child{margin-bottom:0;}
+.task-card:hover{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.task-card.dragging{opacity:0.4;cursor:grabbing;}
+.task-card.drag-target{border:2px dashed var(--accent);background:var(--accent-bg);}
+.task-check{width:17px;height:17px;border-radius:50%;border:2px solid var(--border2);cursor:pointer;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.task-check:hover{border-color:var(--green);}
+.task-body{flex:1;min-width:0;}
+.task-title{font-size:13px;color:var(--text);line-height:1.4;}
+.task-meta{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap;align-items:center;}
+.task-due{font-size:11px;color:var(--text3);}
+.task-note-preview{font-size:11px;color:var(--text3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.task-actions{display:flex;gap:3px;opacity:0;transition:opacity 0.12s;flex-shrink:0;}
+.task-card:hover .task-actions{opacity:1;}
+.subtasks{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
+.subtask-item{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:12px;color:var(--text2);}
+.subtask-check{width:13px;height:13px;border-radius:3px;border:1.5px solid var(--border2);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.subtask-check.done{background:var(--green);border-color:var(--green);}
+.subtask-check.done::after{content:'✓';color:#fff;font-size:9px;}
+.subtask-text.done{text-decoration:line-through;color:var(--text3);}
+.add-subtask-row{display:flex;align-items:center;gap:6px;margin-top:5px;}
+.add-subtask-input{flex:1;font-family:'Inter',sans-serif;font-size:12px;padding:4px 8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);outline:none;}
+.add-subtask-input:focus{border-color:var(--accent);}
+.archive-toggle{font-size:12px;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:5px;margin:20px 0 10px;user-select:none;}
+.archive-toggle:hover{text-decoration:underline;}
+.archived-task{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:9px 13px;margin-bottom:5px;display:flex;align-items:center;gap:9px;}
+.archived-task .t{font-size:13px;color:var(--text3);text-decoration:line-through;}
+.archived-task .dt{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap;}
+
+/* ===== AGENDA ===== */
+.agenda-layout{display:grid;grid-template-columns:210px 1fr;gap:14px;height:calc(100vh - 130px);min-height:500px;}
+.agenda-sidebar{display:flex;flex-direction:column;gap:12px;}
+.mini-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+.mini-cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.mini-cal-title{font-size:13px;font-weight:500;}
+.cal-nav{width:22px;height:22px;border-radius:4px;border:1px solid var(--border);background:none;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.cal-nav:hover{background:var(--surface2);}
+.mini-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal-dow{font-size:9px;color:var(--text3);text-align:center;padding:2px;font-weight:500;}
+.cal-day{font-size:11px;text-align:center;padding:4px 1px;border-radius:50%;cursor:pointer;color:var(--text2);transition:background 0.1s;}
+.cal-day:hover{background:var(--surface2);}
+.cal-day.today{background:var(--accent);color:#fff;}
+.cal-day.selected{background:var(--accent-bg);color:var(--accent);}
+.cal-day.has-event::after{content:'';display:block;width:3px;height:3px;border-radius:50%;background:var(--accent);margin:1px auto 0;}
+.cal-day.today.has-event::after{background:#fff;}
+.agenda-list-title{font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.agenda-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2);margin-bottom:5px;}
+.agenda-item label{display:flex;align-items:center;gap:7px;cursor:pointer;flex:1;}
+.agenda-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.agenda-name{flex:1;}
+.agenda-view-tabs{display:flex;gap:3px;margin-bottom:14px;}
+.view-tab{font-family:'Inter',sans-serif;font-size:12px;padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text2);cursor:pointer;transition:all 0.12s;}
+.view-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.calendar-view{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.cal-toolbar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);}
+.cal-toolbar-title{font-size:15px;font-weight:500;flex:1;}
+.week-grid{display:grid;grid-template-columns:50px repeat(7,1fr);}
+.day-grid{display:grid;grid-template-columns:50px 1fr;}
+.month-grid{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-header-cell{padding:9px 6px;text-align:center;font-size:11px;border-bottom:1px solid var(--border);}
+.cal-header-cell .num{font-size:16px;font-weight:500;line-height:1;}
+.cal-header-cell .dow{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px;}
+.cal-header-cell.today-col .num{color:var(--accent);}
+.time-label{font-size:10px;color:var(--text3);text-align:right;padding:5px 6px 0;border-right:1px solid var(--border);border-bottom:1px solid var(--surface2);}
+.day-col{border-right:1px solid var(--border);border-bottom:1px solid var(--surface2);min-height:38px;padding:2px;position:relative;cursor:crosshair;}
+.day-col:hover{background:#F0F4FF;}
+.event-pill{border-radius:4px;padding:2px 6px;font-size:11px;cursor:pointer;line-height:1.4;margin-bottom:2px;border-left:3px solid transparent;}
+.event-pill:hover{filter:brightness(0.95);}
+.month-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);min-height:80px;padding:5px 6px;cursor:pointer;}
+.month-cell:hover{background:var(--surface2);}
+.month-day-num{font-size:12px;font-weight:500;margin-bottom:3px;}
+.month-day-num.today{width:22px;height:22px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.month-event{font-size:10px;padding:1px 5px;border-radius:3px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* ===== NOTES ===== */
+.notes-layout{display:grid;grid-template-columns:260px 1fr;gap:14px;height:calc(100vh - 130px);}
+.notes-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;}
+.notes-search{padding:10px 12px;border-bottom:1px solid var(--border);}
+.search-input{width:100%;font-family:'Inter',sans-serif;font-size:12px;padding:7px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface2);color:var(--text);outline:none;}
+.search-input:focus{border-color:var(--accent);background:var(--surface);}
+.notes-filter-row{padding:8px 10px;display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+.note-filter-tag{font-size:10px;padding:2px 8px;border-radius:10px;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text2);transition:all 0.12s;}
+.note-filter-tag.active{border-color:transparent;}
+.note-list{flex:1;overflow-y:auto;padding:6px;}
+.note-item{padding:10px 10px;border-radius:var(--radius-sm);cursor:pointer;margin-bottom:3px;border:1px solid transparent;transition:all 0.12s;}
+.note-item:hover{background:var(--surface2);}
+.note-item.active{background:var(--accent-bg);border-color:#C7D9FA;}
+.note-item-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
+.note-item-preview{font-size:11px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.note-item-meta{display:flex;align-items:center;gap:4px;margin-top:4px;flex-wrap:wrap;}
+.note-editor{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;}
+.note-editor-header{padding:14px 18px 10px;border-bottom:1px solid var(--border);}
+.note-title-inp{font-size:16px;font-weight:600;border:none;outline:none;font-family:'Inter',sans-serif;background:transparent;color:var(--text);width:100%;}
+.note-tags-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.note-tag-toggle{font-size:11px;padding:3px 9px;border-radius:10px;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text2);transition:all 0.12s;}
+.note-tag-toggle.on{border-color:transparent;}
+.tag-incident.on{background:#FEF2F2;color:#DC2626;}
+.tag-entretien.on{background:#FDF4FF;color:#9333EA;}
+.tag-info.on{background:#EFF6FF;color:#2563EB;}
+.tag-admin.on{background:#F0FDF4;color:#16A34A;}
+.tag-autre.on{background:var(--surface2);color:var(--text);}
+.note-editor-body{flex:1;padding:16px 18px;}
+.note-textarea{width:100%;height:100%;min-height:300px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);border:none;outline:none;background:transparent;resize:none;line-height:1.75;}
+.note-editor-footer{padding:8px 18px;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.note-stamp{font-size:11px;color:var(--text3);margin-left:auto;}
+.highlight{background:#FEF9C3;border-radius:2px;}
+
+/* ===== MEETINGS ===== */
+.meetings-layout{display:grid;grid-template-columns:280px 1fr;gap:14px;height:calc(100vh - 130px);}
+.meetings-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;}
+.meetings-panel-header{padding:10px 12px;border-bottom:1px solid var(--border);}
+.meeting-item{padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.12s;}
+.meeting-item:hover{background:var(--surface2);}
+.meeting-item.active{background:var(--accent-bg);}
+.meeting-item-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;}
+.meeting-item-sub{font-size:11px;color:var(--text3);}
+.meeting-item-footer{display:flex;align-items:center;gap:5px;margin-top:5px;}
+.mt-ca{background:#FEF2F2;color:#DC2626;}
+.mt-conseil{background:#EFF6FF;color:#2563EB;}
+.mt-cpe{background:#FDF4FF;color:#9333EA;}
+.mt-equipe{background:#F0FDF4;color:#16A34A;}
+.mt-autre{background:var(--surface2);color:var(--text2);}
+.ms-todo{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
+.ms-ready{background:#FFFBEB;color:#B45309;}
+.ms-done{background:#F0FDF4;color:#15803D;}
+.meeting-detail{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;overflow-y:auto;}
+.meeting-detail-header{padding:18px 22px;border-bottom:1px solid var(--border);}
+.meeting-detail-title{font-size:20px;font-weight:500;font-family:'Sora',sans-serif;margin-bottom:8px;}
+.meeting-info-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.info-chip{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:4px;}
+.meeting-detail-body{padding:20px 22px;flex:1;}
+.cr-section{margin-bottom:22px;}
+.cr-label{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.cr-textarea{width:100%;font-family:'Inter',sans-serif;font-size:13px;color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;outline:none;resize:vertical;min-height:100px;background:var(--surface);line-height:1.6;transition:border-color 0.15s;}
+.cr-textarea:focus{border-color:var(--accent);}
+.chips-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px;}
+.chip{font-size:12px;padding:3px 10px;border-radius:20px;background:var(--surface2);color:var(--text2);border:1px solid var(--border);display:flex;align-items:center;gap:4px;}
+.chip-x{cursor:pointer;color:var(--text3);line-height:1;}
+.chip-x:hover{color:var(--red);}
+.add-row{display:flex;gap:6px;}
+.status-selector{display:flex;gap:5px;}
+.status-opt{font-family:'Inter',sans-serif;font-size:12px;padding:4px 12px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text2);transition:all 0.12s;}
+.status-opt:hover{background:var(--surface2);}
+.status-opt.sel-todo{background:var(--surface2);color:var(--text);border-color:var(--border2);}
+.status-opt.sel-ready{background:#FFFBEB;color:#B45309;border-color:#FDE68A;}
+.status-opt.sel-done{background:#F0FDF4;color:#15803D;border-color:#BBF7D0;}
+.meeting-detail-footer{padding:12px 22px;border-top:1px solid var(--border);display:flex;gap:7px;justify-content:flex-end;}
+
+/* ===== ACCOUNT ===== */
+.account-layout{max-width:620px;}
+.account-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:16px;}
+.account-section-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.year-selector{display:flex;gap:8px;flex-wrap:wrap;}
+.year-opt{font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:0.5px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;transition:all 0.12s;}
+.year-opt.active{background:#0B1F4A;color:#fff;border-color:#0B1F4A;}
+
+/* ===== MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal,.modal-box{background:var(--surface);border-radius:var(--radius-lg);padding:24px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.18);}
+.modal-sm{max-width:420px;}.modal-md{max-width:520px;}.modal-lg{max-width:640px;}
+.modal h3{font-size:16px;font-weight:500;margin-bottom:18px;}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:14px;border-top:1px solid var(--border);}
+.divider{height:1px;background:var(--border);margin:14px 0;}
+select.form-input{cursor:pointer;}
+textarea.form-input{resize:vertical;min-height:70px;line-height:1.6;}
+.color-row{display:flex;gap:8px;flex-wrap:wrap;}
+.color-swatch{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform 0.1s;}
+.color-swatch.active,.color-swatch:hover{transform:scale(1.2);border-color:var(--border2);}
+.empty-msg{text-align:center;padding:50px 20px;color:var(--text3);}
+.empty-msg .ei{font-size:32px;margin-bottom:10px;}
+.sharing-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.sharing-item:last-child{border-bottom:none;}
+.share-perm{font-size:11px;color:var(--text3);margin-left:auto;}
+
+@media(max-width:900px){
+  .ag-layout{grid-template-columns:1fr!important;}
+  .notes-layout,.meetings-layout{grid-template-columns:1fr!important;height:auto!important;}
+}
+
+/* ================================================================
+   RESPONSIVE — Tablette (≤ 1024px)
+   ================================================================ */
+@media(max-width:1024px){
+  .module-tab-icon{font-size:15px;}
+  .module-tab{padding:6px 10px;font-size:11px;gap:5px;}
+  .module-brand-text{font-size:15px;}
+}
+
+/* ================================================================
+   RESPONSIVE — Mobile + petite tablette (≤ 768px)
+   ================================================================ */
+@media(max-width:768px){
+  /* Barre modules : scroll horizontal, label masqué */
+  .module-bar{padding:0 10px;height:48px;overflow-x:auto;overflow-y:hidden;}
+  .module-bar::-webkit-scrollbar{display:none;}
+  .module-brand-text{display:none;}
+  .module-brand-logo{width:28px;height:28px;font-size:13px;}
+  .module-tab{padding:6px 8px;font-size:0;gap:0;} /* masquer texte, garder icône */
+  .module-tab-icon{font-size:18px;opacity:.8;}
+  .module-tab.active .module-tab-icon{opacity:1;}
+  .module-user-name,.module-user-role{display:none;}
+  .module-bar-right button{font-size:10px;padding:3px 6px;}
+
+  /* Sidebar : drawer latéral */
+  .sidebar{
+    position:fixed;top:0;bottom:0;left:0;z-index:200;
+    transform:translateX(-110%);transition:transform .25s cubic-bezier(.4,0,.2,1);
+    box-shadow:4px 0 24px rgba(0,0,0,.18);
+    width:260px!important;
+  }
+  .sidebar.open{transform:translateX(0);}
+  .hamburger{display:flex!important;}
+
+  /* Overlay quand sidebar ouverte */
+  .sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:190;}
+  .sb-overlay.on{display:block;}
+
+  /* Contenu */
+  .content{padding:12px;}
+  .modal-lg,.modal-md{max-width:calc(100vw - 24px);margin:0 12px;}
+  .acc-layout{max-width:100%;}
+  .fr{flex-direction:column;}
+  .agenda-layout{grid-template-columns:1fr!important;}
+
+  /* Barre sauvegarde : pleine largeur en bas */
+  #save-bar{
+    width:100%!important;
+    left:0!important;
+    flex-direction:row;
+    justify-content:center;
+    padding:10px 16px;
+    border-right:none!important;
+    border-top:1px solid var(--border)!important;
+  }
+
+  /* Masquer les sidebars inline des modules (pilotage, suivi, etc.) */
+  .module-pane > div > .sidebar{
+    position:fixed;top:0;bottom:0;left:0;z-index:200;
+    transform:translateX(-110%);
+    width:260px!important;
+  }
+  .module-pane > div > .sidebar.open{transform:translateX(0);}
+
+  /* Examens : sidebar inline en drawer */
+  #module-examens .sidebar,
+  #module-pilotage .sidebar,
+  #module-suivi .sidebar,
+  #module-planning .sidebar,
+  #module-classes .sidebar{
+    position:fixed!important;top:48px!important;bottom:0!important;left:0!important;
+    z-index:200!important;transform:translateX(-110%)!important;
+    transition:transform .25s cubic-bezier(.4,0,.2,1)!important;
+    box-shadow:4px 0 24px rgba(0,0,0,.18)!important;
+  }
+  #module-examens .sidebar.open,
+  #module-pilotage .sidebar.open,
+  #module-suivi .sidebar.open,
+  #module-planning .sidebar.open,
+  #module-classes .sidebar.open{transform:translateX(0)!important;}
+
+  /* Bouton menu dans la barre de chaque module */
+  .mobile-nav-btn{display:flex!important;}
+
+  /* Tables : scroll horizontal */
+  .table-wrap,table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+  /* Constitution des classes : zones en colonne */
+  #module-classes [style*="display:flex;gap:12px"]{flex-direction:column!important;}
+}
+
+/* ================================================================
+   RESPONSIVE — Petit mobile (≤ 480px)
+   ================================================================ */
+@media(max-width:480px){
+  .module-bar{padding:0 6px;}
+  .module-tab{padding:5px 7px;}
+  .module-tab-icon{font-size:17px;}
+  .auth-card{padding:16px 14px;}
+  .auth-screen{align-items:flex-start;padding-top:0;}
+  .auth-screen > div{padding:16px 12px;max-width:100%;}
+  /* Logo en haut, card dessous — flux naturel vertical */
+  #auth-screen > div{display:flex;flex-direction:column;align-items:center;}
+  #auth-screen > div > div:first-child{margin-bottom:16px;} /* logo block */
+  .modal-lg,.modal-md{max-width:100%;margin:0;border-radius:var(--radius) var(--radius) 0 0;position:fixed;bottom:0;left:0;right:0;}
+  #save-bar button{font-size:11px;padding:6px 10px;}
+  .form-input{font-size:14px;} /* évite le zoom iOS sur les inputs */
+}
+
+
+/* ===== RÉTROPLANNING ===== */
+.retro-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.retro-timeline{position:relative;padding-left:32px;}
+.retro-timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--border2);}
+.retro-item{position:relative;margin-bottom:16px;}
+.retro-dot{position:absolute;left:-26px;top:14px;width:12px;height:12px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 2px var(--border2);}
+.retro-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 15px;box-shadow:var(--shadow);transition:box-shadow .12s;}
+.retro-card:hover{box-shadow:0 3px 10px rgba(0,0,0,.09);}
+.retro-date-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:4px;}
+.retro-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;}
+.retro-desc{font-size:12px;color:var(--text2);line-height:1.5;}
+.retro-meta{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;align-items:center;}
+.retro-period{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;color:var(--text2);}
+.retro-group-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin:18px 0 8px;display:flex;align-items:center;gap:8px;}
+.retro-group-label::after{content:'';flex:1;height:1px;background:var(--border);}
+/* ===== KANBAN ===== */
+.kanban-wrap{display:flex;gap:10px;overflow-x:auto;padding-bottom:16px;min-height:calc(100vh - 160px);}
+.kanban-col{flex-shrink:0;width:220px;display:flex;flex-direction:column;}
+.kanban-col-head{padding:9px 11px;background:var(--surface2);border-radius:var(--radius) var(--radius) 0 0;border:1px solid var(--border);border-bottom:none;display:flex;align-items:center;justify-content:space-between;}
+.kanban-col-title{font-size:12px;font-weight:600;color:var(--text2);}
+.kanban-col-cnt{font-size:10px;color:var(--text3);background:var(--surface);padding:1px 6px;border-radius:10px;}
+.kanban-col-body{flex:1;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--syn-1);border-radius:0 0 var(--radius) var(--radius);padding:8px;min-height:120px;}
+.kanban-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 11px;margin-bottom:7px;cursor:pointer;box-shadow:var(--shadow);transition:box-shadow .12s;}
+.kanban-card:hover{box-shadow:0 3px 8px rgba(0,0,0,.09);}
+.kanban-card-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:5px;line-height:1.4;}
+.kanban-card-meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
+.kanban-add{width:100%;margin-top:5px;font-size:12px;padding:6px;border:1px dashed var(--border2);border-radius:var(--radius-sm);background:none;color:var(--text3);cursor:pointer;text-align:left;font-family:inherit;transition:all .12s;}
+.kanban-add:hover{background:var(--surface2);color:var(--text2);border-style:solid;}
+
+/* ===== SYNORA MODULE BAR ===== */
+.module-bar{
+  height:50px;background:#0B1F4A;display:flex;align-items:center;
+  padding:0 16px;gap:0;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;z-index:50;
+}
+.module-brand{
+  display:flex;align-items:center;gap:10px;cursor:pointer;
+  padding:6px 12px 6px 0;border-right:1px solid rgba(255,255,255,.12);margin-right:8px;
+  text-decoration:none;
+}
+.module-brand-logo{
+  width:28px;height:28px;border-radius:7px;
+  background:#1C3D8C;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#fff;
+  flex-shrink:0;overflow:hidden;
+}
+.module-brand-text{
+  font-family:'Sora',sans-serif;font-size:16px;font-weight:800;
+  color:#fff;letter-spacing:-.3px;
+}
+.module-tabs{display:flex;gap:2px;align-items:center;}
+.module-tab{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 13px;border-radius:7px;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
+  color:rgba(255,255,255,.55);transition:all .15s;
+  white-space:nowrap;
+}
+.module-tab:not(.active):hover{background:rgba(255,255,255,.14);color:#fff;}
+.module-tab.active{
+  background:#fff;color:var(--nuit,#0B1F4A);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15);
+}
+.module-tab-icon{font-size:14px;opacity:.85;}
+.module-tab.active .module-tab-icon{opacity:1;}
+.module-bar-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.module-user-btn{
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  padding:5px 10px;border-radius:8px;transition:background .12s;
+}
+.module-user-btn:hover{background:rgba(255,255,255,.1);}
+.module-user-av{
+  width:28px;height:28px;border-radius:50%;
+  background:#1C3D8C;border:1.5px solid rgba(255,255,255,.2);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;font-family:'Sora',sans-serif;flex-shrink:0;
+}
+.module-user-name{font-size:12px;font-weight:500;color:#fff;display:block;}
+.module-user-role{font-size:10px;color:rgba(255,255,255,.5);display:block;}
+
+
+/* ===== Barre de menus responsive (statique) ===== */
+.module-brand{flex-shrink:0;}
+.module-bar-right{flex-shrink:0;}
+.module-tabs{flex:1 1 auto;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.4) transparent;}
+.module-tabs::-webkit-scrollbar{height:6px;}
+.module-tabs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.32);border-radius:3px;}
+.module-tabs::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.5);}
+.module-tabs::-webkit-scrollbar-track{background:transparent;}
+.module-tab{flex-shrink:0;}
+
+/* ===== MODULE CONTENT PANES ===== */
+.module-pane{display:none;width:100%;flex:1;overflow:hidden;flex-direction:column;}
+.module-pane.active{display:flex;}
+
+/* ===== SIDEBAR BRAND UPDATE ===== */
+.brand-sub-module{
+  font-family:'Sora',sans-serif;font-size:11px;font-weight:700;
+  color:#0B1F4A;letter-spacing:.2px;margin-bottom:2px;
+}
+.brand-etab{font-size:11px;color:var(--text3);}
+
+/* ===== PLACEHOLDER MODULES ===== */
+.placeholder-module{
+  flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:16px;padding:40px;
+}
+.placeholder-icon{
+  width:72px;height:72px;border-radius:20px;
+  background:linear-gradient(135deg,var(--syn-5),#fff);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-size:30px;box-shadow:var(--shadow-md);
+}
+.placeholder-title{font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:var(--text);}
+.placeholder-sub{font-size:14px;color:var(--text3);text-align:center;max-width:400px;line-height:1.6;}
+.placeholder-badge{
+  font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;
+  background:linear-gradient(135deg,var(--syn-2),var(--syn-3));color:#fff;
+  letter-spacing:.3px;
+}
+
+/* Override sidebar nav font */
+.nav-item{font-family:'Inter',sans-serif;}
+.brand{font-family:'Sora',sans-serif;}
+
+/* ===== RICH TEXT EDITOR (contenteditable) ===== */
+[contenteditable]{outline:none;word-break:break-word;}
+[contenteditable]:empty:before{content:attr(placeholder);color:var(--text3);pointer-events:none;}
+[contenteditable][data-ph]:empty:before{content:attr(data-ph);color:var(--text3);pointer-events:none;}
+[contenteditable] h1{font-size:1.4em;font-weight:700;margin:10px 0 4px;}
+[contenteditable] h2{font-size:1.2em;font-weight:600;margin:8px 0 3px;}
+[contenteditable] h3{font-size:1.05em;font-weight:600;margin:6px 0 3px;}
+[contenteditable] blockquote{border-left:3px solid var(--border2);padding:2px 10px;color:var(--text2);margin:5px 0;}
+[contenteditable] ul,[contenteditable] ol{padding-left:20px;}
+[contenteditable] li{margin-bottom:2px;}
+[contenteditable] strong{font-weight:700;}
+[contenteditable] em{font-style:italic;}
+[contenteditable] u{text-decoration:underline;}
+[contenteditable] s{text-decoration:line-through;}
+[contenteditable] hr{border:none;border-top:1px solid var(--border);margin:8px 0;}
+
+/* Constitution des classes */
+.cc-eleve-card:hover{border-color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.cc-eleve-card[draggable]:active{cursor:grabbing;}
+.cc-zone.drag-over{background:var(--accent-bg)!important;border-color:var(--accent);}
+
+/* ---- TRM Module ---- */
+.trm-stat-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--syn-1);border-radius:var(--radius);padding:16px 20px;cursor:pointer;transition:box-shadow .12s;}
+.trm-stat-card:hover{box-shadow:var(--shadow-md);}
+  /* ---- Module Sécurité ---- */
+  #module-securite .sec-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  #module-securite .sec-table thead th{
+    text-align:left;font-size:10px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+    color:var(--text3);padding:11px 12px;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--surface2);}
+  #module-securite .sec-table tbody td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+  #module-securite .sec-table tbody tr:last-child td{border-bottom:none;}
+  #module-securite .sec-table tbody tr:hover{background:var(--surface2);}
+  #module-securite input[type=text],#module-securite input[type=tel],#module-securite select{
+    font-family:'Inter',sans-serif;font-size:12.5px;color:var(--text);background:var(--surface);
+    border:1px solid var(--border2);border-radius:var(--radius-sm);padding:7px 10px;}
+  #module-securite input[type=text]:focus,#module-securite select:focus{outline:none;border-color:var(--accent);}
+
+/* ===== 1.4.7 — Barre des modules : les onglets qui ne tiennent pas passent dans « Plus » ===== */
+@media(min-width:769px){
+  .module-tabs{overflow:hidden;}
+}
+.module-tab.mt-debord{display:none!important;}
+.module-more{position:relative;flex-shrink:0;margin-left:2px;}
+.module-more-btn{border:none;background:none;}
+.module-more-btn.has-active,.module-more.open .module-more-btn{background:rgba(255,255,255,.14);color:#fff;}
+.module-more-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;min-width:230px;z-index:300;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:6px;}
+.module-more.open .module-more-menu{display:block;}
+.module-more-item{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:none;background:none;border-radius:var(--radius-sm);
+  font-family:'Inter',sans-serif;font-size:13px;color:var(--text);cursor:pointer;text-align:left;}
+.module-more-item:hover,.module-more-item:focus-visible{background:var(--surface2);outline:none;}
+.module-more-item .module-tab-icon{width:18px;text-align:center;color:var(--text2);}
+
+/* ===== 1.4.7 — Mode sombre : éléments restés clairs ===== */
+html.dark .brand-sub-module{color:var(--accent2);}
+html.dark .nav-item.active{background:var(--accent-bg);color:var(--accent2);}
+html.dark .nav-item.active .nav-count{background:var(--surface3);color:var(--accent2);}
+html.dark .year-opt.active{background:var(--accent);border-color:var(--accent);}
+html.dark .todo-section[data-prio="1"]{border-color:var(--p1-border);border-left-color:var(--p1);}
+html.dark .todo-section[data-prio="2"]{border-color:var(--p2-border);border-left-color:var(--p2);}
+html.dark .todo-section[data-prio="3"]{border-color:var(--p3-border);border-left-color:var(--p3);}
+html.dark .todo-section[data-prio="4"]{border-color:var(--p4-border);border-left-color:var(--p4);}
+html.dark .todo-section[data-prio="1"] .section-header{background:var(--p1-bg);}
+html.dark .todo-section[data-prio="2"] .section-header{background:var(--p2-bg);}
+html.dark .todo-section[data-prio="3"] .section-header{background:var(--p3-bg);}
+html.dark .todo-section[data-prio="4"] .section-header{background:var(--p4-bg);}
+html.dark .todo-section .section-drag-area{background:var(--surface)!important;}
+html.dark .todo-section .section-drag-area.drag-over{background:var(--accent-bg)!important;}
+html.dark .todo-section[data-prio="1"] .section-title{color:var(--p1);}
+html.dark .todo-section[data-prio="2"] .section-title{color:var(--p2);}
+html.dark .todo-section[data-prio="3"] .section-title{color:var(--p3);}
+html.dark .todo-section[data-prio="4"] .section-title{color:var(--text2);}
+html.dark .section-header{border-bottom-color:var(--border);}
+html.dark #save-bar{background:var(--surface)!important;}
+html.dark #module-backup-box{background:var(--accent-bg)!important;border-color:var(--p3-border)!important;}
+html.dark #module-backup-label{color:var(--accent2)!important;}
+html.dark #module-backup-box .btn{background:var(--surface2)!important;border-color:var(--border2)!important;color:var(--accent2)!important;}
+html.dark .status-opt.sel-ready{background:var(--amber-bg);color:var(--amber);border-color:var(--p2-border);}
+html.dark .status-opt.sel-done{background:var(--green-bg);color:var(--green);border-color:var(--green-border);}
+/* Fonds et textes écrits en dur dans les gabarits HTML générés par les modules.
+   Les fenêtres d'impression ne portent pas la classe .dark : les exports restent intacts. */
+html.dark [style*="background:#fff" i],html.dark [style*="background:#ffffff" i],html.dark [style*="background: #fff" i]{background:var(--surface)!important;}
+html.dark [style*="background:#f0f0f0" i],html.dark [style*="background:#f8f8f8" i],html.dark [style*="background:#f8fafc" i],
+html.dark [style*="background:#f9fafb" i],html.dark [style*="background:#f5f5f5" i],html.dark [style*="background:#f1f5f9" i],
+html.dark [style*="background:#f3f4f6" i],html.dark [style*="background:#fafafa" i],html.dark [style*="background:#f9f9f9" i],
+html.dark [style*="background:#fdf4ff" i]{background:var(--surface2)!important;}
+html.dark [style*="background:#eff6ff" i],html.dark [style*="background:#f0f4fa" i],html.dark [style*="background:#dbeafe" i],
+html.dark [style*="background:#f0f4ff" i],html.dark [style*="background:#eef2ff" i],html.dark [style*="background:#e8f0fe" i],
+html.dark [style*="background:#dbe7fb" i],html.dark [style*="background:#eef4ff" i],html.dark [style*="background:#f0f7ff" i],
+html.dark [style*="background:#f8faff" i],html.dark [style*="background:#fafcff" i],
+html.dark [style*="linear-gradient(135deg,#EFF6FF" i]{background:var(--accent-bg)!important;}
+html.dark [style*="background:#f0fdf4" i],html.dark [style*="background:#f2fbf5" i],html.dark [style*="background:#f8fff8" i]{background:var(--green-bg)!important;}
+html.dark [style*="background:#fffbeb" i],html.dark [style*="background:#fef9c3" i],html.dark [style*="background:#fef3c7" i],
+html.dark [style*="background:#fff7ed" i],html.dark [style*="background:#fffdf7" i],html.dark [style*="background:#fffef9" i]{background:var(--amber-bg)!important;}
+html.dark [style*="background:#fef2f2" i],html.dark [style*="background:#fee2e2" i],html.dark [style*="background:#fffcfc" i]{background:var(--red-bg)!important;}
+html.dark [style*="color:#1c1916" i],html.dark [style*="color:#374151" i],html.dark [style*="color:#1e3a5f" i]{color:var(--text)!important;}
+html.dark [style*="color:#5a5550" i],html.dark [style*="color:#555" i],html.dark [style*="color:#4b5563" i],html.dark [style*="color:#666" i]{color:var(--text2)!important;}
+html.dark [style*="color:#0b1f4a" i],html.dark [style*="color:#1c3d8c" i],html.dark [style*="color:#1d4ed8" i],html.dark [style*="color:#1e3a8a" i]{color:var(--accent2)!important;}
+html.dark [style*="color:#78350f" i],html.dark [style*="color:#92400e" i],html.dark [style*="color:#b45309" i]{color:var(--amber)!important;}
+html.dark [style*="color:#991b1b" i]{color:var(--red)!important;}
+html.dark [style*="color:var(--nuit" i]{color:var(--accent2)!important;}
+html.dark [style*="color:#166534" i],html.dark [style*="color:#15803d" i]{color:var(--green)!important;}
+html.dark [style*="solid #bfdbfe" i],html.dark [style*="solid #bfd4f5" i]{border-color:var(--p3-border)!important;}
+html.dark [style*="solid #bbf7d0" i]{border-color:var(--green-border)!important;}
+html.dark [style*="solid #fde68a" i]{border-color:var(--p2-border)!important;}
+html.dark [style*="solid #fecaca" i]{border-color:var(--p1-border)!important;}
+html.dark [style*="solid #e5e7eb" i],html.dark [style*="solid #ddd" i],html.dark [style*="solid #e0e0e0" i]{border-color:var(--border)!important;}
+/* Boutons primaires : garder le fond foncé lisible en mode sombre */
+html.dark .btn-primary{background:var(--syn-2);border-color:var(--syn-2);}
+html.dark .btn-primary:hover{background:var(--syn-3);border-color:var(--syn-3);}
+
+/* ===== 1.4.8 — Verrouillage, conservation, utilitaires d'accessibilité ===== */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+#kolio-verrou{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;padding:20px;
+  background:radial-gradient(1200px 600px at 50% 0%,#1C3D8C 0%,#0B1F4A 55%,#07142f 100%);}
+#kolio-verrou.on{display:flex;}
+html.kolio-verrouille #app,html.kolio-verrouille .modal-overlay.open{filter:blur(18px);pointer-events:none;user-select:none;}
+.kv-carte{width:100%;max-width:380px;background:var(--surface);border-radius:var(--radius-lg);padding:32px 28px 22px;box-shadow:0 24px 70px rgba(0,0,0,.35);text-align:center;}
+.kv-logo{font-size:34px;margin-bottom:8px;display:flex;justify-content:center;}
+.kv-ico{width:42px!important;height:42px!important;color:var(--accent);stroke-width:1.75!important;}
+.btn:disabled,.btn[disabled]{opacity:.5;cursor:not-allowed;}
+.kv-titre{font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.kv-sous{font-size:14px;color:var(--text2);margin-bottom:18px;line-height:1.5;}
+.kv-champ{font-size:18px!important;text-align:center;letter-spacing:.2em;padding:11px 12px!important;}
+.kv-erreur{min-height:20px;font-size:13px;color:var(--red);margin:8px 0;}
+.kv-bouton{font-size:14px!important;padding:11px!important;}
+.kv-lien{margin-top:14px;background:none;border:none;color:var(--accent);font-size:13px;cursor:pointer;text-decoration:underline;font-family:inherit;}
+.kv-lien:focus-visible,.kv-bouton:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.module-lock-btn{background:none;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:8px;width:34px;height:32px;cursor:pointer;font-size:14px;line-height:1;}
+.module-lock-btn:hover{background:rgba(255,255,255,.12);}
+.module-lock-btn:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.acc-texte{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px;}
+.acc-texte-discret{font-size:12px;color:var(--text3);}
+.acc-message{font-size:13px;min-height:18px;margin:4px 0 10px;}
+.acc-message.ok{color:var(--green);} .acc-message.erreur{color:var(--red);}
+.acc-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.acc-case{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);margin:12px 0 0;cursor:pointer;}
+.verrou-secours{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:22px;font-weight:700;letter-spacing:.12em;text-align:center;
+  padding:14px;border:2px dashed var(--border2);border-radius:var(--radius);background:var(--surface2);color:var(--text);user-select:all;}
+kbd{font-family:inherit;font-size:11px;padding:1px 6px;border:1px solid var(--border2);border-bottom-width:2px;border-radius:4px;background:var(--surface2);color:var(--text);}
+.cons-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px;}
+.cons-table th,.cons-table td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle;}
+.cons-table thead th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--text2);font-weight:600;}
+.cons-table tbody th{font-weight:400;}
+.cons-titre{font-weight:600;color:var(--text);} .cons-detail{font-size:12px;color:var(--text2);}
+.cons-n{text-align:center!important;}
+.form-input-sm{font-size:12px!important;padding:5px 8px!important;width:auto!important;}
+.cons-pj{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;color:var(--text2);
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:12px;}
+
+/* ===== 1.4.8 — Lot 3 : design ===== */
+/* Contraste (WCAG AA ≥ 4,5:1) : le gris « tertiaire » était à 2,5:1 */
+:root{--text3:#646B79;--font-size-base:14px;}
+html.dark{--text3:#8F98B5;--text2:#A3ACC6;}
+/* Gris trop clairs écrits en dur dans les modules */
+[style*="color:#888" i],[style*="color:#999" i],[style*="color:#aaa" i],[style*="color:#9ca3af" i],
+[style*="color:#94a3b8" i],[style*="color:#9a938a" i],[style*="color:#bbb" i],[style*="color:var(--text3)" i]{color:var(--text3)!important;}
+/* Tailles minimales lisibles : 11 px au lieu de 9–10 px */
+[style*="font-size:9px"],[style*="font-size:9.5px"],[style*="font-size:10px"],[style*="font-size: 10px"]{font-size:11px!important;}
+[style*="font-size:10.5px"]{font-size:11.5px!important;}
+.badge,.nav-count,.section-badge,.user-role,.module-user-role,.section-title-sub,.brand-etab{font-size:11px;}
+.nav-item{font-size:13px;color:var(--text2);}
+.nav-item:hover{color:var(--text);}
+.form-label{font-size:11.5px;}
+.btn{font-size:12.5px;}
+.module-tab{font-size:12.5px;}
+input::placeholder,textarea::placeholder{color:var(--text3);opacity:1;}
+/* Polices : plus de police absente (DM Serif Display) ni de graisse simulée */
+.auth-logo,.brand,.meeting-detail-title{font-family:'Sora',sans-serif;font-weight:600;letter-spacing:-.2px;}
+/* Icônes vectorielles (Lucide) */
+.kico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:middle;display:inline-block;}
+.nav-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;}
+.nav-icon .kico{width:17px;height:17px;}
+.nav-item.active .nav-icon .kico{stroke-width:2.25;}
+.module-tab-icon{display:inline-flex;align-items:center;}
+.module-tab-icon .kico{width:15px;height:15px;}
+.module-more-item .module-tab-icon .kico{width:16px;height:16px;color:var(--text2);}
+.module-lock-btn{display:inline-flex;align-items:center;justify-content:center;}
+.module-lock-btn .kico{width:15px;height:15px;}
+.module-user-av .kico{width:15px;height:15px;}
+/* Focus clavier visible partout */
+.btn:focus-visible,.module-tab:focus-visible,.nav-item:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;}
+/* Barre de sauvegarde (auparavant tout en styles en ligne) */
+#save-bar.save-bar{background:var(--surface);border-top:1px solid var(--border);border-right:1px solid var(--border);}
+.mbk-box{background:var(--accent-bg);border:1px solid var(--p3-border);border-radius:8px;padding:6px 8px;}
+.mbk-label{font-size:10.5px;color:var(--accent);font-weight:700;letter-spacing:.3px;text-align:center;margin-bottom:5px;}
+.mbk-btn{flex:1;font-size:11px!important;padding:4px 5px!important;justify-content:center;background:var(--surface)!important;border-color:var(--p3-border)!important;color:var(--accent)!important;}
+.save-bar-titre{font-size:10.5px;color:var(--text3);font-weight:600;letter-spacing:.3px;text-align:center;}
+.save-bar-btn{flex:1;font-size:11.5px!important;padding:4px 6px!important;justify-content:center;}
+html.dark .mbk-label{color:var(--accent2);}
+/* Mode sombre : derniers éléments clairs */
+html.dark .modal-overlay{background:rgba(0,0,0,.6);}
+html.dark .form-input{background:var(--surface2);border-color:var(--border2);}
+html.dark .badge.s-done,html.dark .s-done{background:var(--green-bg);color:var(--green);}
+html.dark table th[style*="background:#EFF6FF" i]{background:var(--surface3)!important;color:var(--text)!important;}
+html.dark [style*="border-bottom:1px solid #f0f0f0" i],html.dark [style*="border-bottom:1px solid #eee" i]{border-bottom-color:var(--border)!important;}
+html.dark [style*="background:#f8fafc" i]{background:var(--surface2)!important;}
+html.dark .todo-section[data-prio="1"] .section-badge{background:var(--p1-border);color:#fff;}
+html.dark .todo-section[data-prio="2"] .section-badge{background:var(--p2-border);color:#fff;}
+html.dark .todo-section[data-prio="3"] .section-badge{background:var(--p3-border);color:#fff;}
+html.dark .todo-section[data-prio="4"] .section-badge{background:var(--surface3);color:var(--text);}
+/* Petit écran (Split View, fenêtre étroite) : onglets de modules en icônes seules */
+@media(max-width:768px){ .module-tab{font-size:0!important;gap:0!important;} .module-tab-icon .kico{width:19px;height:19px;} }
+/* La barre de sauvegarde ne masque plus le bas des menus latéraux */
+.sidebar{padding-bottom:180px;}
+
+/* ===== 1.4.9 — Ergonomie et nouvelles fonctions ===== */
+/* Notifications */
+#k-toasts{position:fixed;right:18px;bottom:18px;z-index:100500;display:flex;flex-direction:column;gap:8px;align-items:flex-end;pointer-events:none;}
+.k-toast{pointer-events:auto;display:flex;align-items:center;gap:12px;min-width:260px;max-width:440px;padding:11px 12px 11px 16px;border-radius:var(--radius);
+  background:#1e293b;color:#fff;box-shadow:var(--shadow-lg);font-size:13px;line-height:1.45;animation:kToastIn .18s ease-out;}
+.k-toast-ok{border-left:4px solid #4ADE80;} .k-toast-erreur{border-left:4px solid #F87171;}
+.k-toast-txt{flex:1;}
+.k-toast-btn{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:6px;padding:4px 10px;font:600 12.5px 'Inter',sans-serif;cursor:pointer;}
+.k-toast-btn:hover{background:rgba(255,255,255,.12);}
+.k-toast-x{background:none;border:none;color:#cbd5e1;font-size:18px;line-height:1;cursor:pointer;padding:0 2px;}
+.k-toast.k-sortie{opacity:0;transform:translateY(6px);transition:all .2s;}
+@keyframes kToastIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+/* Message (remplace alert) */
+#modal-kMessage{z-index:100200;}
+.k-message-txt{font-size:14px;line-height:1.6;color:var(--text);white-space:pre-line;}
+.k-message-erreur{border-top:4px solid var(--red);} .k-message-ok{border-top:4px solid var(--green);}
+/* Raccourcis */
+.k-raccourcis{width:100%;border-collapse:collapse;font-size:13px;}
+.k-raccourcis td{padding:7px 6px;border-bottom:1px solid var(--border);color:var(--text);}
+.k-raccourcis td:first-child{white-space:nowrap;width:40%;}
+/* Barre de sauvegarde repliée */
+#save-bar.save-bar-repliee{gap:0;padding:0!important;}
+#save-bar .save-panneau{display:none;flex-direction:column;gap:8px;padding:8px 10px;border-bottom:1px solid var(--border);}
+#save-bar.save-bar-ouverte .save-panneau{display:flex;}
+.save-tete{display:flex;align-items:center;gap:6px;padding:9px 8px 9px 10px;font-size:11.5px;color:var(--text2);}
+.save-etat-ico{color:var(--green);display:inline-flex;} .save-etat-ico .kico{width:15px;height:15px;}
+.save-etat{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.save-bascule{background:none;border:1px solid var(--border2);border-radius:var(--radius-sm);padding:3px 8px;font:500 11.5px 'Inter',sans-serif;color:var(--text2);cursor:pointer;}
+.save-bascule:hover{color:var(--text);background:var(--surface2);}
+.sidebar{padding-bottom:56px;}
+#save-bar.save-bar-ouverte ~ * .sidebar{padding-bottom:200px;}
+/* Recherche globale */
+.k-recherche-fond{align-items:flex-start!important;padding-top:12vh!important;}
+.k-recherche{max-width:640px!important;padding:0!important;overflow:hidden!important;}
+.k-rech-champ{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);color:var(--text2);}
+.k-rech-champ .kico{width:18px;height:18px;}
+.k-rech-champ input{flex:1;border:none;outline:none;background:transparent;font:400 16px 'Inter',sans-serif;color:var(--text);}
+.k-rech-champ input:focus-visible{outline:none;}
+.k-rech-liste{list-style:none;max-height:52vh;overflow-y:auto;padding:6px;}
+.k-rech-item{display:grid;grid-template-columns:110px 1fr;grid-template-rows:auto auto;column-gap:10px;padding:8px 10px;border-radius:var(--radius-sm);cursor:pointer;}
+.k-rech-item.on{background:var(--accent-bg);}
+.k-rech-type{grid-row:1/3;align-self:center;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text3);}
+.k-rech-titre{font-size:14px;color:var(--text);font-weight:500;}
+.k-rech-sous{font-size:12px;color:var(--text2);}
+.k-rech-vide{padding:16px;font-size:13px;color:var(--text2);}
+.k-rech-pied{padding:9px 16px;border-top:1px solid var(--border);font-size:11.5px;color:var(--text3);background:var(--surface2);}
+/* Fiche élève 360° */
+.k360-tete{display:flex;gap:14px;align-items:center;margin-bottom:14px;}
+.k360-avatar{width:52px;height:52px;border-radius:50%;background:var(--accent-bg);color:var(--accent);display:flex;align-items:center;justify-content:center;font:700 18px 'Sora',sans-serif;flex-shrink:0;}
+.k360-nom{font:600 20px 'Sora',sans-serif;color:var(--text);margin:0 0 6px!important;}
+.k360-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.k360-ident{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 16px;padding:12px 14px;background:var(--surface2);border-radius:var(--radius);margin-bottom:14px;}
+.k360-ident dt{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--text3);font-weight:600;}
+.k360-ident dd{font-size:13.5px;color:var(--text);}
+.k360-section{margin-bottom:12px;}
+.k360-section h4{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.k360-n{font-size:11px;background:var(--surface3);color:var(--text2);border-radius:10px;padding:1px 7px;}
+.k360-section ul{list-style:none;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;}
+.k360-section li+li{border-top:1px solid var(--border);}
+.k360-lien{display:block;width:100%;text-align:left;background:var(--surface);border:none;padding:8px 12px;font:400 13px 'Inter',sans-serif;color:var(--text);cursor:pointer;}
+.k360-lien:hover{background:var(--accent-bg);}
+/* Aujourd'hui */
+.aujourdhui{max-width:1180px;}
+.aj-entete{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+.aj-salut{font:600 22px 'Sora',sans-serif;color:var(--text);}
+.aj-date{font-size:13.5px;color:var(--text2);margin-top:3px;}
+.aj-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.aj-actions .kico{width:15px;height:15px;}
+.aj-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;}
+.aj-carte{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 16px 12px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.aj-titre{display:flex;align-items:center;gap:8px;font:600 14px 'Inter',sans-serif;color:var(--text);margin-bottom:10px;}
+.aj-titre .kico{width:17px;height:17px;color:var(--accent);}
+.aj-liste{list-style:none;flex:1;}
+.aj-ligne{display:flex;flex-direction:column;align-items:flex-start;width:100%;text-align:left;background:none;border:none;border-radius:var(--radius-sm);padding:7px 8px;cursor:pointer;font-family:'Inter',sans-serif;}
+.aj-ligne:hover{background:var(--surface2);}
+.aj-ligne-t{font-size:13.5px;color:var(--text);}
+.aj-ligne-s{font-size:12px;color:var(--text2);}
+.aj-retard .aj-ligne-s{color:var(--red);font-weight:600;}
+.aj-jour .aj-ligne-s{color:var(--amber);font-weight:600;}
+.aj-vide{font-size:13px;color:var(--text2);line-height:1.55;padding:4px 2px 8px;flex:1;}
+.aj-chiffre{font-size:13.5px;color:var(--text2);margin-bottom:6px;} .aj-chiffre strong{font:700 22px 'Sora',sans-serif;color:var(--text);}
+.aj-plus{align-self:flex-start;margin-top:8px;background:none;border:none;color:var(--accent);font:500 12.5px 'Inter',sans-serif;cursor:pointer;padding:4px 2px;}
+.aj-plus:hover{text-decoration:underline;}
+/* Assistant de fin d'année */
+.aa-encart{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--accent-bg);border:1px solid var(--p3-border);
+  border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:14px;font-size:13px;color:var(--text);}
+.aa-etapes{padding-left:22px;display:flex;flex-direction:column;gap:14px;font-size:13.5px;color:var(--text);line-height:1.55;}
+.aa-ligne{display:flex;gap:8px;align-items:center;margin-top:6px;}
+.aa-options{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin-top:6px;}
+.aa-options .acc-case{margin-top:6px;align-items:flex-start;}
+/* Menus au clavier */
+.nav-item:focus-visible,.module-tab:focus-visible,.module-user-btn:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.module-tab:focus-visible{outline-color:#fff;}
+</style>
+<script src="./vendor/jszip.min.js"></script>
+<script src="./vendor/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!-- ===== AUTH SCREEN ===== -->
+<div class="auth-screen" id="auth-screen">
+  <div style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:680px;padding:20px;">
+    <!-- Logo -->
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:6px;">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImtnMSIgeDE9IjAiIHkxPSIwIiB4Mj0iNDgiIHkyPSI0OCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTM0MEE4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjRBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSIxMSIgZmlsbD0idXJsKCNrZzEpIi8+CiAgPHJlY3QgeD0iMTIiIHk9IjExIiB3aWR0aD0iNSIgaGVpZ2h0PSIyNiIgcng9IjIiIGZpbGw9IndoaXRlIi8+CiAgPHBvbHlnb24gcG9pbnRzPSIxNywyNCAzMiwxMSAzNywxMSAyMiwyNCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz4KICA8cG9seWdvbiBwb2ludHM9IjE3LDI0IDIyLDI0IDM3LDM3IDMyLDM3IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC44NSIvPgogIDxjaXJjbGUgY3g9IjM3IiBjeT0iMTEiIHI9IjQuNSIgZmlsbD0iIzRBN0ZFNSIvPgo8L3N2Zz4=" style="width:52px;height:52px;" alt="Kolio">
+        <span style="font-family:'Sora',sans-serif;font-size:46px;font-weight:800;background:linear-gradient(135deg,var(--syn-1),var(--syn-3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">Kolio</span>
+      </div>
+    </div>
+
+    <!-- Card principale -->
+    <div class="auth-card" style="width:100%;max-width:680px;padding:28px 32px;">
+      <!-- Bandeau RGPD -->
+      <div style="background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BFDBFE;border-radius:var(--rs);padding:12px 16px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">🔒</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#1D4ED8;margin-bottom:3px;">Vos données restent sur votre ordinateur</div>
+          <div style="font-size:12px;color:#1e3a5f;line-height:1.6;">Kolio fonctionne <strong>entièrement hors ligne</strong>. Le logiciel n'établit aucune connexion réseau. Vos données sont enregistrées <strong>sur cet iPad</strong> uniquement, et ne sont transmises ni à l'Éditeur ni à un tiers. Vous en demeurez le <strong>responsable de traitement</strong> au sens du RGPD.</div>
+        </div>
+      </div>
+
+      <!-- Onglets CGU / Mentions -->
+      <div style="display:flex;border-bottom:2px solid var(--border);margin-bottom:16px;gap:0;">
+        <div id="lgt-cgu" onclick="showLegal('cgu')" style="padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:2px solid var(--accent);margin-bottom:-2px;color:var(--accent);">Licence d'utilisation</div>
+        <div id="lgt-ml" onclick="showLegal('ml')" style="padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text3);">Mentions légales</div>
+      </div>
+
+      <!-- CGU -->
+      <div id="legal-cgu" style="height:260px;overflow-y:auto;font-size:12px;line-height:1.7;color:var(--text2);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;background:var(--surface2);margin-bottom:16px;">
+        <p style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:10px;">Contrat de Licence Utilisateur Final — Kolio</p>
+        <p style="color:var(--text3);margin-bottom:12px;">Version 2.1 du contrat — 2 octobre 2026 · Logiciel Kolio v1.5.1</p>
+
+        <p style="background:var(--p2-bg);border:1px solid var(--p2-border);border-radius:var(--rs);padding:9px 11px;margin-bottom:12px;color:var(--text);">
+        <strong>Kolio est un logiciel propriétaire.</strong> Il n'est ni libre, ni open source, ni dans le domaine public. Sa mise à disposition gratuite ne vaut pas renonciation aux droits de son auteur. L'installation ou l'utilisation du logiciel vaut acceptation sans réserve du présent contrat.</p>
+
+        <p><strong>Article 1 — Objet</strong><br>
+        Le présent contrat régit la concession d'un droit d'usage du logiciel Kolio, outil de pilotage et d'administration d'établissement scolaire (ci-après « le Logiciel »), développé par Florian LUCAS (ci-après « l'Éditeur ») au bénéfice de la personne à laquelle un exemplaire a été nominativement remis (ci-après « le Licencié »).</p>
+
+        <p><strong>Article 2 — Propriété intellectuelle</strong><br>
+        Le Logiciel est protégé par les articles L.112-2 13° et L.122-6 du Code de la propriété intellectuelle et par les conventions internationales. Le code source et le code objet, l'interface graphique, l'architecture, les algorithmes, la documentation, le nom et l'identité visuelle demeurent la propriété exclusive de l'Éditeur. <strong>Le présent contrat n'opère aucune cession de droits</strong> : il concède un simple droit d'usage. Aucune mention de paternité, de copyright ou de version ne peut être supprimée ni altérée.</p>
+
+        <p><strong>Article 3 — Étendue de la licence</strong><br>
+        L'Éditeur concède au Licencié, à titre gratuit, une licence <strong>personnelle et nominative</strong>, <strong>non exclusive</strong>, <strong>non transférable</strong> (ni cession, ni sous-licence, ni prêt, ni location), <strong>révocable</strong>, limitée à <strong>un poste unique</strong>, au territoire français, et à un usage professionnel interne dans le cadre de fonctions de direction d'établissement scolaire. Toute installation supplémentaire requiert l'accord écrit préalable de l'Éditeur.</p>
+
+        <p><strong>Article 4 — Restrictions</strong><br>
+        Sont interdits sans autorisation écrite préalable :<br>
+        4.1 la reproduction du Logiciel, hors copie de sauvegarde (article 5) ;<br>
+        4.2 sa diffusion ou sa transmission à un tiers, y compris à un collègue, un autre établissement, une collectivité ou un service académique ;<br>
+        4.3 sa mise en ligne sur un serveur, un site, un espace de partage ou un dépôt de code ;<br>
+        4.4 toute exploitation commerciale, directe ou indirecte ;<br>
+        4.5 sa modification, son adaptation, sa traduction, la création d'œuvres dérivées ;<br>
+        4.6 son désassemblage, sa décompilation, sa rétro-ingénierie, ainsi que l'extraction du contenu de l'archive applicative, sous la seule réserve de l'article 5 ;<br>
+        4.7 le contournement de tout dispositif technique de protection ou d'identification ;<br>
+        4.8 la suppression du fichier LICENCE.txt ou des présentes mentions.</p>
+
+        <p><strong>Article 5 — Réserves légales impératives</strong><br>
+        L'article 4 s'applique sans préjudice des prérogatives que la loi reconnaît au Licencié et auxquelles il ne peut être contractuellement dérogé : la <strong>copie de sauvegarde</strong> nécessaire à la préservation de l'usage (art. L.122-6-1 II du CPI) ; l'<strong>observation, l'étude et le test</strong> du fonctionnement afin d'en déterminer les idées et principes (art. L.122-6-1 III) ; la reproduction et la traduction du code lorsqu'elles sont indispensables à l'<strong>interopérabilité</strong> avec un autre logiciel, dans les strictes conditions posées par l'article L.122-6-1 IV. Toute stipulation contraire serait réputée non écrite, les autres dispositions conservant leur plein effet.</p>
+
+        <p><strong>Article 6 — Sanctions</strong><br>
+        Toute utilisation non autorisée par le présent contrat constitue une <strong>contrefaçon</strong> au sens des articles L.335-2 et L.335-3 du Code de la propriété intellectuelle, punie de <strong>trois ans d'emprisonnement et de 300 000 euros d'amende</strong>, sans préjudice des dommages et intérêts et de la résiliation de plein droit de la licence.</p>
+
+        <p><strong>Article 7 — Données à caractère personnel</strong><br>
+        Le Logiciel fonctionne intégralement hors ligne : il n'établit aucune connexion réseau et ne transmet aucune donnée à l'Éditeur ou à un tiers. Les données saisies sont enregistrées dans un fichier local, sur le seul poste autorisé.<br>
+        Lorsqu'il traite des données relatives à des élèves ou à des personnels, <strong>le Licencié agit en qualité de responsable de traitement</strong> au sens de l'article 4.7 du Règlement (UE) 2016/679. L'Éditeur n'est ni responsable de traitement, ni sous-traitant au sens de l'article 28 du même règlement. Il incombe au seul Licencié de vérifier la base légale du traitement, de l'inscrire au registre de son établissement, d'informer les personnes concernées, de sécuriser son poste, et d'obtenir le cas échéant l'accord de sa hiérarchie et de son délégué à la protection des données.</p>
+
+        <p><strong>Article 8 — Absence de garantie</strong><br>
+        Le Logiciel est fourni « en l'état », sans garantie expresse ou implicite, notamment d'adéquation à un usage particulier, d'exactitude des calculs ou de continuité de fonctionnement. Il appartient au Licencié de vérifier les résultats produits avant tout usage engageant et d'effectuer des sauvegardes régulières.</p>
+
+        <p><strong>Article 9 — Limitation de responsabilité</strong><br>
+        Le Logiciel étant concédé à titre gratuit pour un usage professionnel, la responsabilité de l'Éditeur ne saurait être engagée à raison d'un dommage direct ou indirect résultant de son utilisation ou de l'impossibilité de l'utiliser, en particulier au titre d'une perte de données ou d'une décision prise sur la foi de ses résultats. Cette limitation ne s'applique ni au dol, ni à la faute lourde, ni aux dommages corporels.</p>
+
+        <p><strong>Article 10 — Durée et résiliation</strong><br>
+        La licence prend effet à l'acceptation du présent contrat. Elle est <strong>résiliée de plein droit, sans mise en demeure</strong>, en cas de manquement aux articles 2, 3 ou 4. L'Éditeur peut par ailleurs la révoquer moyennant un préavis écrit de trente jours. En cas de résiliation, le Licencié désinstalle le Logiciel et détruit toute copie ; il conserve la libre disposition de ses données, dont il peut assurer l'export préalable.</p>
+
+        <p><strong>Article 11 — Composants tiers</strong><br>
+        Le Logiciel intègre Electron, Chromium, Node.js et JSZip (licences MIT et BSD 3-Clause), la bibliothèque SheetJS (licence Apache 2.0), les icônes Lucide (licences ISC et MIT) ainsi que les polices Inter et Sora (SIL Open Font License 1.1). Ces licences prévalent sur le présent contrat pour ces composants, et pour eux seuls ; elles n'emportent aucun droit sur le code propre de Kolio. Le détail figure dans le fichier LICENCE.txt fourni avec le Logiciel.</p>
+
+        <p><strong>Article 12 — Preuve de l'acceptation</strong><br>
+        L'acceptation du présent contrat est enregistrée dans le fichier de données local, avec la date, l'heure et le numéro de version du contrat accepté. Le Licencié reconnaît la valeur probatoire de cet enregistrement. Toute modification substantielle du contrat donne lieu à une nouvelle acceptation au lancement suivant.</p>
+
+        <p><strong>Article 13 — Dispositions diverses</strong><br>
+        La nullité d'une clause n'affecte pas les autres. Le fait pour l'Éditeur de ne pas se prévaloir d'un manquement ne vaut pas renonciation. Le présent contrat exprime l'intégralité de l'accord des parties quant à son objet.</p>
+
+        <p><strong>Article 14 — Droit applicable et juridiction</strong><br>
+        Le présent contrat est soumis au droit français. À défaut de résolution amiable dans un délai de deux mois à compter de la première réclamation écrite, tout litige sera porté devant les juridictions françaises compétentes.</p>
+      </div>
+
+
+<!-- Mentions légales -->
+      <div id="legal-ml" style="display:none;height:260px;overflow-y:auto;font-size:12px;line-height:1.7;color:var(--text2);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;background:var(--surface2);margin-bottom:16px;">
+        <p style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:10px;">Mentions légales — Kolio</p>
+        <p style="color:var(--text3);margin-bottom:12px;">Mise à jour : 2 octobre 2026</p>
+
+        <p><strong>Éditeur</strong><br>
+        Florian LUCAS, personne physique.<br>
+        Directeur de la publication : Florian LUCAS.<br>
+        Contact : <a href="mailto:florian.lucas@ac-clermont.fr" style="color:var(--accent);text-decoration:none;">florian.lucas@ac-clermont.fr</a></p>
+
+        <p><strong>Titulaire des droits</strong><br>
+        © 2026 Florian LUCAS. Tous droits réservés.<br>
+        Kolio, son code source, son interface, son architecture, ses algorithmes, son nom et son identité visuelle sont protégés par le droit français et international de la propriété intellectuelle. Kolio est un <strong>logiciel propriétaire</strong> : sa reproduction ou sa représentation, intégrale ou partielle, est interdite sans autorisation écrite de l'auteur.</p>
+
+        <p><strong>Nature et diffusion du logiciel</strong><br>
+        Kolio est un logiciel de bureau, distribué sous forme d'exécutable, <strong>nominativement</strong> et à titre gratuit, à des personnels de direction identifiés. Il n'est pas mis à disposition du public. Il ne fait l'objet d'aucun hébergement : aucune version en ligne n'est publiée, et le logiciel n'appelle aucun serveur.</p>
+
+        <p><strong>Absence de collecte</strong><br>
+        Kolio n'établit aucune connexion réseau. Il ne collecte, ne transmet et ne stocke aucune donnée à destination de l'Éditeur ou d'un tiers. Il n'utilise aucun cookie, aucun traceur, aucun outil de mesure d'audience. Les données saisies sont enregistrées dans un fichier local, sur le poste de l'utilisateur, dont celui-ci assure seul la conservation et la sécurisation.</p>
+
+        <p><strong>Traitement de données personnelles</strong><br>
+        L'utilisateur qui saisit dans Kolio des données relatives à des élèves ou à des personnels est <strong>responsable de traitement</strong> au sens du Règlement (UE) 2016/679. L'Éditeur n'intervient à aucun titre dans ce traitement. L'utilisateur se rapproche du délégué à la protection des données de son établissement ou de son académie pour l'inscription au registre des traitements.</p>
+
+        <p><strong>Composants tiers</strong><br>
+        Electron, Chromium, Node.js et JSZip (licences MIT et BSD 3-Clause) ; SheetJS (licence Apache 2.0) ; icônes Lucide (licences ISC et MIT) ; polices Inter et Sora (SIL Open Font License 1.1). Le texte intégral de ces licences figure dans le fichier <code style="background:var(--surface3);padding:1px 5px;border-radius:3px;">LICENCE.txt</code> installé avec le logiciel.</p>
+
+        <p><strong>Signalement</strong><br>
+        Toute diffusion non autorisée du logiciel, ainsi que toute anomalie constatée, peuvent être signalées à l'Éditeur à l'adresse de contact ci-dessus.</p>
+      </div>
+
+      <!-- Acceptance -->
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:18px;">
+        <input type="checkbox" id="cgu-accept" style="accent-color:var(--accent);width:18px;height:18px;margin-top:1px;flex-shrink:0;">
+        <span style="font-size:13px;color:var(--text2);line-height:1.5;">J'ai lu et j'accepte le <strong style="color:var(--text);">Contrat de Licence Utilisateur Final</strong> (version 2.1) et les <strong style="color:var(--text);">Mentions légales</strong>. Je reconnais que Kolio est un <strong style="color:var(--text);">logiciel propriétaire</strong> concédé à titre personnel pour un seul poste, que <strong style="color:var(--text);">toute copie ou diffusion à un tiers est interdite</strong>, et que je suis seul responsable des données que j'y saisis.</span>
+      </label>
+
+      <button class="btn btn-primary btn-block" onclick="doAcceptCGU()" id="btn-entrer" style="font-size:14px;padding:13px;">
+        Accéder à Kolio →
+      </button>
+
+      <div style="text-align:center;margin-top:14px;font-size:11px;color:var(--text3);">
+        © 2026 Florian LUCAS — Tous droits réservés · Kolio v1.5.1 · Licence nominative, un poste
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="app" id="app">
+  <!-- Overlay sidebar mobile -->
+  <div id="sb-overlay" class="sb-overlay" onclick="closeMobileSidebar()"></div>
+  <!-- Barre sauvegarde persistante -->
+  <div id="save-bar" class="save-bar" style="position:fixed;bottom:0;left:0;width:220px;padding:8px 10px;z-index:50;display:flex;flex-direction:column;gap:8px;">
+    <!-- Sauvegarde du module courant (couleur distincte) -->
+    <div id="module-backup-box" class="mbk-box" style="display:none;">
+      <div id="module-backup-label" class="mbk-label">CE MODULE</div>
+      <div style="display:flex;align-items:center;gap:5px;">
+        <button id="module-save-btn" title="Télécharger une sauvegarde de ce seul module, pour la partager avec un collègue" class="btn btn-sm mbk-btn">⬇ Sauvegarder</button>
+        <button id="module-restore-btn" title="Remplacer ou compléter ce seul module à partir d'une sauvegarde" class="btn btn-sm mbk-btn">⬆ Restaurer</button>
+      </div>
+    </div>
+    <div class="save-bar-titre">SAUVEGARDE COMPLÈTE</div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button onclick="exportBackup()" title="Sauvegarder TOUTES les données de Kolio (tous les modules)" class="btn btn-sm save-bar-btn">💾 Sauvegarder</button>
+      <label class="btn btn-sm save-bar-btn" title="Restaurer une sauvegarde complète (remplace toutes les données)" style="cursor:pointer;">
+        📂 Restaurer<input type="file" accept=".json" style="display:none;" onchange="importBackup(this)">
+      </label>
+    </div>
+    <button class="btn btn-sm" onclick="openModal('legalApp')" title="À propos et mentions légales" style="font-size:11px;padding:4px 6px;justify-content:center;color:var(--text2);">⚖ À propos</button>
+  </div>
+  <!-- TOP MODULE BAR -->
+  <div class="module-bar" id="module-bar">
+    <!-- Hamburger mobile — gauche -->
+    <button class="mobile-nav-btn" id="module-sidebar-btn" onclick="toggleModuleSidebar()" style="display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 10px;line-height:1;margin-right:4px;flex-shrink:0;" title="Menu">☰</button>
+    <div class="module-brand" onclick="switchModule(firstVisibleModule())" title="Accueil">
+      <div class="module-brand-logo" style="padding:0;background:none;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImtnMSIgeDE9IjAiIHkxPSIwIiB4Mj0iNDgiIHkyPSI0OCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTM0MEE4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUY0QSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTEiIGZpbGw9InVybCgja2cxKSIvPgogIDwhLS0gSyA6IGJhcnJlIHZlcnRpY2FsZSAtLT4KICA8cmVjdCB4PSIxMiIgeT0iMTEiIHdpZHRoPSI1IiBoZWlnaHQ9IjI2IiByeD0iMiIgZmlsbD0id2hpdGUiLz4KICA8IS0tIEsgOiBicmFuY2hlIGhhdXRlIChkaWFnb25hbGUgbW9udGFudGUgZHJvaXRlKSAtLT4KICA8cG9seWdvbiBwb2ludHM9IjE3LDI0IDMyLDExIDM3LDExIDIyLDI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gSyA6IGJyYW5jaGUgYmFzc2UgKGRpYWdvbmFsZSBkZXNjZW5kYW50ZSBkcm9pdGUpIC0tPgogIDxwb2x5Z29uIHBvaW50cz0iMTcsMjQgMjIsMjQgMzcsMzcgMzIsMzciIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjg1Ii8+CiAgPCEtLSBBY2NlbnQgcG9pbnQgYmxldSAtLT4KICA8Y2lyY2xlIGN4PSIzNyIgY3k9IjExIiByPSI0LjUiIGZpbGw9IiM0QTdGRTUiLz4KPC9zdmc+" style="width:28px;height:28px;" alt="K"></div>
+      <div class="module-brand-text">Kolio</div>
+    </div>
+    <div class="module-tabs">
+      <div class="module-tab active" id="mtab-quotidien" onclick="switchModule('quotidien')">
+        <span class="module-tab-icon">◈</span>
+        Organisation quotidienne
+      </div>
+      <div class="module-tab" id="mtab-suivi" onclick="switchModule('suivi')">
+        <span class="module-tab-icon">👁</span>
+        Suivi
+      </div>
+      <div class="module-tab" id="mtab-phare" onclick="switchModule('phare')">
+        <span class="module-tab-icon">🛡</span>
+        pHARe
+      </div>
+      <div class="module-tab" id="mtab-svp" onclick="switchModule('svp')">
+        <span class="module-tab-icon">✈</span>
+        Sorties &amp; Voyages
+      </div>
+      <div class="module-tab" id="mtab-pilotage" onclick="switchModule('pilotage')">
+        <span class="module-tab-icon">⬡</span>
+        Pilotage
+      </div>
+      <div class="module-tab" id="mtab-cdc" onclick="switchModule('cdc')">
+        <span class="module-tab-icon">❖</span>
+        Conseils de classe
+      </div>
+      <div class="module-tab" id="mtab-examens" onclick="switchModule('examens')">
+        <span class="module-tab-icon">✦</span>
+        Gestion des examens
+      </div>
+      <div class="module-tab" id="mtab-planning" onclick="switchModule('planning')">
+        <span class="module-tab-icon">◫</span>
+        Planning
+      </div>
+      <div class="module-tab" id="mtab-eval" onclick="switchModule('eval')">
+        <span class="module-tab-icon">▦</span>
+        Éval. nationales
+      </div>
+      <div class="module-tab" id="mtab-trm" onclick="switchModule('trm')">
+        <span class="module-tab-icon">⊞</span>
+        TRM
+      </div>
+      <div class="module-tab" id="mtab-classes" onclick="switchModule('classes')">
+        <span class="module-tab-icon">⊹</span>
+        Const. classes
+      </div>
+      <div class="module-tab" id="mtab-securite" onclick="switchModule('securite')">
+        <span class="module-tab-icon">🛡</span>
+        Sécurité
+      </div>
+      <div class="module-tab" id="mtab-calendrier" onclick="switchModule('calendrier')">
+        <span class="module-tab-icon">▤</span>
+        Calendrier
+      </div>
+    </div>
+    <div class="module-more" id="module-more" style="display:none;">
+      <button class="module-tab module-more-btn" id="module-more-btn" type="button" onclick="toggleModuleMore(event)" aria-haspopup="true" aria-expanded="false" title="Autres modules">
+        <span class="module-tab-icon">⋯</span><span id="module-more-label">Plus</span> <span style="font-size:9px;opacity:.8;">▾</span>
+      </button>
+      <div class="module-more-menu" id="module-more-menu" role="menu"></div>
+    </div>
+    <div class="module-bar-right">
+      <input type="file" id="imod-file" accept=".json" style="display:none" onchange="importModuleBackup(this,_currentModule)">
+      <button class="module-lock-btn" id="module-lock-btn" type="button" onclick="verrouOuReglage()" title="Verrouiller Kolio (Ctrl+L)" aria-label="Verrouiller Kolio"><svg class="kico" aria-hidden="true" focusable="false"><use href="#ki-lock"></use></svg></button>
+      <div class="module-user-btn" id="module-user-btn" onclick="toggleAccountPanel()">
+        <div class="module-user-av" id="mb-avatar"><svg class="kico" aria-hidden="true" focusable="false"><use href="#ki-user"></use></svg></div>
+        <div class="module-user-info" id="mb-user-info">
+          <span class="module-user-name" id="mb-name">–</span>
+          <span class="module-user-role" id="mb-role">–</span>
+        </div>
+        <span style="font-size:10px;color:var(--text3);margin-left:4px;">▾</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE: Organisation quotidienne -->
+  <div class="module-pane active" id="module-quotidien">
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-sub-module" id="sb-module-label">Organisation quotidienne</div>
+        <div class="brand-etab" id="sb-etab">–</div>
+      </div>
+      <nav class="nav" id="sidebar-nav">
+        <!-- Nav items injected by switchModule() -->
+      </nav>
+      <!-- Sidebar footer removed — use top-right user button instead -->
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <div class="page-title" id="page-title">Todo list</div>
+        <div class="topbar-actions" id="topbar-actions"></div>
+      </div>
+      <div class="content">
+
+        <!-- TAB TODO -->
+        <div class="tab-pane" id="tab-aujourdhui"><div id="aujourdhui-contenu" class="aujourdhui"></div></div>
+        <div class="tab-pane active" id="tab-todo">
+          <div class="todo-toolbar">
+            <div class="filter-group">
+              <button class="filter-btn active" onclick="tfStatus('all',this)">Toutes</button>
+              <button class="filter-btn" onclick="tfStatus('todo',this)">À faire</button>
+              <button class="filter-btn" onclick="tfStatus('doing',this)">En cours</button>
+              <button class="filter-btn" onclick="tfStatus('pause',this)">En pause</button>
+            </div>
+            <div class="filter-group" style="margin-left:auto;">
+              <button class="filter-btn active" onclick="tfPrio('all',this)">Toutes</button>
+              <button class="filter-btn" style="color:var(--p1)" onclick="tfPrio('1',this)">P1</button>
+              <button class="filter-btn" style="color:var(--p2)" onclick="tfPrio('2',this)">P2</button>
+              <button class="filter-btn" style="color:var(--p3)" onclick="tfPrio('3',this)">P3</button>
+              <button class="filter-btn" style="color:var(--p4)" onclick="tfPrio('4',this)">P4</button>
+            </div>
+          </div>
+          <div id="tasks-container"></div>
+          <div class="archive-toggle" onclick="toggleArchive()">
+            <span id="arch-arrow">▶</span> Tâches terminées (<span id="arch-cnt">0</span>)
+          </div>
+          <div id="archive-container" style="display:none;"></div>
+        </div>
+
+        <!-- TAB AGENDA -->
+        <div class="tab-pane" id="tab-agenda">
+          <div class="agenda-layout">
+            <div class="agenda-sidebar">
+              <div class="mini-card">
+                <div class="mini-cal-header">
+                  <button class="cal-nav" onclick="calNav(-1)">‹</button>
+                  <div class="mini-cal-title" id="mc-title"></div>
+                  <button class="cal-nav" onclick="calNav(1)">›</button>
+                </div>
+                <div class="mini-cal-grid" id="mc-grid"></div>
+              </div>
+              <div class="mini-card">
+                <div class="agenda-list-title">Mes agendas</div>
+                <div id="agenda-list"></div>
+                <button class="btn btn-sm" style="width:100%;margin-top:8px;" onclick="openModal('newAgenda')">+ Nouvel agenda</button>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                <div class="agenda-view-tabs">
+                  <button class="view-tab" data-agview="day" onclick="setAgendaView('day',this)">Jour</button>
+                  <button class="view-tab" data-agview="week" onclick="setAgendaView('week',this)">Semaine</button>
+                  <button class="view-tab" data-agview="month" onclick="setAgendaView('month',this)">Mois</button>
+                </div>
+                <div style="margin-left:auto;display:flex;gap:6px;">
+                  <button class="btn btn-sm" onclick="agendaNavDate(-1)">‹</button>
+                  <button class="btn btn-sm" onclick="agendaNavDate(0)">Aujourd'hui</button>
+                  <button class="btn btn-sm" onclick="agendaNavDate(1)">›</button>
+                </div>
+              </div>
+              <div class="calendar-view" id="cal-view"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB NOTES -->
+        <div class="tab-pane" id="tab-notes">
+          <div class="notes-layout">
+            <div class="notes-panel">
+              <div class="notes-search">
+                <input class="search-input" id="notes-search" placeholder="🔍 Rechercher dans les notes…" oninput="searchNotes(this.value)">
+              </div>
+              <div class="notes-filter-row" id="notes-filter-row"></div>
+              <div class="note-list" id="note-list"></div>
+            </div>
+            <div class="note-editor" id="note-editor">
+              <div class="empty-msg"><div class="ei">📝</div><p>Sélectionnez ou créez une note</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB MEETINGS -->
+        <div class="tab-pane" id="tab-meetings">
+          <div class="meetings-layout">
+            <div class="meetings-panel">
+              <div class="meetings-panel-header">
+                <input class="search-input" placeholder="Rechercher…" oninput="searchMeetings(this.value)" id="meetings-search">
+                <label class="btn btn-sm" id="meeting-import-btn" title="Importer une réunion préparée sur mobile (fichier .json)"
+                  style="margin-top:8px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+                  📥 Importer une réunion
+                  <input type="file" id="meeting-import-input" accept=".json,application/json,.kolio" style="display:none;">
+                </label>
+              </div>
+              <div id="meetings-list" style="flex:1;overflow-y:auto;"></div>
+            </div>
+            <div class="meeting-detail" id="meeting-detail">
+              <div class="empty-msg"><div class="ei">👥</div><p>Sélectionnez ou créez une réunion</p></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- TAB RÉTROPLANNING -->
+        <div class="tab-pane" id="tab-retro">
+          <div id="retro-container"></div>
+        </div>
+
+        <!-- TAB TÂCHES ANNUELLES (KANBAN) -->
+        <div class="tab-pane" id="tab-kanban">
+          <div id="kanban-container"></div>
+        </div>
+
+                <!-- TAB ACCOUNT -->
+        <div class="tab-pane" id="tab-account">
+          <div class="account-layout">
+            <div id="first-run-note" style="display:none;background:var(--accent-bg);border:1px solid var(--p2-border,#BFDBFE);border-radius:var(--radius);padding:14px 16px;margin-bottom:16px;">
+              <div style="display:flex;align-items:flex-start;gap:12px;">
+                <div style="flex:1;">
+                  <div style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px;">Bienvenue dans Kolio</div>
+                  <div style="font-size:12px;color:var(--text2);line-height:1.65;">
+                    Commencez par renseigner votre identité, votre établissement et l'année scolaire : ces informations apparaîtront sur tous les documents que vous exporterez.
+                    Plus bas, vous pouvez réorganiser la barre des modules et masquer ceux dont vous ne vous servez pas.
+                  </div>
+                </div>
+                <button class="btn btn-sm" onclick="fermerNotePremierLancement()" title="Fermer">✕</button>
+              </div>
+            </div>
+            <div class="account-section">
+              <div class="account-section-title">Informations personnelles</div>
+              <div class="form-row">
+                <div class="form-group"><label class="form-label">Prénom</label>
+                  <input class="form-input" id="acc-prenom"></div>
+                <div class="form-group"><label class="form-label">Nom</label>
+                  <input class="form-input" id="acc-nom"></div>
+              </div>
+              <div class="form-group"><label class="form-label">Fonction</label>
+                <select class="form-input" id="acc-fonction">
+                  <option>Principal</option><option>Principale</option>
+                  <option>Principal adjoint</option><option>Principale adjointe</option>
+                  <option>Proviseur</option><option>Proviseure</option>
+                  <option>Proviseur adjoint</option><option>Proviseure adjointe</option>
+                  <option>Directeur</option><option>Directrice</option>
+                  <option>Autre</option>
+                </select></div>
+              <div class="form-group"><label class="form-label">Établissement</label>
+                <input class="form-input" id="acc-etab"></div>
+              <div class="form-group"><label class="form-label">Adresse de l'établissement</label>
+                <textarea class="form-input" id="acc-etab-adresse" rows="2" style="resize:vertical;font-family:inherit;" placeholder="N°, rue, code postal, ville"></textarea></div>
+              <div class="form-group" style="display:flex;gap:12px;flex-wrap:wrap;">
+                <div style="flex:1;min-width:200px;"><label class="form-label">Adresse e-mail de l'établissement</label>
+                  <input class="form-input" id="acc-etab-email" type="email" placeholder="ce.000000x@ac-xxx.fr"></div>
+                <div style="flex:1;min-width:160px;"><label class="form-label">Téléphone de l'établissement</label>
+                  <input class="form-input" id="acc-etab-tel" type="tel" placeholder="00 00 00 00 00"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Logo de l'établissement</label>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div id="logo-preview" style="width:72px;height:72px;border:1px dashed var(--border2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;background:var(--surface2);overflow:hidden;flex-shrink:0;">
+                    <span style="font-size:22px;" id="logo-placeholder">🏫</span>
+                  </div>
+                  <div>
+                    <label class="btn btn-sm" style="cursor:pointer;display:inline-block;">
+                      Choisir une image
+                      <input type="file" accept="image/*" style="display:none;" onchange="uploadLogo(this)">
+                    </label>
+                    <div style="font-size:11px;color:var(--text3);margin-top:5px;">PNG, JPG — recommandé : carré, fond transparent.<br>Ce logo apparaîtra sur les exports de documents.</div>
+                    <button class="btn btn-sm" style="margin-top:6px;color:var(--red);" onclick="removeLogo()">Supprimer le logo</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Signature (pour les convocations)</label>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div id="sig-preview" style="width:180px;height:72px;border:1px dashed var(--border2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;background:var(--surface2);overflow:hidden;flex-shrink:0;">
+                    <span style="font-size:12px;color:var(--text3);" id="sig-placeholder">Aucune signature</span>
+                  </div>
+                  <div>
+                    <label class="btn btn-sm" style="cursor:pointer;display:inline-block;">
+                      Importer ma signature
+                      <input type="file" accept="image/png,image/jpeg,image/svg+xml" style="display:none;" onchange="uploadSignature(this)">
+                    </label>
+                    <div style="font-size:11px;color:var(--text3);margin-top:5px;">PNG recommandé, fond transparent.<br>Utilisée sur les convocations exportées en PDF.</div>
+                    <button class="btn btn-sm" style="margin-top:6px;color:var(--red);" onclick="removeSignature()">Supprimer la signature</button>
+                  </div>
+                </div>
+              </div>
+              <!-- email masqué -->
+              <div id="acc-save-msg" style="font-size:12px;margin-bottom:8px;"></div>
+              <button class="btn btn-primary" onclick="saveProfile()">Enregistrer les modifications</button>
+            </div>
+            <div class="account-section">
+              <div class="account-section-title">Année scolaire</div>
+              <div class="aa-encart"><span>Fin d’année : archiver l’année et préparer la suivante, en reprenant ce qui doit l’être.</span>
+                <button class="btn btn-sm btn-primary" type="button" onclick="ouvrirAssistantAnnee()">Assistant de fin d’année</button></div>
+              <div style="font-size:13px;color:var(--text2);margin-bottom:14px;">Année active : <strong id="active-year-label">—</strong></div>
+              <div class="year-selector" id="year-selector"></div>
+              <div id="year-confirm-box" style="display:none;margin-top:14px;padding:14px;background:var(--p2-bg);border:1px solid var(--p2-border);border-radius:var(--radius-sm);">
+                <div style="font-size:13px;font-weight:500;color:var(--p2);margin-bottom:6px;" id="year-confirm-title"></div>
+                <div style="font-size:12px;color:var(--text2);margin-bottom:12px;" id="year-confirm-msg"></div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn btn-sm btn-primary" id="year-confirm-ok" onclick="confirmYearChange()">Confirmer</button>
+                  <button class="btn btn-sm" onclick="cancelYearChange()">Annuler</button>
+                </div>
+              </div>
+            </div>
+            <!-- BASE ÉLÈVE -->
+            <div class="account-section">
+              <div class="account-section-title">👥 Base élève</div>
+              <div style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6;">
+                Pour obtenir le fichier CSV : <strong>ARENA → BEE / SIECLE → Exploitation → Extraction standard → Par division → Export CSV</strong>.
+              </div>
+              <div id="base-eleves-panel"></div>
+            </div>
+            <!-- BASE ENSEIGNANT -->
+            <div class="account-section">
+              <div class="account-section-title">🧑‍🏫 Base enseignant</div>
+              <div style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6;">
+                Importer le fichier STS : <strong>ARENA → STS → Export → Emploi du temps</strong>.
+              </div>
+              <div id="base-enseignants-panel"></div>
+            </div>
+            <!-- ORDRE DES MENUS -->
+            <div class="account-section">
+              <div class="account-section-title">🧭 Ordre et affichage des menus</div>
+              <div style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6;">Réorganisez la barre du haut avec les flèches. L'œil masque un module dont vous ne vous servez pas : ses données sont conservées, il disparaît simplement de la barre. Au moins un module reste toujours visible.</div>
+              <div id="module-order-panel"></div>
+            </div>
+            <!-- TRANSFERT ENTRE ANNÉES -->
+            <div class="account-section">
+              <div class="account-section-title">🔄 Transfert entre années</div>
+              <div style="font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6;">
+                Copiez les données d'un module d'une année vers une autre, à tout moment.
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+                <div class="form-group" style="margin:0;">
+                  <label class="form-label">Année source</label>
+                  <select class="form-input" id="transfer-from" style="font-size:12px;"></select>
+                </div>
+                <div class="form-group" style="margin:0;">
+                  <label class="form-label">Année de destination</label>
+                  <select class="form-input" id="transfer-to" style="font-size:12px;"></select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Modules à transférer</label>
+                <div id="transfer-modules" style="display:flex;flex-direction:column;gap:5px;margin-top:4px;"></div>
+              </div>
+              <div id="transfer-msg" style="font-size:12px;margin-top:8px;min-height:18px;"></div>
+              <button class="btn btn-primary" style="margin-top:10px;" onclick="doTransferModules()">🔄 Transférer</button>
+            </div>
+            <!-- section mot de passe masquée -->
+            <div class="account-section" style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="font-size:13px;color:var(--text2);">Kolio v1.5.1</div>
+              <button class="btn" onclick="doLogout()" style="color:var(--red);">Se déconnecter</button>
+            </div>
+            <div class="account-section">
+              <div class="account-section-title" style="color:var(--red);">⚠ Zone de danger</div>
+              <div style="font-size:13px;color:var(--text2);margin-bottom:12px;line-height:1.6;">
+                La réinitialisation supprime <strong>définitivement et irrémédiablement</strong> toutes vos données : examens, élèves, plannings, suivis, pilotage et constitution de classes. Cette action est irréversible.
+              </div>
+              <button class="btn" onclick="ccConfirmReset()" style="background:#fee2e2;color:#c92a2a;border:1px solid #fca5a5;font-weight:600;">
+                🗑 Réinitialiser toutes les données
+              </button>
+            </div>
+            <!-- SETTINGS -->
+            <div class="account-section">
+              <div class="account-section-title">Paramètres d'affichage</div>
+              <div class="form-group">
+                <label class="form-label">Thème</label>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn" id="theme-light-btn" onclick="setTheme('light')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;">☀️ Clair</button>
+                  <button class="btn" id="theme-dark-btn" onclick="setTheme('dark')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;">🌙 Sombre</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Taille de l'interface</label>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;" id="zoom-opts">
+                  <button class="btn btn-sm" onclick="setZoom(0.85,this)" style="font-size:11px;">Compacte</button>
+                  <button class="btn btn-sm" onclick="setZoom(1,this)" id="zoom-normal">Normale</button>
+                  <button class="btn btn-sm" onclick="setZoom(1.15,this)" style="font-size:15px;">Grande</button>
+                  <button class="btn btn-sm" onclick="setZoom(1.3,this)" style="font-size:17px;">Très grande</button>
+                </div>
+                <div style="font-size:11px;color:var(--text3);margin-top:5px;">Agrandit ou réduit toute l'interface de l'application</div>
+              </div>
+            </div>
+            <div class="account-section" id="acc-rappels">
+              <div class="account-section-title">🔔 Rappels</div>
+              <div id="rappels-body"></div>
+            </div>
+            <div class="account-section" id="acc-verrou">
+              <div class="account-section-title">🔒 Sécurité de l’accès</div>
+              <div id="verrou-section-body"></div>
+            </div>
+            <div class="account-section" id="acc-conservation">
+              <div class="account-section-title">🗂 Conservation des données (RGPD)</div>
+              <div id="conservation-body"></div>
+            </div>
+            <div class="account-section">
+              <div class="account-section-title">Sauvegarde et restauration</div>
+              <div style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6;">
+                Vos données sont enregistrées sur cet iPad.<br>
+                Exportez régulièrement une sauvegarde pour éviter toute perte de données.
+              </div>
+              <div style="font-size:12px;color:var(--text3);margin-bottom:12px;">
+                Espace utilisé : <strong id="storage-usage">—</strong>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="btn btn-sm btn-primary" onclick="exportBackup()">
+                  📥 Exporter une sauvegarde (.json)
+                </button>
+                <label class="btn btn-sm" style="cursor:pointer;">
+                  📤 Restaurer une sauvegarde
+                  <input type="file" accept=".json" style="display:none;" onchange="importBackup(this)">
+                </label>
+              </div>
+              <div style="font-size:11px;color:var(--text3);margin-top:10px;">
+                ⚠ La restauration remplace toutes vos données actuelles par celles du fichier.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div><!-- end app-shell + module-quotidien -->
+
+  <!-- MODULE: Gestion des examens -->
+  <div class="module-pane" id="module-examens">
+    <div style="display:flex;height:100%;overflow:hidden;">
+
+      <!-- Sidebar examens -->
+      <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+        <div class="sidebar-header" style="padding-bottom:8px;">
+          <div class="brand-sub-module">Gestion des examens</div>
+          <!-- Exam selector -->
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;">
+            <select class="form-input" id="exam-selector" style="font-size:11px;padding:4px 6px;" onchange="switchExamen(this.value)">
+              <option value="">— Choisir un examen —</option>
+            </select>
+            <div style="display:flex;gap:3px;">
+              <button class="btn btn-sm btn-primary" onclick="createExamen()" style="flex:1;font-size:10px;padding:3px 5px;justify-content:center;">+ Nouveau</button>
+              <button class="btn btn-sm" onclick="duplicateExamen()" style="flex:1;font-size:10px;padding:3px 5px;justify-content:center;" title="Dupliquer l'examen actif">⎘ Dupliquer</button>
+              <button class="btn btn-sm" onclick="deleteExamen()" style="font-size:10px;padding:3px 5px;color:var(--red);" title="Supprimer cet examen">✕</button>
+            </div>
+          </div>
+        </div>
+        <nav class="nav" id="exam-sidebar-nav" style="opacity:.4;pointer-events:none;">
+          <div id="exam-sec-ecrit">
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);padding:8px 10px 4px;user-select:none;">Épreuves Écrites</div>
+          <div class="nav-item active" id="eni-config" onclick="switchExamenTab('config')"><span class="nav-icon">⚙</span>Configuration</div>
+          <div class="nav-item" id="eni-eleves" onclick="switchExamenTab('eleves')"><span class="nav-icon">👤</span>Élèves</div>
+          <div class="nav-item" id="eni-surveillants" onclick="switchExamenTab('surveillants')"><span class="nav-icon">👁</span>Surveillants</div>
+          <div class="nav-item" id="eni-salles" onclick="switchExamenTab('salles')"><span class="nav-icon">🏫</span>Salles</div>
+          <div class="nav-item" id="eni-amenagements" onclick="switchExamenTab('amenagements')"><span class="nav-icon">✋</span>Aménagements</div>
+          <div class="nav-item" id="eni-repartition" onclick="switchExamenTab('repartition')"><span class="nav-icon">🔀</span>Répartition</div>
+          <div class="nav-item" id="eni-planning" onclick="switchExamenTab('planning')"><span class="nav-icon">📋</span>Planning surveillance</div>
+          <div class="nav-item" id="eni-convocations" onclick="switchExamenTab('convocations')"><span class="nav-icon">✉</span>Convocations</div>
+          <div class="nav-item" id="eni-pochettes" onclick="switchExamenTab('pochettes')"><span class="nav-icon">📁</span>Pochettes et PV</div>
+          <div class="nav-item" id="eni-resultats" onclick="switchExamenTab('resultats')"><span class="nav-icon">📊</span>Résultats</div>
+          <div class="nav-item" id="eni-stats" onclick="switchExamenTab('stats')"><span class="nav-icon">📈</span>Statistiques</div>
+          </div>
+          <div id="exam-sec-oral">
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);padding:12px 10px 4px;user-select:none;">Épreuves Orales</div>
+          <div class="nav-item" id="eni-oral-config" onclick="switchExamenTab('oral-config')"><span class="nav-icon">⚙</span>Configuration</div>
+          <div class="nav-item" id="eni-oral-eleves" onclick="switchExamenTab('oral-eleves')"><span class="nav-icon">👤</span>Élèves</div>
+          <div class="nav-item" id="eni-oral-jurys" onclick="switchExamenTab('oral-jurys')"><span class="nav-icon">👨‍🏫</span>Jurys</div>
+          <div class="nav-item" id="eni-oral-salles" onclick="switchExamenTab('oral-salles')"><span class="nav-icon">🏫</span>Salles</div>
+          <div class="nav-item" id="eni-oral-amenagements" onclick="switchExamenTab('oral-amenagements')"><span class="nav-icon">✋</span>Aménagements</div>
+          <div class="nav-item" id="eni-oral-repartition" onclick="switchExamenTab('oral-repartition')"><span class="nav-icon">🔀</span>Répartition</div>
+          <div class="nav-item" id="eni-oral-planning" onclick="switchExamenTab('oral-planning')"><span class="nav-icon">📋</span>Planning</div>
+          <div class="nav-item" id="eni-oral-convocations" onclick="switchExamenTab('oral-convocations')"><span class="nav-icon">✉</span>Convocations</div>
+          <div class="nav-item" id="eni-oral-pochettes" onclick="switchExamenTab('oral-pochettes')"><span class="nav-icon">📁</span>Pochettes et PV</div>
+          <div class="nav-item" id="eni-oral-resultats" onclick="switchExamenTab('oral-resultats')"><span class="nav-icon">📊</span>Résultats</div>
+          <div class="nav-item" id="eni-oral-stats" onclick="switchExamenTab('oral-stats')"><span class="nav-icon">📈</span>Statistiques</div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Contenu examens -->
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <div style="font-size:15px;font-weight:500;" id="exam-tab-title">Configuration</div>
+          <div style="margin-left:auto;" id="exam-tab-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="exam-content">
+          <!-- Injected by switchExamenTab() -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODULE: Pilotage -->
+  <div class="module-pane" id="module-pilotage">
+    <div style="display:flex;height:100%;overflow:hidden;">
+
+      <!-- Sidebar Pilotage -->
+      <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+        <div class="sidebar-header">
+          <div class="brand-sub-module">Pilotage</div>
+          <div class="brand-etab" style="font-size:10px;color:var(--text3);">Tableaux de bord</div>
+        </div>
+        <nav class="nav">
+          <div class="nav-item active" id="pnav-import" onclick="switchPilotage('import')"><span class="nav-icon">📂</span>Import données</div>
+          <div class="nav-item" id="pnav-effectifs" onclick="switchPilotage('effectifs')"><span class="nav-icon">👥</span>Effectifs</div>
+          <div class="nav-item" id="pnav-resultats" onclick="switchPilotage('resultats')"><span class="nav-icon">🎓</span>Résultats DNB</div>
+          <div class="nav-item" id="pnav-notes" onclick="switchPilotage('notes')"><span class="nav-icon">📊</span>Notes moyennes</div>
+          <div class="nav-item" id="pnav-parcours" onclick="switchPilotage('parcours')"><span class="nav-icon">🔄</span>Parcours élèves</div>
+          <div class="nav-item" id="pnav-social" onclick="switchPilotage('social')"><span class="nav-icon">🏠</span>Profil social</div>
+          <div class="nav-item" id="pnav-export" onclick="switchPilotage('export')"><span class="nav-icon">📄</span>Rapport PDF</div>
+        </nav>
+      </div>
+
+      <!-- Contenu Pilotage -->
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <div style="font-size:15px;font-weight:500;" id="pilot-tab-title">Import données</div>
+          <div style="margin-left:auto;" id="pilot-tab-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="pilot-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE: Suivi -->
+  <div class="module-pane" id="module-suivi">
+    <div style="display:flex;height:100%;overflow:hidden;">
+      <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+        <div class="sidebar-header">
+          <div class="brand-sub-module">Suivi des élèves</div>
+        </div>
+        <nav class="nav">
+          <div class="nav-item active" id="snav-import" onclick="switchSuivi('import')"><span class="nav-icon">📂</span>Import / Historique</div>
+          <div class="nav-item" id="snav-stats" onclick="switchSuivi('stats')"><span class="nav-icon">📊</span>Vue globale</div>
+          <div class="nav-item" id="snav-classes" onclick="switchSuivi('classes')"><span class="nav-icon">🏫</span>Par classe</div>
+          <div class="nav-item" id="snav-alertes" onclick="switchSuivi('alertes')"><span class="nav-icon">⚠</span>Élèves à suivre</div>
+          <div class="nav-item" id="snav-eleve" onclick="switchSuivi('eleve')"><span class="nav-icon">👤</span>Fiche élève</div>
+          <div class="nav-item" id="snav-ebep" onclick="switchSuivi('ebep')"><span class="nav-icon">🧩</span>Besoins particuliers</div>
+        </nav>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <div style="font-size:15px;font-weight:500;" id="suivi-tab-title">Import / Historique</div>
+          <div style="margin-left:auto;" id="suivi-tab-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="suivi-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE: pHARe -->
+  <div class="module-pane" id="module-phare">
+    <div style="display:flex;height:100%;overflow:hidden;">
+      <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+        <div class="sidebar-header">
+          <div class="brand-sub-module">pHARe</div>
+          <div class="brand-etab" style="font-size:10px;color:var(--text3);">Lutte contre le harcèlement</div>
+        </div>
+        <nav class="nav">
+          <div class="nav-item active" id="phnav-config" onclick="switchPhare('config')"><span class="nav-icon">⚙</span>Configuration</div>
+          <div class="nav-item" id="phnav-suivi" onclick="switchPhare('suivi')"><span class="nav-icon">📋</span>Suivi pHARe</div>
+          <div class="nav-item" id="phnav-ressources" onclick="switchPhare('ressources')"><span class="nav-icon">📚</span>Ressources</div>
+          <div class="nav-item" id="phnav-dashboard" onclick="switchPhare('dashboard')"><span class="nav-icon">📊</span>Tableau de bord</div>
+        </nav>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <div style="font-size:15px;font-weight:500;" id="phare-tab-title">Configuration</div>
+          <div style="margin-left:auto;" id="phare-tab-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="phare-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE: Planning -->
+  <div class="module-pane" id="module-planning">
+    <div style="display:flex;height:100%;overflow:hidden;">
+      <!-- Sidebar liste des plannings -->
+      <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;overflow-y:auto;">
+        <div class="sidebar-header" style="padding-bottom:8px;">
+          <div class="brand-sub-module">Planning</div>
+          <button class="btn btn-primary btn-sm" onclick="planningNew()" style="width:100%;margin-top:8px;justify-content:center;">+ Nouveau planning</button>
+        </div>
+        <div id="planning-list-nav" style="padding:4px 0;"></div>
+      </div>
+      <!-- Éditeur -->
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <div style="font-size:15px;font-weight:500;" id="planning-editor-title">Sélectionnez un planning</div>
+          <div style="margin-left:auto;display:flex;gap:6px;" id="planning-editor-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="planning-content">
+          <div style="text-align:center;padding:60px;color:var(--text3);">
+            <div style="font-size:32px;margin-bottom:12px;">📅</div>
+            <div style="font-size:15px;font-weight:500;margin-bottom:6px;">Aucun planning sélectionné</div>
+            <div style="font-size:13px;">Créez un nouveau planning ou sélectionnez-en un dans la liste.</div>
+            <button class="btn btn-primary" onclick="planningNew()" style="margin-top:14px;">+ Nouveau planning</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE: Constitution des classes -->
+  <div class="module-pane" id="module-classes">
+    <div style="display:flex;height:100%;overflow:hidden;">
+      <div class="sidebar" id="cc-sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+        <div class="sidebar-header">
+          <div class="brand-sub-module">Constitution des classes</div>
+          <div class="brand-etab" id="cc-annee-label" style="font-size:10px;color:var(--text3);"></div>
+        </div>
+        <nav class="nav">
+          <div class="nav-item active" id="ccnav-config" onclick="switchCC('config')"><span class="nav-icon">⚙</span>Configuration</div>
+          <div class="nav-item" id="ccnav-import" onclick="switchCC('import')"><span class="nav-icon">📂</span>Import élèves</div>
+          <div class="nav-item" id="ccnav-eleves" onclick="switchCC('eleves')"><span class="nav-icon">👥</span>Récapitulatif</div>
+          <div class="nav-item" id="ccnav-affinites" onclick="switchCC('affinites')"><span class="nav-icon">🔗</span>Affinités & Séparations</div>
+          <div class="nav-item" id="ccnav-repartition" onclick="switchCC('repartition')"><span class="nav-icon">🔀</span>Répartition</div>
+          <div class="nav-item" id="ccnav-export" onclick="switchCC('export')"><span class="nav-icon">📤</span>Export</div>
+        </nav>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:11px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <button id="cc-sidebar-toggle" onclick="ccToggleSidebar()" title="Masquer le menu latéral" class="btn btn-sm btn-icon" style="flex-shrink:0;">☰</button>
+          <div style="font-size:15px;font-weight:500;" id="cc-tab-title">Configuration</div>
+          <div style="margin-left:auto;" id="cc-tab-actions"></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px;" id="cc-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ===== MODULE TRM ===== -->
+<div class="module-pane" id="module-trm">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">TRM — Dotation Horaire</div>
+        <div class="brand-etab" id="trm-annee-label" style="font-size:10px;color:var(--text3);"></div>
+      </div>
+      <nav class="nav" style="padding:8px;">
+        <div class="nav-item active" id="trmnav-import" onclick="switchTRM('import')"><span class="nav-icon">📥</span>Import STS</div>
+        <div class="nav-item" id="trmnav-matieres" onclick="switchTRM('matieres')"><span class="nav-icon">📚</span>Matières</div>
+        <div class="nav-item" id="trmnav-enseignants" onclick="switchTRM('enseignants')"><span class="nav-icon">👨‍🏫</span>Enseignants</div>
+        <div class="nav-item" id="trmnav-structures" onclick="switchTRM('structures')"><span class="nav-icon">🏗</span>Structures</div>
+        <div class="nav-item" id="trmnav-classes" onclick="switchTRM('classes')"><span class="nav-icon">🏫</span>Classes</div>
+        <div class="nav-item" id="trmnav-repartition" onclick="switchTRM('repartition')"><span class="nav-icon">📋</span>Besoins</div>
+        <div class="nav-item" id="trmnav-trmd" onclick="switchTRM('trmd')"><span class="nav-icon">📋</span>TRMD</div>
+        <div class="nav-item" id="trmnav-equipes" onclick="switchTRM('equipes')"><span class="nav-icon">👥</span>Équipes pédag.</div>
+        <div class="nav-item" id="trmnav-export" onclick="switchTRM('export')"><span class="nav-icon">📤</span>Export</div>
+      </nav>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+        <div style="font-size:15px;font-weight:500;" id="trm-tab-title">Import STS</div>
+        <div style="margin-left:auto;" id="trm-tab-actions"></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px;" id="trm-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE SORTIES, VOYAGES, PROJETS ===== -->
+<div class="module-pane" id="module-svp">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">Sorties, Voyages, Projets</div>
+        <div class="brand-etab" style="font-size:10px;color:var(--text3);">Suivi des sorties, voyages et projets</div>
+      </div>
+      <nav class="nav" style="padding:8px;">
+        <div class="nav-item active" id="svpnav-liste" onclick="switchSVP('liste')"><span class="nav-icon">📋</span>Liste</div>
+        <div class="nav-item" id="svpnav-recap" onclick="switchSVP('recap')"><span class="nav-icon">📊</span>Récapitulatif</div>
+      </nav>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+        <div style="font-size:15px;font-weight:500;" id="svp-tab-title">Sorties, voyages &amp; projets</div>
+        <div style="margin-left:auto;" id="svp-tab-actions"></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px;" id="svp-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="module-pane" id="module-eval">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">Évaluations nationales</div>
+        <div class="brand-etab" style="font-size:10px;color:var(--text3);">Analyse des résultats</div>
+      </div>
+      <nav class="nav" style="padding:8px;">
+        <div class="nav-item active" id="evalnav-import" onclick="switchEval('import')"><span class="nav-icon">📥</span>Import</div>
+        <div class="nav-item" id="evalnav-stats" onclick="switchEval('stats')"><span class="nav-icon">📊</span>Statistiques</div>
+      </nav>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+        <div style="font-size:15px;font-weight:500;" id="eval-tab-title">Import des résultats</div>
+        <div style="margin-left:auto;" id="eval-tab-actions"></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px;" id="eval-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="module-pane" id="module-cdc">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:230px;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">Conseils de classe</div>
+        <div class="brand-etab" id="cdc-annee-label" style="font-size:10px;color:var(--text3);">—</div>
+      </div>
+      <nav class="nav" style="padding:8px;">
+        <div class="nav-item active" id="cdcnav-config" onclick="switchCDC('config')"><span class="nav-icon">⚙</span>Configuration</div>
+        <div class="nav-item" id="cdcnav-import" onclick="switchCDC('import')"><span class="nav-icon">📥</span>Import des moyennes</div>
+        <div class="nav-item" id="cdcnav-eleves" onclick="switchCDC('eleves')"><span class="nav-icon">👥</span>Élèves &amp; résultats</div>
+        <div class="nav-item" id="cdcnav-pochettes" onclick="switchCDC('pochettes')"><span class="nav-icon">📄</span>Pochettes</div>
+        <div class="nav-item" id="cdcnav-avert" onclick="switchCDC('avert')"><span class="nav-icon">⚠</span>Avertissements</div>
+      </nav>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+        <div style="font-size:15px;font-weight:500;" id="cdc-tab-title">Configuration</div>
+        <div style="margin-left:auto;" id="cdc-tab-actions"></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px;" id="cdc-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="module-pane" id="module-securite">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">Sécurité</div>
+        <div class="brand-etab" style="font-size:10px;color:var(--text3);">Personnels, protocoles et PPMS</div>
+      </div>
+      <nav class="nav" style="padding:8px;">
+        <div class="nav-item" id="secnav-import" onclick="switchSec('import')"><span class="nav-icon">⇩</span>Import</div>
+        <div class="nav-item active" id="secnav-personnels" onclick="switchSec('personnels')"><span class="nav-icon">👥</span>Personnels</div>
+        <div class="nav-item" id="secnav-contacts" onclick="switchSec('contacts')"><span class="nav-icon">☎</span>Personnes à contacter</div>
+        <div class="nav-item" id="secnav-protocoles" onclick="switchSec('protocoles')"><span class="nav-icon">⚠</span>Protocoles</div>
+        <div class="nav-item" id="secnav-ressources" onclick="switchSec('ressources')"><span class="nav-icon">📎</span>Ressources</div>
+      </nav>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+        <div style="font-size:15px;font-weight:500;" id="sec-tab-title">Personnels</div>
+        <div style="margin-left:auto;" id="sec-tab-actions"></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px;" id="sec-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="module-pane" id="module-calendrier">
+  <div style="display:flex;height:100%;overflow:hidden;">
+    <div class="sidebar" style="position:relative;transform:none;box-shadow:none;width:220px;overflow-y:auto;">
+      <div class="sidebar-header">
+        <div class="brand-sub-module">Calendrier</div>
+        <div class="brand-etab" style="font-size:10px;color:var(--text3);">Année scolaire</div>
+      </div>
+      <div style="padding:12px;" id="calendrier-sidebar"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+      <div style="flex:1;overflow:hidden;padding:20px;display:flex;flex-direction:column;" id="calendrier-content"></div>
+    </div>
+  </div>
+</div>
+</div><!-- end app -->
+
+<!-- Notes : sélection d'élèves depuis la base élève -->
+<div class="modal-overlay" id="modal-importModule">
+  <div class="modal modal-sm">
+    <h3>Restaurer le module « <span id="imod-label"></span> »</h3>
+    <div id="imod-info" style="font-size:11.5px;color:var(--text3);margin-bottom:14px;"></div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button class="btn" style="text-align:left;padding:12px 14px;height:auto;line-height:1.5;" onclick="confirmerImportModule('completer')">
+        <div style="font-weight:600;font-size:13px;color:var(--accent);">Ajouter à mes données</div>
+        <div style="font-size:11.5px;color:var(--text2);">Conserve ce que vous avez déjà et ajoute le contenu de la sauvegarde. Les doublons sont ignorés.</div>
+      </button>
+      <button class="btn" style="text-align:left;padding:12px 14px;height:auto;line-height:1.5;" onclick="confirmerImportModule('remplacer')">
+        <div style="font-weight:600;font-size:13px;color:var(--red);">Remplacer entièrement</div>
+        <div style="font-size:11.5px;color:var(--text2);">Supprime vos données actuelles de ce module et les remplace par la sauvegarde.</div>
+      </button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('importModule');_importModulePayload=null;">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-planVoirEleves">
+  <div class="modal modal-sm">
+    <h3 id="plv-titre">Groupe</h3>
+    <div id="plv-sous" style="font-size:11.5px;color:var(--text3);margin-bottom:12px;"></div>
+    <div id="plv-liste" style="max-height:340px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeModal('planVoirEleves')">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-planCreneau">
+  <div class="modal modal-md">
+    <h3 id="plc-titre">Nouveau créneau</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Date</label><input class="form-input" type="date" id="plc-date"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Heure début</label><input class="form-input" type="time" id="plc-hdebut"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Heure fin</label><input class="form-input" type="time" id="plc-hfin"></div>
+    </div>
+    <div style="margin-bottom:12px;">
+      <label class="form-label">Classe(s) / Groupe(s)</label>
+      <div id="plc-groupes" style="margin-bottom:8px;"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);padding:8px 10px;">
+        <select class="form-input" id="plc-classe-select" style="width:auto;font-size:12px;" onchange="planAddClasseEntiere()">
+          <option value="">+ Classe entière…</option>
+        </select>
+        <button class="btn btn-sm" onclick="planOpenGroupeBuilder()">+ Groupe d'élèves…</button>
+        <span style="width:1px;height:18px;background:var(--border);"></span>
+        <input class="form-input" id="plc-nom-libre" placeholder="Nom libre…" style="width:130px;font-size:12px;" onkeydown="if(event.key==='Enter'){event.preventDefault();planAddNomLibre();}">
+        <button class="btn btn-sm" onclick="planAddNomLibre()">Ajouter</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Salle</label><input class="form-input" id="plc-salle" placeholder="Ex : Salle 102, CDI…"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Enseignant(s)</label>
+        <div id="plc-ens-chips" style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;"></div>
+        <div style="display:flex;gap:6px;">
+          <select class="form-input" id="plc-ens-select" style="flex:1;font-size:12px;" onchange="planAddEnseignantFromBase()"><option value="">+ Depuis la base enseignant…</option></select>
+        </div>
+        <input class="form-input" id="plc-ens-libre" placeholder="ou saisir un nom + Entrée" style="font-size:12px;margin-top:5px;" onkeydown="if(event.key==='Enter'){event.preventDefault();planAddEnsLibre();}">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('planCreneau')">Annuler</button>
+      <button class="btn btn-primary" onclick="planSaveCreneau()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-planGroupe">
+  <div class="modal modal-md">
+    <h3>Constituer un groupe d'élèves</h3>
+    <div class="form-group"><label class="form-label">Nom du groupe</label><input class="form-input" id="plg-nom" placeholder="Ex : Groupe 1, LV2 Espagnol, Latin…"></div>
+    <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
+      <select class="form-input" id="plg-classe" style="width:auto;font-size:12px;" onchange="planRenderGroupeBuilder(document.getElementById('plg-search').value)"></select>
+      <input class="form-input" id="plg-search" placeholder="🔍 Rechercher un élève…" style="flex:1;font-size:12px;" oninput="planRenderGroupeBuilder(this.value)">
+      <span id="plg-count" style="font-size:11px;color:var(--text3);white-space:nowrap;">0 sélectionné(s)</span>
+    </div>
+    <div id="plg-liste" style="max-height:320px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('planGroupe')">Annuler</button>
+      <button class="btn btn-primary" onclick="planValiderGroupe()">Créer le groupe</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-pickEnseignant" style="z-index:10060;">
+  <div class="modal modal-sm">
+    <h3>Choisir un enseignant</h3>
+    <input type="text" id="picke-search" placeholder="🔍 Rechercher un nom, une discipline…" oninput="pickEnsRender(this.value)" style="width:100%;font-size:13px;padding:8px 11px;border:1px solid var(--border2);border-radius:var(--rs);margin-bottom:10px;">
+    <div id="picke-liste" style="max-height:340px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);"></div>
+    <div class="modal-actions"><button class="btn" onclick="closeModal('pickEnseignant');_pickEnsCb=null;">Annuler</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-baseEnseignant">
+  <div class="modal modal-sm">
+    <h3 id="be-ens-titre">Nouvel enseignant</h3>
+    <input type="hidden" id="be-ens-id">
+    <div style="display:grid;grid-template-columns:80px 1fr;gap:10px;margin-bottom:12px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Civilité</label><input class="form-input" id="be-ens-civ" placeholder="Mme" list="be-civ-list"><datalist id="be-civ-list"><option value="M."><option value="Mme"></datalist></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Nom</label><input class="form-input" id="be-ens-nom"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" id="be-ens-prenom"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Discipline</label><input class="form-input" id="be-ens-disc" placeholder="MATHS, HIST. GEO.…"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Grade</label><input class="form-input" id="be-ens-grade" placeholder="CERTIFIE, AGREGE…"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('baseEnseignant')">Annuler</button>
+      <button class="btn btn-primary" onclick="baseEnseignantSave()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-koPrompt">
+  <div class="modal modal-sm">
+    <h3 id="kop-titre">Saisie</h3>
+    <div id="kop-message" style="font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:12px;white-space:pre-line;"></div>
+    <div class="form-group" style="margin-bottom:0;">
+      <input class="form-input" id="kop-input" style="width:100%;">
+      <textarea class="form-input" id="kop-textarea" rows="3" style="width:100%;display:none;"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="koPromptFermer(null)">Annuler</button>
+      <button class="btn btn-primary" id="kop-ok" onclick="koPromptValider()">Valider</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-calEvent">
+  <div class="modal modal-sm">
+    <h3 id="cal-ev-titre-h">Nouvel événement</h3>
+    <input type="hidden" id="cal-ev-id">
+    <div class="form-group"><label class="form-label">Intitulé</label><input class="form-input" id="cal-ev-titre" placeholder="Ex : Conseil de classe 3e"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Date</label><input class="form-input" type="date" id="cal-ev-debut"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Date de fin <span style="color:var(--text3);font-weight:400;">(facultatif)</span></label><input class="form-input" type="date" id="cal-ev-fin"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Tags</label><div id="cal-ev-tags" style="display:flex;flex-wrap:wrap;"></div></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('calEvent')">Annuler</button>
+      <button class="btn btn-primary" onclick="calSaveEvent()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-calDay">
+  <div class="modal modal-sm">
+    <h3 id="cal-day-titre">Jour</h3>
+    <div id="cal-day-liste" style="max-height:300px;overflow-y:auto;margin-bottom:12px;"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('calDay')">Fermer</button>
+      <button class="btn btn-primary" id="cal-day-add">+ Ajouter un événement</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-calTags">
+  <div class="modal modal-sm">
+    <h3>Gérer les tags</h3>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:10px;">Modifiez le nom ou la couleur, ajoutez ou supprimez des tags.</div>
+    <div id="cal-tags-liste" style="max-height:340px;overflow-y:auto;margin-bottom:10px;"></div>
+    <button class="btn btn-sm" onclick="calAddTag()">+ Ajouter un tag</button>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeModal('calTags')">Terminé</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-secPersonnel">
+  <div class="modal">
+    <h3 id="sec-p-titre">Nouveau personnel</h3>
+    <input type="hidden" id="sec-p-id">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group"><label>Nom</label><input type="text" id="sec-p-nom"></div>
+      <div class="form-group"><label>Prénom</label><input type="text" id="sec-p-prenom"></div>
+    </div>
+    <div class="form-group"><label>Fonction / Discipline</label><input type="text" id="sec-p-fonction" placeholder="Mathématiques, CPE, agent d'accueil…"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group"><label>Téléphone</label><input type="tel" id="sec-p-tel"></div>
+      <div class="form-group"><label>Téléphone mobile</label><input type="tel" id="sec-p-mobile"></div>
+    </div>
+    <div class="form-group"><label>Courriel</label><input type="email" id="sec-p-email"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('secPersonnel')">Annuler</button>
+      <button class="btn btn-primary" onclick="secSavePersonnel()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-secContact">
+  <div class="modal">
+    <h3 id="sec-c-titre">Nouvelle personne à contacter</h3>
+    <input type="hidden" id="sec-c-id">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group"><label>Nom</label><input type="text" id="sec-c-nom"></div>
+      <div class="form-group"><label>Prénom</label><input type="text" id="sec-c-prenom"></div>
+    </div>
+    <div class="form-group"><label>Fonction</label><input type="text" id="sec-c-fonction" placeholder="Chef d'établissement, gestionnaire, mairie, astreinte académique…"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group"><label>Téléphone 1</label><input type="tel" id="sec-c-tel1"></div>
+      <div class="form-group"><label>Téléphone 2</label><input type="tel" id="sec-c-tel2"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('secContact')">Annuler</button>
+      <button class="btn btn-primary" onclick="secSaveContact()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-secProtocole">
+  <div class="modal">
+    <h3 id="sec-pr-titre">Nouveau protocole</h3>
+    <input type="hidden" id="sec-pr-id">
+    <div class="form-group"><label>Nom du protocole</label><input type="text" id="sec-pr-nom" placeholder="Incendie, Attentat — Intrusion, Risques majeurs…"></div>
+    <div class="form-group"><label>Description</label><textarea id="sec-pr-desc" rows="3" placeholder="Dans quelles circonstances ce protocole s'applique."></textarea></div>
+    <div class="form-group"><label>Couleur</label><input type="color" id="sec-pr-couleur" value="#1C3D8C" style="width:70px;height:34px;padding:2px;"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('secProtocole')">Annuler</button>
+      <button class="btn btn-primary" onclick="secSaveProtocole()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="modal-rapport" style="z-index:10050;">
+  <div class="modal modal-md">
+    <h3 id="rap-titre-h">Nouveau rapport d'incident</h3>
+    <input type="hidden" id="rap-eleve"><input type="hidden" id="rap-id">
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:10px;margin-bottom:10px;">
+      <div class="form-group" style="margin:0;"><label class="form-label">Date</label><input class="form-input" type="date" id="rap-date"></div>
+      <div class="form-group" style="margin:0;"><label class="form-label">Auteur du rapport</label>
+        <div style="display:flex;gap:5px;"><input class="form-input" id="rap-auteur" placeholder="Nom de l'auteur" style="flex:1;"><button class="btn btn-sm" onclick="rapPickAuteur()" title="Choisir dans la base enseignant">👤</button></div>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">Rapport</label><textarea class="form-input" id="rap-texte" rows="7" placeholder="Description des faits, circonstances, mesures prises…" style="resize:vertical;"></textarea></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('rapport')">Annuler</button>
+      <button class="btn btn-primary" onclick="rapSave()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-noteEleves" style="z-index:10050;">
+  <div class="modal modal-md">
+    <h3 id="note-eleves-modal-title">👥 Associer des élèves à la note</h3>
+    <input class="form-input" id="note-eleve-search" placeholder="🔍 Rechercher un élève (nom, prénom, classe)…" oninput="renderNoteElevePicker(this.value)" style="margin-bottom:8px;">
+    <div id="note-eleves-count" style="font-size:11px;color:var(--text3);margin-bottom:6px;">0 sélectionné(s)</div>
+    <div id="note-eleves-list" style="max-height:340px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="noteElevePickerDone()">Terminer</button>
+    </div>
+  </div>
+</div>
+
+<!-- pHARe : courrier -->
+<div class="modal-overlay" id="modal-phareLetter">
+  <div class="modal modal-md" style="max-width:680px;">
+    <h3 id="phare-letter-title">Courrier pHARe</h3>
+    <div id="phare-letter-body"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('phareLetter')">Fermer</button>
+      <button class="btn" onclick="phareLetterSave();alert('Courrier enregistré.')">Enregistrer</button>
+      <button class="btn btn-primary" onclick="phareLetterPDF()">📄 Générer le PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- pHARe : entretien -->
+<div class="modal-overlay" id="modal-phareEntretien">
+  <div class="modal modal-md" style="max-width:640px;">
+    <h3>Entretien pHARe</h3>
+    <div id="phare-ent-body"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('phareEntretien')">Annuler</button>
+      <button class="btn btn-primary" onclick="phareSaveEntretien()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sélecteur d'élèves générique (base élève) -->
+<div class="modal-overlay" id="modal-studentPicker" style="z-index:10050;">
+  <div class="modal modal-md">
+    <h3 id="sp-title">Sélectionner des élèves</h3>
+    <input class="form-input" id="sp-search" placeholder="🔍 Rechercher un élève (nom, prénom, classe)…" oninput="renderGenericStudentPicker(this.value)" style="margin-bottom:8px;">
+    <div id="sp-count" style="font-size:11px;color:var(--text3);margin-bottom:6px;">0 sélectionné(s)</div>
+    <div id="sp-list" style="max-height:340px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="spGenDone()">Terminer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Examens : sélection de classes depuis la base élève -->
+<div class="modal-overlay" id="modal-baseElevePicker" style="z-index:10050;">
+  <div class="modal modal-md">
+    <h3>👥 Importer depuis la base élève</h3>
+    <div id="base-picker-body"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('baseElevePicker')">Annuler</button>
+      <button class="btn btn-primary" id="base-picker-import-btn" onclick="baseElevePickerImport()">Importer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Constitution de classe — Ajouter / modifier élève -->
+<div class="modal-overlay" id="modal-ccAddEleve">
+  <div class="modal modal-md">
+    <h3 id="cc-eleve-modal-title">Ajouter un élève</h3>
+    <div id="ccae-body"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('ccAddEleve')">Annuler</button>
+      <button class="btn btn-primary" id="ccae-save-btn" onclick="ccSaveModal()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== MODALS ===== -->
+<!-- Task -->
+<div class="modal-overlay" id="modal-task">
+  <div class="modal modal-md">
+    <h3 id="task-modal-title">Nouvelle tâche</h3>
+    <input type="hidden" id="edit-task-id">
+    <div class="form-group"><label class="form-label">Intitulé</label>
+      <input class="form-input" id="t-title" placeholder="Description de la tâche…"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Priorité</label>
+        <select class="form-input" id="t-prio">
+          <option value="1">🔴 P1 — Urgent</option>
+          <option value="2">🟠 P2 — Important</option>
+          <option value="3" selected>🔵 P3 — Normal</option>
+          <option value="4">⚪ P4 — Faible</option>
+        </select></div>
+      <div class="form-group"><label class="form-label">Statut</label>
+        <select class="form-input" id="t-status">
+          <option value="todo">À faire</option>
+          <option value="doing">En cours</option>
+          <option value="pause">En pause</option>
+        </select></div>
+    </div>
+    <div class="form-group"><label class="form-label">Échéance</label>
+      <input class="form-input" type="date" id="t-due"></div>
+    <div class="form-group"><label class="form-label">Note</label>
+      <textarea class="form-input" id="t-note" placeholder="Détails…"></textarea></div>
+    <div class="form-group"><label class="form-label">Sous-tâches</label>
+      <div id="modal-subtasks"></div>
+      <div class="add-row" style="margin-top:6px;">
+        <input class="form-input" id="new-subtask-inp" placeholder="Ajouter une sous-tâche…" onkeydown="if(event.key==='Enter')addModalSubtask()">
+        <button class="btn btn-sm" onclick="addModalSubtask()">+</button>
+      </div>
+    </div>
+    <div class="form-group" id="task-attach-section">
+      <label class="form-label">📎 Pièces jointes</label>
+      <div id="task-attach-new-msg" style="font-size:11px;color:var(--text3);font-style:italic;display:none;">
+        Enregistrez d'abord la tâche pour ajouter des pièces jointes.
+      </div>
+      <div id="task-attach-list"></div>
+      <label class="btn btn-sm" id="task-attach-add-btn" style="margin-top:6px;cursor:pointer;display:none;align-items:center;gap:5px;font-size:11px;">
+        + Ajouter un fichier
+        <input type="file" multiple style="display:none;" id="task-attach-input" onchange="taskAttachFiles(this)">
+      </label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('task')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveTask()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Event -->
+<div class="modal-overlay" id="modal-event">
+  <div class="modal modal-lg">
+    <h3 id="ev-modal-title">Nouvel événement</h3>
+    <input type="hidden" id="edit-ev-id">
+    <div class="form-group"><label class="form-label">Titre</label>
+      <input class="form-input" id="ev-title" placeholder="Titre de l'événement…"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Date</label>
+        <input class="form-input" type="date" id="ev-date"></div>
+      <div class="form-group"><label class="form-label">Agenda</label>
+        <select class="form-input" id="ev-agenda-sel"></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Heure début</label>
+        <input class="form-input" type="time" id="ev-start" value="09:00" list="dl-start">
+        <datalist id="dl-start"></datalist></div>
+      <div class="form-group"><label class="form-label">Heure fin</label>
+        <input class="form-input" type="time" id="ev-end" value="10:00" list="dl-end">
+        <datalist id="dl-end"></datalist></div>
+    </div>
+    <div class="form-group"><label class="form-label">Notes</label>
+      <textarea class="form-input" id="ev-notes" placeholder="Informations complémentaires…"></textarea></div>
+    <div class="form-group"><label class="form-label">Lien visioconférence</label>
+      <input class="form-input" id="ev-visio" placeholder="https://meet.google.com/…"></div>
+    <div class="form-group"><label class="form-label">Participants</label>
+      <div class="chips-row" id="ev-participants-chips"></div>
+      <div class="add-row">
+        <input class="form-input" id="ev-part-inp" placeholder="Ajouter un participant…" onkeydown="if(event.key==='Enter')addEvPart()">
+        <button class="btn btn-sm" onclick="addEvPart()">+</button>
+        <button class="btn btn-sm" onclick="pickEnseignant(function(nom){evParts.push(nom);refreshEvParts();})" title="Choisir dans la base enseignant">👤 Base</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">👥 Élèves concernés</label>
+      <div class="chips-row" id="ev-eleves-chips"></div>
+      <div class="add-row">
+        <button class="btn btn-sm" onclick="evOpenElevePicker()">+ Ajouter un élève</button>
+        <span style="font-size:11px;color:var(--text3);align-self:center;">Les réunions apparaîtront dans la fiche Suivi des élèves sélectionnés</span>
+      </div>
+    </div>
+    <div class="form-group" id="ev-attach-section">
+      <label class="form-label">📎 Pièces jointes</label>
+      <div id="ev-attach-new-msg" style="font-size:11px;color:var(--text3);font-style:italic;display:none;">
+        Enregistrez d'abord l'événement pour ajouter des pièces jointes.
+      </div>
+      <div id="ev-attach-list"></div>
+      <label class="btn btn-sm" id="ev-attach-add-btn" style="margin-top:6px;cursor:pointer;display:none;align-items:center;gap:5px;font-size:11px;">
+        + Ajouter un fichier
+        <input type="file" multiple style="display:none;" id="ev-attach-input" onchange="evAttachFiles(this)">
+      </label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="ev-delete-btn" onclick="deleteCurrentEvent()" style="color:var(--red);margin-right:auto;display:none;">Supprimer</button>
+      <button class="btn" onclick="closeModal('event')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveEvent()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Agenda -->
+<div class="modal-overlay" id="modal-newAgenda">
+  <div class="modal modal-sm">
+    <h3>Nouvel agenda</h3>
+    <div class="form-group"><label class="form-label">Nom de l'agenda</label>
+      <input class="form-input" id="na-name" placeholder="Ex : Agenda DNB…"></div>
+    <div class="form-group"><label class="form-label">Couleur</label>
+      <div class="color-row" id="na-colors"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('newAgenda')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveNewAgenda()">Créer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Meeting -->
+<div class="modal-overlay" id="modal-meeting">
+  <div class="modal modal-md">
+    <h3>Nouvelle réunion</h3>
+    <div class="form-group"><label class="form-label">Titre</label>
+      <input class="form-input" id="m-title" placeholder="Ex : Conseil d'administration T1"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Type</label>
+        <div style="display:flex;gap:6px;">
+          <select class="form-input" id="m-type" style="flex:1;"></select>
+          <button type="button" class="btn btn-sm" onclick="openMeetingTypesModal()" title="Gérer les types" style="flex-shrink:0;">⚙ Types</button>
+        </div></div>
+      <div class="form-group"><label class="form-label">Statut</label>
+        <select class="form-input" id="m-status">
+          <option value="todo">À faire</option>
+          <option value="ready">Prête</option>
+          <option value="done">Faite</option>
+        </select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Date</label>
+        <input class="form-input" type="date" id="m-date"></div>
+      <div class="form-group"><label class="form-label">Heure début</label>
+        <input class="form-input" type="time" id="m-tstart" value="09:00"></div>
+      <div class="form-group"><label class="form-label">Heure fin</label>
+        <input class="form-input" type="time" id="m-tend" value="10:30"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Lieu</label>
+      <input class="form-input" id="m-lieu" placeholder="Salle de réunion…"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('meeting')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveMeeting()">Créer</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Tag modal -->
+<div class="modal-overlay" id="modal-newTag">
+  <div class="modal modal-sm">
+    <h3 id="new-tag-modal-title">Nouveau tag personnalisé</h3>
+    <input type="hidden" id="new-tag-edit-key">
+    <div class="form-group">
+      <label class="form-label">Nom du tag</label>
+      <input class="form-input" id="new-tag-name" placeholder="Ex : Projet, RH, Urgence…" maxlength="30">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Couleur</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;" id="tag-color-picker"></div>
+      <div id="tag-preview" style="margin-top:8px;font-size:12px;"></div>
+    </div>
+    <div id="new-tag-err" style="font-size:12px;color:var(--red);margin-bottom:8px;"></div>
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text3);margin-bottom:8px;">Tags existants</div>
+      <div id="custom-tags-list"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="new-tag-del-btn" onclick="deleteCurrentEditTag()" style="color:var(--red);margin-right:auto;display:none;">Supprimer</button>
+      <button class="btn" onclick="closeModal('newTag')">Fermer</button>
+      <button class="btn btn-primary" onclick="saveCustomTag()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Rétroplanning item modal -->
+<div class="modal-overlay" id="modal-retro-item">
+  <div class="modal modal-md">
+    <h3 id="retro-modal-title">Nouvel événement</h3>
+    <input type="hidden" id="retro-edit-id">
+    <div class="form-group"><label class="form-label">Titre</label>
+      <input class="form-input" id="ri-title" placeholder="Intitulé de l'événement…"></div>
+    <div class="form-group"><label class="form-label">Type</label>
+      <select class="form-input" id="ri-type">
+        <option value="deadline">📅 Date</option>
+        <option value="period">↔️ Période</option>
+      </select></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Date de début</label>
+        <input class="form-input" type="date" id="ri-date-start"></div>
+      <div class="form-group"><label class="form-label">Date de fin (optionnel)</label>
+        <input class="form-input" type="date" id="ri-date-end"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Description</label>
+      <textarea class="form-input" id="ri-desc" placeholder="Description, notes…"></textarea></div>
+    <div class="modal-actions">
+      <button class="btn" id="ri-del-btn" onclick="deleteRetroItem()" style="color:var(--red);margin-right:auto;display:none;">Supprimer</button>
+      <button class="btn" onclick="closeModal('retro-item')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveRetroItem()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Kanban card modal -->
+<div class="modal-overlay" id="modal-kanban-card">
+  <div class="modal modal-md">
+    <h3 id="kb-modal-title">Nouvelle tâche</h3>
+    <input type="hidden" id="kb-edit-col">
+    <input type="hidden" id="kb-edit-id">
+    <div class="form-group"><label class="form-label">Titre</label>
+      <input class="form-input" id="kb-title" placeholder="Description de la tâche…"></div>
+
+    <div class="form-group"><label class="form-label">Note</label>
+      <textarea class="form-input" id="kb-note" placeholder="Notes…"></textarea></div>
+    <div class="form-group"><label class="form-label">Sous-tâches</label>
+      <div id="kb-subtasks"></div>
+      <div class="add-row" style="margin-top:6px;">
+        <input class="form-input" id="kb-st-inp" placeholder="Ajouter une sous-tâche…" onkeydown="if(event.key==='Enter')addKbSubtask()">
+        <button class="btn btn-sm" onclick="addKbSubtask()">+</button>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="kb-del-btn" onclick="deleteKanbanCard()" style="color:var(--red);margin-right:auto;display:none;">Supprimer</button>
+      <button class="btn" onclick="closeModal('kanban-card')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveKanbanCard()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script src="./kolio-app.js"></script>
+<script src="./kolio-ipad.js"></script>
+<!-- ===== MODAUX MANQUANTS ===== -->
+
+<!-- Élève (épreuves écrites) -->
+<div class="modal-overlay" id="modal-createExamen">
+  <div class="modal modal-md">
+    <h3>Créer un nouvel examen</h3>
+    <div class="form-group" style="margin-bottom:14px;">
+      <label class="form-label">Nom de l'examen</label>
+      <input class="form-input" id="cx-nom" placeholder="Ex : Diplôme National du Brevet — Session 2026">
+    </div>
+    <div class="form-group" style="margin-bottom:6px;">
+      <label class="form-label">Type d'épreuves</label>
+      <div style="display:flex;gap:10px;margin-top:4px;">
+        <label class="cx-type-opt" id="cx-type-ecrit-lbl" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid var(--accent);border-radius:var(--radius);cursor:pointer;background:var(--surface2);text-align:center;">
+          <input type="radio" name="cx-type" value="ecrit" checked style="display:none;" onchange="updateCxTypeUI()">
+          <span style="font-size:26px;">✍️</span>
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Épreuves écrites</span>
+          <span style="font-size:11px;color:var(--text3);line-height:1.3;">Surveillants, salles, répartition, pochettes…</span>
+        </label>
+        <label class="cx-type-opt" id="cx-type-oral-lbl" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid var(--border);border-radius:var(--radius);cursor:pointer;background:var(--surface);text-align:center;">
+          <input type="radio" name="cx-type" value="oral" style="display:none;" onchange="updateCxTypeUI()">
+          <span style="font-size:26px;">🗣️</span>
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Épreuves orales</span>
+          <span style="font-size:11px;color:var(--text3);line-height:1.3;">Jurys, salles, planning, passages…</span>
+        </label>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('createExamen')">Annuler</button>
+      <button class="btn btn-primary" onclick="confirmCreateExamen()">Créer l'examen</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-addEleve">
+  <div class="modal modal-md">
+    <h3 id="eleve-modal-title">Ajouter un élève</h3>
+    <input type="hidden" id="el-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Nom</label><input class="form-input" id="el-nom" placeholder="Nom…"></div>
+      <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" id="el-prenom" placeholder="Prénom…"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Sexe</label>
+        <select class="form-input" id="el-sexe"><option value="">—</option><option value="M">M</option><option value="F">F</option></select></div>
+      <div class="form-group"><label class="form-label">Classe</label><input class="form-input" id="el-classe" placeholder="Ex: 3A"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addEleve')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveEleve()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Surveillant -->
+<div class="modal-overlay" id="modal-addSurveillant">
+  <div class="modal modal-md">
+    <h3 id="surveillant-modal-title">Ajouter un surveillant</h3>
+    <input type="hidden" id="sv-edit-id">
+    <div class="form-row">
+      <div class="form-group" style="flex:0 0 80px;"><label class="form-label">Civilité</label>
+        <select class="form-input" id="sv-civilite"><option value="M.">M.</option><option value="Mme">Mme</option></select></div>
+      <div class="form-group"><label class="form-label">Nom</label><input class="form-input" id="sv-nom" placeholder="Nom…"></div>
+      <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" id="sv-prenom" placeholder="Prénom…"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Matière</label><input class="form-input" id="sv-matiere" placeholder="Ex: Mathématiques"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addSurveillant')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveSurveillant()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Salle (épreuves écrites) -->
+<div class="modal-overlay" id="modal-addSalle">
+  <div class="modal modal-md">
+    <h3 id="salle-modal-title">Ajouter une salle</h3>
+    <input type="hidden" id="sa-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Nom / Numéro</label><input class="form-input" id="sa-nom" placeholder="Ex: Salle A, Gymnase…"></div>
+      <div class="form-group" style="flex:0 0 100px;"><label class="form-label">Capacité</label><input class="form-input" type="number" id="sa-cap" min="0" placeholder="30"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label"><input type="checkbox" id="sa-tt"> Tiers-temps</label></div>
+      <div class="form-group"><label class="form-label"><input type="checkbox" id="sa-am"> Aménagements spéciaux</label></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addSalle')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveSalle()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Aménagement (épreuves écrites) -->
+<div class="modal-overlay" id="modal-addAmenagement">
+  <div class="modal modal-sm">
+    <h3 id="amen-modal-title">Créer un aménagement</h3>
+    <input type="hidden" id="am-edit-id">
+    <div class="form-group"><label class="form-label">Libellé</label><input class="form-input" id="am-nom" placeholder="Ex: Tiers-temps, Secrétaire…"></div>
+    <div class="form-group"><label class="form-label">Couleur</label><div id="am-color-picker" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;"></div></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addAmenagement')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveAmenagement()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Épreuve écrite -->
+<div class="modal-overlay" id="modal-addEpreuve">
+  <div class="modal modal-md">
+    <h3 id="ep-modal-title">Ajouter une épreuve</h3>
+    <input type="hidden" id="ep-edit-id">
+    <div class="form-group"><label class="form-label">Nom de l'épreuve</label><input class="form-input" id="ep-nom" placeholder="Ex: Mathématiques, Français…"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Date</label><input class="form-input" type="date" id="ep-date"></div>
+      <div class="form-group"><label class="form-label">Heure début</label><input class="form-input" type="time" id="ep-debut"></div>
+      <div class="form-group"><label class="form-label">Heure fin (ST)</label><input class="form-input" type="time" id="ep-fin"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Heure fin (tiers-temps)</label><input class="form-input" type="time" id="ep-fin-tt"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addEpreuve')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveEpreuve()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Épreuve orale -->
+<div class="modal-overlay" id="modal-addEpreuveOrale">
+  <div class="modal modal-md">
+    <h3 id="oral-ep-modal-title">Ajouter une épreuve orale</h3>
+    <input type="hidden" id="oral-ep-edit-id">
+    <div class="form-group"><label class="form-label">Nom de l'épreuve</label><input class="form-input" id="oral-ep-nom" placeholder="Ex: Histoire des arts, Oral de français…"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Date</label><input class="form-input" type="date" id="oral-ep-date"></div>
+      <div class="form-group"><label class="form-label">Heure début</label><input class="form-input" type="time" id="oral-ep-debut"></div>
+      <div class="form-group"><label class="form-label">Heure fin</label><input class="form-input" type="time" id="oral-ep-fin"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Durée par élève (min)</label><input class="form-input" type="number" id="oral-ep-duree" min="1" max="60" value="15"></div>
+    <div id="oral-ep-jury-selector"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addEpreuveOrale')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveEpreuveOrale()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Enseignant oral -->
+<div class="modal-overlay" id="modal-addEnseignant">
+  <div class="modal modal-md">
+    <h3 id="ens-modal-title">Ajouter un enseignant</h3>
+    <input type="hidden" id="ens-edit-id">
+    <div class="form-row">
+      <div class="form-group" style="flex:0 0 90px;"><label class="form-label">Civilité</label>
+        <select class="form-input" id="ens-civilite"><option value="M.">M.</option><option value="Mme">Mme</option></select></div>
+      <div class="form-group"><label class="form-label">Nom</label><input class="form-input" id="ens-nom" placeholder="Nom…"></div>
+      <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" id="ens-prenom" placeholder="Prénom…"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Matière</label><input class="form-input" id="ens-matiere" placeholder="Ex: Français, Histoire-Géographie…"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addEnseignant')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveEnseignant()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Jury oral -->
+<div class="modal-overlay" id="modal-addJury2">
+  <div class="modal modal-md">
+    <h3 id="oj2-modal-title">Créer un jury</h3>
+    <input type="hidden" id="oj2-edit-id">
+    <div class="form-row">
+      <div class="form-group" style="flex:0 0 100px;"><label class="form-label">N° jury</label><input class="form-input" type="number" id="oj2-num" min="1"></div>
+      <div class="form-group"><label class="form-label">Salle</label><select class="form-input" id="oj2-salle"><option value="">— Choisir —</option></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Membre 1</label><select class="form-input" id="oj2-m1"><option value="">— Choisir —</option></select></div>
+      <div class="form-group"><label class="form-label">Membre 2</label><select class="form-input" id="oj2-m2"><option value="">— Aucun —</option></select></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addJury2')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveJury()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Salle orale -->
+<div class="modal-overlay" id="modal-addOralSalle">
+  <div class="modal modal-sm">
+    <h3 id="osa-modal-title">Ajouter une salle (oral)</h3>
+    <input type="hidden" id="osa-edit-id">
+    <div class="form-group"><label class="form-label">Nom / Numéro</label><input class="form-input" id="osa-nom" placeholder="Ex: Salle 12, Bureau…"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addOralSalle')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveOralSalle()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Aménagement oral -->
+<div class="modal-overlay" id="modal-addOralAmenagement">
+  <div class="modal modal-sm">
+    <h3 id="oral-amen-modal-title">Créer un aménagement (oral)</h3>
+    <input type="hidden" id="oral-am-edit-id">
+    <div class="form-group"><label class="form-label">Libellé</label><input class="form-input" id="oral-am-nom" placeholder="Ex: Tiers-temps, AVS…"></div>
+    <div class="form-group"><label class="form-label">Couleur</label><div id="oral-am-color-picker" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;"></div></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addOralAmenagement')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveOralAmenagement()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Élève oral (avec nouvelles colonnes) -->
+<div class="modal-overlay" id="modal-addOralEleve">
+  <div class="modal modal-md">
+    <h3 id="oel-modal-title">Ajouter un élève (oral)</h3>
+    <input type="hidden" id="oel-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Nom</label><input class="form-input" id="oel-nom" placeholder="Nom…"></div>
+      <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" id="oel-prenom" placeholder="Prénom…"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group" style="flex:0 0 80px;"><label class="form-label">Sexe</label>
+        <select class="form-input" id="oel-sexe"><option value="">—</option><option value="M">M</option><option value="F">F</option></select></div>
+      <div class="form-group"><label class="form-label">Classe</label><input class="form-input" id="oel-classe" placeholder="Ex: 3A"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Sujet / Titre de présentation</label><input class="form-input" id="oel-sujet" placeholder="Titre du sujet ou projet…"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Enseignant référent</label><input class="form-input" id="oel-enseignant" placeholder="Nom de l'enseignant…"></div>
+      <div class="form-group"><label class="form-label">Langue étrangère</label>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <select class="form-input" id="oel-langue" style="flex:1;"></select>
+          <button type="button" class="btn btn-sm" onclick="promptAddOralLangue()" title="Ajouter une langue">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label">Présentation</label>
+      <select class="form-input" id="oel-presentation" onchange="document.getElementById('oel-groupe-section').style.display=this.value==='groupe'?'block':'none'">
+        <option value="seul">Seul(e)</option>
+        <option value="groupe">En groupe</option>
+      </select>
+    </div>
+    <div id="oel-groupe-section" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">Groupe (noms des autres élèves)</label>
+        <input class="form-input" id="oel-groupe-nom" placeholder="Ex: Groupe 1, Projet commun…">
+        <div style="font-size:11px;color:var(--text3);margin-top:3px;">Les élèves ayant le même nom de groupe seront regroupés automatiquement.</div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addOralEleve')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveOralEleve()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Génération numéros candidats -->
+<div class="modal-overlay" id="modal-genNumCandidats">
+  <div class="modal modal-sm">
+    <h3>Générer les numéros candidats</h3>
+    <div class="form-group"><label class="form-label">Numéro de départ</label><input class="form-input" type="number" id="gennum-start" value="1" min="1"></div>
+    <div class="form-group"><label class="form-label">Ordre</label>
+      <select class="form-input" id="gennum-order">
+        <option value="alpha">Alphabétique</option>
+        <option value="classe">Par classe puis alphabétique</option>
+        <option value="random">Aléatoire</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('genNumCandidats')">Annuler</button>
+      <button class="btn btn-primary" onclick="doGenNumCandidats()">Générer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Étiquettes de copies -->
+<div class="modal-overlay" id="modal-etiquettes">
+  <div class="modal modal-sm">
+    <h3 id="etiq-modal-title">Étiquettes</h3>
+    <input type="hidden" id="etiq-type" value="copies">
+    <div class="form-group"><label class="form-label">Épreuve</label><select class="form-input" id="etiq-ep"></select></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Colonnes</label><input class="form-input" type="number" id="etiq-cols" value="3" min="1" max="5"></div>
+      <div class="form-group"><label class="form-label">Lignes</label><input class="form-input" type="number" id="etiq-rows" value="8" min="1" max="20"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Inclure</label>
+      <label style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><input type="checkbox" id="etiq-nom" checked> Nom</label>
+      <label style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><input type="checkbox" id="etiq-prenom" checked> Prénom</label>
+      <label style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><input type="checkbox" id="etiq-classe"> Classe</label>
+      <label style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><input type="checkbox" id="etiq-cand" checked> N° candidat</label>
+      <label style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><input type="checkbox" id="etiq-anon"> N° anonymat</label>
+      <label style="display:flex;align-items:center;gap:6px;"><input type="checkbox" id="etiq-amen"> Aménagements</label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('etiquettes')">Annuler</button>
+      <button class="btn btn-primary" onclick="genEtiquettesPDF()">Générer PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- Séparation épreuve (tranches) -->
+<div class="modal-overlay" id="modal-splitEpreuve">
+  <div class="modal modal-lg" style="max-width:820px;width:90vw;">
+    <h3>✂ Découpage des tranches horaires</h3>
+    <div id="split-ep-title" style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:14px;"></div>
+    <div id="split-tranches-list"></div>
+    <div class="modal-actions" style="margin-top:16px;">
+      <button class="btn" onclick="closeModal('splitEpreuve')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveSplitEpreuve()">💾 Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Types de réunion -->
+<div class="modal-overlay" id="modal-meetingTypes">
+  <div class="modal modal-sm">
+    <h3>Types de réunions</h3>
+    <div id="meeting-types-list"></div>
+    <div class="add-row" style="margin-top:10px;">
+      <input class="form-input" id="new-meeting-type-inp" placeholder="Nouveau type…">
+      <button class="btn btn-sm btn-primary" onclick="addMeetingType()">+</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('meetingTypes')">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Constitution de classe - Ajouter élève -->
+<!-- modal-ccAddEleve doublon supprimé -->
+
+<!-- Mentions légales -->
+<div class="modal-overlay" id="modal-legalApp">
+  <div class="modal modal-sm">
+    <h3>À propos de Kolio</h3>
+    <div style="font-size:12px;color:var(--text2);line-height:1.6;">
+      <p><strong>Kolio</strong> v1.5.1 — Outil de pilotage scolaire</p>
+      <p>© 2026 Florian LUCAS. Tous droits réservés.</p>
+      <p>Logiciel <strong>propriétaire</strong>, concédé sous licence personnelle, nominative et non transférable, limitée à un poste. Toute copie ou diffusion à un tiers est interdite et constitue une contrefaçon (art. L.335-2 du Code de la propriété intellectuelle).</p>
+      <p>Application destinée aux personnels de direction. Fonctionnement hors ligne ; données enregistrées dans un fichier local sur ce poste.</p>
+      <p style="color:var(--text3);">Contrat de licence et attributions des composants tiers : fichier LICENCE.txt.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeModal('legalApp')">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Planning PDF export -->
+
+
+<!-- Édition créneaux oraux -->
+<div class="modal-overlay" id="modal-editSlots">
+  <div class="modal modal-lg">
+    <h3 id="edit-slots-title">Créneaux de passage</h3>
+    <div id="edit-slots-list"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('editSlots')">Fermer</button>
+      <button class="btn btn-primary" onclick="saveSlots()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-jurySlots">
+  <div class="modal modal-lg">
+    <h3 id="jury-slots-title">Créneaux de passage</h3>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:10px;">Personnalisez les horaires des créneaux pour ce jury uniquement. La réinitialisation rétablit les créneaux définis dans l'onglet Configuration.</div>
+    <div id="jury-slots-list"></div>
+    <button class="btn btn-sm" onclick="addJurySlot()" style="margin-top:4px;">+ Ajouter un créneau</button>
+    <div class="modal-actions">
+      <button class="btn" onclick="resetJurySlots()" style="color:var(--red);">↺ Réinitialiser</button>
+      <button class="btn" onclick="closeModal('jurySlots')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveJurySlots()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="modal-addOralGroupe">
+  <div class="modal modal-md">
+    <h3 id="ogrp-title">Créer un groupe</h3>
+    <input type="hidden" id="ogrp-id">
+    <div class="form-group"><label class="form-label">Nom du groupe <span style="font-size:11px;color:var(--text3);">(optionnel)</span></label><input class="form-input" id="ogrp-label" placeholder="Ex : Groupe 1, Projet…"></div>
+    <div class="form-group">
+      <label class="form-label">Membres <span style="font-size:11px;color:var(--red);">* min. 2</span></label>
+      <div id="ogrp-mbr" style="max-height:200px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--rs);padding:8px;background:var(--surface2);"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Sujet</label><input class="form-input" id="ogrp-sujet" placeholder="Titre du projet…"></div>
+    <div class="form-group"><label class="form-label">Parcours éducatif</label>
+      <select class="form-input" id="ogrp-parcours">
+        <option value="">— Non renseigné —</option>
+        <option value="Parcours Avenir">Parcours Avenir</option>
+        <option value="Parcours Citoyen">Parcours Citoyen</option>
+        <option value="Parcours Artistique et Culturel">Parcours Artistique et Culturel</option>
+        <option value="Parcours Santé">Parcours Santé</option>
+        <option value="Autre">Autre</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Enseignant référent</label><input class="form-input" id="ogrp-ens" placeholder="Nom…"></div>
+      <div class="form-group"><label class="form-label">Langue vivante</label>
+        <select class="form-input" id="ogrp-lng">
+          <option value="">— Non concerné —</option>
+          <option value="Anglais">Anglais</option>
+          <option value="Allemand">Allemand</option>
+          <option value="Espagnol">Espagnol</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal('addOralGroupe')">Annuler</button>
+      <button class="btn btn-primary" onclick="saveOralGroupe()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+</body></html>
